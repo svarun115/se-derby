@@ -3,9 +3,45 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
+    <title>Signup</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
+    <script type="text/javascript">
+    function check_terms()
+    {
+      if(!document.getElementById("agree").checked)
+      {
+        alert("Please agree to the terms and conditions to proceed");
+      }
+      entries=document.getElementsByTagName("input")
+      for(i=0;i<entries.length;i++)
+      {
+        if(entries[i].type=="radio" && !(entries[i].value=="M" || entries[i].value=="F"))
+          alert("Please select gender");
+        else if(entries[i].type=="text" && entries[i].value=="")
+          alert("Please enter your"+entries[i].placeholder);
+        else if(entries[i].type=="password")
+          alert("Enter password");
+        else if(entries[i].value=="no type")
+          alert("Please select Membership type");
+
+      }
+    }
+    function verify_input()
+    {
+      event.preventDefault();
+      pwd=document.getElementById("pwd");
+      cpwd=document.getElementById("cpwd");
+      if(pwd.value!=cpwd.value)
+      {
+        alert("Passwords do not match. Enter again");
+        cpwd.value="";
+        pwd.value="";
+        
+      }
+    
+    }
+    </script>
   </head>
   <body>
    <div class="row">
@@ -37,24 +73,34 @@
   <h5>Member Signup : Fill in the details</h5>
 </div> </p>
  
- <form>
+ <form action= "new_member.php" id="signup" method="post">
  <fieldset>
   <div class="row">
     <div class="large-12 columns">
       <label>Full Name
-        <input type="text" placeholder="Enter Name" />
+        <input type="text" placeholder="First Name Last Name" name="name" />
       </label>
     </div>
   </div>
   <div class="row">
     <div class="large-6 columns">
       <label>Email Address
-        <input type="text" placeholder="Email" />
+        <input type="text" placeholder="Email" name="email"/>
       </label>
     </div>
     <div class="large-6 columns">
       <label>Contact
-        <input type="text" placeholder="Mobile Number" />
+        <input type="text" placeholder="Mobile Number" name="phno" />
+      </label>
+    </div>
+    <div class="large-6 columns">
+      <label>Password
+        <input type="password" id="pwd" name="pwd"/>
+      </label>
+    </div>
+    <div class="large-6 columns">
+      <label>Confirm Password
+        <input type="password" id="cpwd" onblur="verify_input()"/>
       </label>
     </div>
   </div>
@@ -67,25 +113,25 @@
     </div>
     <div class="large-6 columns">
       <label>Gender</label>
-      <input type="radio" name="gender" value="Male" id="gender_m"><label for="gender_m">Male</label>
-      <input type="radio" name="gender" value="Female" id="gender_f"><label for="gender_f">Female</label>
+      <input type="radio" name="gender" value="M" id="gender_m"><label for="gender_m">Male</label>
+      <input type="radio" name="gender" value="F" id="gender_f"><label for="gender_f">Female</label>
     </div>    
   </div>  
   
  <div class="row">
     <div class="large-4 columns">
     <label>Residential Address
-    <textarea placeholder="Enter Address"></textarea>
+    <textarea placeholder="Enter Address" name="addr"></textarea>
     </label>    
     </div> 
     <div class="large-4 columns">
     <label>City
-    <input type="text" placeholder="City Name"/>
+    <input type="text" placeholder="City Name" name="city"/>
     </label>        
     </div> 
     <div class="large-4 columns">
     <label>Pincode
-    <input type="text" placeholder="Pincode"/>
+    <input type="text" placeholder="Pincode" name="pin"/>
     </label>    
     </div> 
         
@@ -95,12 +141,12 @@
   <div class="row">
     <div class="large-4 columns">
       <label>Membership Type
-        <select>
+        <select name="mem_type">
           <option value="notype">--Select--</option>
-          <option value="type1">Type1</option>
-          <option value="type2">Type2</option>
-          <option value="type3">Type3</option>
-          <option value="type4">Type4</option>
+          <option value="1">Type1</option>
+          <option value="2">Type2</option>
+          <option value="3">Type3</option>
+          <option value="4">Type4</option>
         </select>
       </label>
     </div>
@@ -114,7 +160,8 @@
 </p>
   <div class="row">
     <div class="large-3 columns">
-<input type="submit" class="button expand" value="Sign Up"/>
+<button onmouseover="check_terms()"
+class="radius button expand">Sign Up</button>
 </div>
 </div>
   </fieldset>
