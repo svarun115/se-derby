@@ -26,24 +26,28 @@
     <?php
 
     $dbhost = 'localhost';
-    $dbuser='admin'
+    $dbuser='admin';
     $dbpass = 'admin';
     $db = 'club';
-    $conn = mysqli_connect($dbhost, $dbuser, $dbpass); 
-    mysqli_query($conn,"insert into member(ph_no bigint, name, gender, dob,address,member_type) values ($_POST['phno'],$_POST['name'], $_POST['gender'],$_POST['m_dob'], $_POST['addr']+$_POST['city']+$_POST['pin'], $_POST['mem_type'];");
-      $mem_id=mysqli_query($conn,"select member_id from member where ph_no=$_POST['phno'];");
-      mysqli_query($conn,"insert into auth(member_id,email,password)values($mem_id,$_POST['email'],$_POST['password']");
-    
+    $addr=$_POST['addr']+" "+$_POST['city']+" "+$_POST['pin'];
+    $phno=$_POST['phno'];
+    $name=$_POST['name'];
+    $gender=$_POST['gender'];
+    $dob=$_POST['m_dob'];
+    $memtype=$_POST['mem_type'];
+    $email=$_POST['email'];
+    $pwd=$_POST['pwd'];
+    echo is_int($phno);
 
+    $conn = mysqli_connect($dbhost, $dbuser, $dbpass); 
+
+    mysqli_query($conn,"insert into member(ph_no, name, gender, dob,address,member_type) values ('$phno','$name','$gender','$dob','$addr','$memtype');");
+      $mem_id=mysqli_query($conn,"select member_id from member where ph_no='$phno';");
+      $mem_id=$mem_id['member_id'];
+      mysqli_query($conn,"insert into auth(member_id,email,password)values('$mem_id','$email','$pwd')");
     ?>      
       
       
-       
-      
-    
- 
- 
- 
       <div class="large-4 large-centered columns">
   <div class="large-12 columns">
 <h5>Welcome to the club <?php echo $_POST["name"]; ?>!</h5>

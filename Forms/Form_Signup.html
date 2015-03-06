@@ -13,20 +13,37 @@
       {
         alert("Please agree to the terms and conditions to proceed");
       }
-      entries=document.getElementsByTagName("input")
-      for(i=0;i<entries.length;i++)
-      {
-        if(entries[i].type=="radio" && !(entries[i].value=="M" || entries[i].value=="F"))
-          alert("Please select gender");
-        else if(entries[i].type=="text" && entries[i].value=="")
-          alert("Please enter your"+entries[i].placeholder);
-        else if(entries[i].type=="password")
-          alert("Enter password");
-        else if(entries[i].value=="no type")
-          alert("Please select Membership type");
-
-      }
-    }
+      name=document.getElementById("name");
+      email=document.getElementById("email");
+      phno=document.getElementById("phno");
+      dob=document.getElementById("dob");
+      m=document.getElementById("gender_m");
+      f=document.getElementById("gender_f");
+      mt=document.getElementById("memtype");
+      addr=document.getElementById("addr");
+      city=document.getElementById("city");
+      pin=document.getElementById("pin");
+      if(name.value=="")
+        alert("Please enter name");
+      else if(dob.value=="")
+        alert("Please enter Date of Birth");
+      else if(city.value=="")
+        alert("Please enter City");
+      else if(pin.value=="")
+        alert("Please enter Pincode");
+      else if(f.checked || m.checked)
+        alert("Please select Gender");
+      else if(mt.value="novalue")
+        alert("Please select Membership Type");
+      else if(addr.value=="")
+        alert("Please enter Address");
+      else if(phno.value=="")
+        alert("Please enter name");
+      else if(email.value=="")
+        alert("Please enter name");
+      
+  }
+      
     function verify_input()
     {
       event.preventDefault();
@@ -108,7 +125,7 @@
 <div class="row">
     <div class="large-6 columns">
       <label>Date of Birth:
-      <input type="date" name="m_dob" placeholder="dd/mm/yyyy"/>
+      <input type="date" name="m_dob" placeholder="dd/mm/yyyy"id="dob"/>
       </label>
     </div>
     <div class="large-6 columns">
@@ -121,17 +138,17 @@
  <div class="row">
     <div class="large-4 columns">
     <label>Residential Address
-    <textarea placeholder="Enter Address" name="addr"></textarea>
+    <textarea placeholder="Enter Address" name="addr" id="addr"></textarea>
     </label>    
     </div> 
     <div class="large-4 columns">
     <label>City
-    <input type="text" placeholder="City Name" name="city"/>
+    <input type="text" placeholder="City Name" name="city" id="city"/>
     </label>        
     </div> 
     <div class="large-4 columns">
     <label>Pincode
-    <input type="text" placeholder="Pincode" name="pin"/>
+    <input type="text" placeholder="Pincode" name="pin" id="pin"/>
     </label>    
     </div> 
         
@@ -141,7 +158,7 @@
   <div class="row">
     <div class="large-4 columns">
       <label>Membership Type
-        <select name="mem_type">
+        <select name="mem_type" id="memtype">
           <option value="notype">--Select--</option>
           <option value="1">Type1</option>
           <option value="2">Type2</option>
