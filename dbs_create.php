@@ -3,7 +3,7 @@ echo "WELCOME TO DERBY MANAGEMENT TOOL ";
 
 $dbhost = 'localhost';
 $dbuser = 'root';
-$dbpass = 'password';
+$dbpass = '';
 $db1 = 'derby';
 $db2 = 'club';
 date_default_timezone_set('Asia/Kolkata');

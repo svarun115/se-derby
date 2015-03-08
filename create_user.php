@@ -10,8 +10,8 @@ $email = 'abc@example.com';		//CHANGE TO POST METHOD ACCEPT
 $password = 'welcome';			//CHANGE TO POST METHOD ACCEPT
 $member_id = '123';					//AUTO GENERATE by MySQL
 
-$hash = password_hash("$password", PASSWORD_DEFAULT);
-
+//$hash = password_hash("$password", PASSWORD_DEFAULT);
+$hash="123";
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db);
 if (mysqli_connect_errno())
 	     {
