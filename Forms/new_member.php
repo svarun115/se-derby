@@ -29,7 +29,7 @@
     $dbuser='admin';
     $dbpass = 'admin';
     $db = 'club';
-    $addr=$_POST['addr']+" "+$_POST['city']+" "+$_POST['pin'];
+    $addr=$_POST['addr']." ".$_POST['city']." ".$_POST['pin'];
     $phno=$_POST['phno'];
     $name=$_POST['name'];
     $gender=$_POST['gender'];
@@ -37,21 +37,30 @@
     $memtype=$_POST['mem_type'];
     $email=$_POST['email'];
     $pwd=$_POST['pwd'];
-    echo is_int($phno);
+    $hash=123;//Write hash function
+   // echo is_int($phno);
 
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass); 
-
-    mysqli_query($conn,"insert into member(ph_no, name, gender, dob,address,member_type) values ('$phno','$name','$gender','$dob','$addr','$memtype');");
-      $mem_id=mysqli_query($conn,"select member_id from member where ph_no='$phno';");
-      $mem_id=$mem_id['member_id'];
-      mysqli_query($conn,"insert into auth(member_id,email,password)values('$mem_id','$email','$pwd')");
+    $sql="INSERT INTO club.members (ph_no, name, gender, dob,address,member_type) values ('$phno','$name','$gender','$dob','$addr','$memtype')";
+    $sql2="SELECT member_id from club.members where members.ph_no='$phno'";
+    
+    mysqli_query($conn,$sql);
+    $result=mysqli_query($conn,$sql2);
+    if ($result->num_rows > 0) {
+      while($row =  $result->fetch_assoc())
+      $id = $row['member_id'];
+   }
+   $sql3="INSERT into club.auth values('$id','$email','$hash')";
+   mysqli_query($conn,$sql3);
+     // $mem_id=$mem_id['member_id'];
+     // mysqli_query($conn,"INSERT into 'auth' ('member_id','email','password')values('$mem_id','$email','$pwd')");
     ?>      
       
       
       <div class="large-4 large-centered columns">
   <div class="large-12 columns">
-<h5>Welcome to the club <?php echo $_POST["name"]; ?>!</h5>
-      <h5>Your member ID is <?php echo $mem_id;?>. Please remember this for future reference.</h5>  
+<h5>Welcome to the club <?php echo $_POST["name"];?>!</h5>
+      <h5>Your member ID is <?php echo $id;?>. Please remember this for future reference.</h5>  
        <a href="#">Continue</a>
   </div>
 </div>

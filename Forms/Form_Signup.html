@@ -31,9 +31,15 @@
         alert("Please enter City");
       else if(pin.value=="")
         alert("Please enter Pincode");
+<<<<<<< HEAD
       else if(f.checked || m.checked)
         alert("Please select Gender");
      else if(mt.value="novalue")
+=======
+     else if(f.checked && m.checked)
+       alert("Please select Gender");
+      else if(mt.value="novalue") //recheck this condition
+>>>>>>> 58b6abd83859282b8d81245d40f6f7522617ffa6
         alert("Please select Membership Type");
       else if(addr.value=="")
         alert("Please enter Address");
@@ -117,7 +123,7 @@
     </div>
     <div class="large-6 columns">
       <label>Confirm Password
-        <input type="password" id="cpwd" onblur="verify_input()"/>
+        <input type="password" id="cpwd" onblur="verify_input()" />
       </label>
     </div>
   </div>

@@ -31,12 +31,12 @@
   <h5>Races in Season 2014-1015: </h5>
 </div> </p>
  
- <form>
+ <form  action = "Race_Info_Signup.php" id = "raceinfo" method="post">
  <fieldset>
   <div class="row">
     <div class="large-8 columns">
       <label>Name
-        <input type="text" placeholder="Name of Race" />
+        <input type="text" name="name_of_race" placeholder="Name of Race" />
       </label>
     </div>
     <div class="large-4 columns">
@@ -54,38 +54,42 @@
     </div>
     <div class="large-6 columns">
       <label>Race Category
-      <select>
+      <select name="race_catg">
       <option value="notype" id="no_type">--Select--</option>
-      <option value="category1" id="cat1">Category1</option>
-      <option value="category2" id="cat2">Category2</option>
-      <option value="category3" id="cat3">Category3</option>
-      <option value="category4" id="cat4">Category4</option>
+      <option value="1" id="cat1">Category1</option>
+      <option value="2" id="cat2">Category2</option>
+      <option value="3" id="cat3">Category3</option>
+      <option value="4" id="cat4">Category4</option>
       </select>
       </label>    
-    </div>    
+    </div> 
+    <div class="large-4 columns">
+    <label>Time</label>
+    <input type="time" name="time"/>
+    </div>   
     <div class="large-4 columns">
       <label>Race Type</label>
-      <input type="radio" name="type" value="type1" id="typ1"><label for="type1">National</label>
-      <input type="radio" name="type" value="type2" id="typ2"><label for="type2">International</label>
+      <input type="radio" name="type" value="1" id="typ1"><label for="type1">National</label>
+      <input type="radio" name="type" value="2" id="typ2"><label for="type2">International</label>
   </div>  
   </div>
   
   <div class="row">
     <div class="large-4 columns">
       <label>Temperature(C):
-         <input type="text" placeholder="In Centigrades"/>
+         <input type="text" name="temp" placeholder="In Centigrades"/>
       </label>
     </div>
     
     <div class="large-4 columns">
       <label>Humidity :
-        <input type="text" placeholder="%"/>
+        <input type="text" name="humid" placeholder="%"/>
       </label>
     </div>
       
     <div class="large-4 columns">
       <label>Wind :
-        <input type="text" placeholder="Km/hr"/>
+        <input type="text" name="wind" placeholder="Km/hr"/>
       </label>
     </div>
   </div>
