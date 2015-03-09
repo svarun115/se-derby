@@ -24,7 +24,7 @@
       </div>
       
     <?php
-
+    include 'welcome_mail.php';
     $dbhost = 'localhost';
     $dbuser='admin';
     $dbpass = 'admin';
@@ -37,9 +37,8 @@
     $memtype=$_POST['mem_type'];
     $email=$_POST['email'];
     $pwd=$_POST['pwd'];
-    $hash=123;//Write hash function
-   // echo is_int($phno);
-
+    $hash=password_hash("$password", PASSWORD_DEFAULT);
+    welcome_send($name,$email,$pwd);
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass); 
     $sql="INSERT INTO club.members (ph_no, name, gender, dob,address,member_type) values ('$phno','$name','$gender','$dob','$addr','$memtype')";
     $sql2="SELECT member_id from club.members where members.ph_no='$phno'";
@@ -52,8 +51,7 @@
    }
    $sql3="INSERT into club.auth values('$id','$email','$hash')";
    mysqli_query($conn,$sql3);
-     // $mem_id=$mem_id['member_id'];
-     // mysqli_query($conn,"INSERT into 'auth' ('member_id','email','password')values('$mem_id','$email','$pwd')");
+
     ?>      
       
       
