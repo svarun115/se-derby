@@ -1,13 +1,12 @@
 <?php
-echo "AUTHORIZING LOGIN ";
 
 $dbhost = 'localhost';
 $dbuser = 'admin';
 $dbpass = 'admin';
 $db = 'club';
 
-$email = 'abc@example.com';		//CHANGE TO POST METHOD ACCEPT
-$password = 'welcome';			//CHANGE TO POST METHOD ACCEPT
+$email = $_POST['email'];		
+$password = $_POST['pwd'];			
 
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db);
 if (mysqli_connect_errno())
@@ -15,7 +14,6 @@ if (mysqli_connect_errno())
 	     	echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	     	die();
 	      }
-echo "<br>Connection successful";
 
 $sql="SELECT password FROM auth WHERE email='$email'";
 $result=mysqli_query($conn,$sql);
