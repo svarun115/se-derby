@@ -1,4 +1,5 @@
-count= 0;
+count= 1;
+flag=0;
 function init () {
 			
 			//count=0;
@@ -8,28 +9,28 @@ function init () {
 			tab = document.getElementsByTagName("table")[0];
 			refrow = document.getElementById("row1");
 			newrow = refrow.cloneNode(true);
-			newrow.id = "row" + count;
 			count++;
-			btn=document.getElementById("delrow");
-			btn.id="delrow"+count;
+			if(flag==0)
+			newrow.id = "row" + count;
+			else
+			newrow.id="row1";
+			//count++;
+			//btn=document.getElementById("delrow");
+			//btn.id="delrow"+count;
 			tab.appendChild(newrow)//document.body.appendChild()
 		}
 
-		function deleteRow (event) {
-			pnt=event.parentElement();
-			alert(pnt);
-			ielement = document.getElementsByTagName('input');
-			//alert(ielement.length);
-			for(var i=0; i< ielement.length ; i++)
+	function deleteRoww(src) {
+    var row = src.parentNode.parentNode;
+	if(row.id == "row1")
 			{
-				// alert("hh");
-				if ((ielement[i].type=="checkbox") && (ielement[i].checked==true)) 
-					{
-						//alert("hee");
-						p=ielement[i].parentNode.parentNode;
-						tab.removeChild(p);
-						i=0;
-					}
-
+			    flag=1;
+				addRow();
+				//alert("Cannot delete first row");
+				flag=0;
+				 row.parentNode.removeChild(row);
+			
 			}
-		}
+	else
+    row.parentNode.removeChild(row);
+}

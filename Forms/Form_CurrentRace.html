@@ -25,14 +25,15 @@
       </div>
       
       
-      <div>
+      <div class="row">
+      <div class="panel" style="position: relative;">
       <div>
       <h5>Current Race Details</h5>
       </div> </p>
       
       <form>
       <fieldset>
-      <table width="600" border="2" id="table">
+      <table class="large-12 columns" width="600" border="2" id="table">
      <tr id="header">	<th>Horse Name</th>
 		<th>Jockey Name</th>
 		<th>Trainer Name</th>
@@ -60,7 +61,7 @@
      			<option value="notype" id="no_type">--Select--</option>
       		<option value="horsename" id="cat1">Horse1</option>
       		</select></td>
-			<td><input type="button" value="Delete entry" id="delrow"></td>
+			<td><input type="button" value="Delete entry" onclick="deleteRoww(this)" id="delrow"></td>
 				
 		</tr>
       </table>
@@ -68,14 +69,25 @@
       </form>
 
       </div>      
+      </div>
       
-      
-       <footer>
-        <div>
+       <footer class="row">
+        <div class="large-12 columns">
           <hr/>
-          <div style="position=absolute;">
-            <div>
+          <div class="row">
+            <div class="large-6 columns">
               <p>© Copyright no one at all. Go to town.</p>
+            </div>
+            <div class="large-6 columns">
+              <ul class="inline-list right">
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+                <li><a href="#">Link 4</a></li>
+                <li><a href="#">Link 5</a></li>
+                <li><a href="#">Link 6</a></li>
+                <li><a href="#">Link 7</a></li>
+              </ul>
             </div>
           </div>
         </div> 
