@@ -37,7 +37,7 @@
     $memtype=$_POST['mem_type'];
     $email=$_POST['email'];
     $pwd=$_POST['pwd'];
-    $hash=password_hash("$password", PASSWORD_DEFAULT);
+   // $hash=password_hash("$password", PASSWORD_DEFAULT);
     welcome_send($name,$email,$pwd);
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass); 
     $sql="INSERT INTO club.members (ph_no, name, gender, dob,address,member_type) values ('$phno','$name','$gender','$dob','$addr','$memtype')";
@@ -49,7 +49,7 @@
       while($row =  $result->fetch_assoc())
       $id = $row['member_id'];
    }
-   $sql3="INSERT into club.auth values('$id','$email','$hash')";
+   $sql3="INSERT into club.auth values('$id','$email','$pwd')";
    mysqli_query($conn,$sql3);
 
     ?>      
@@ -59,7 +59,7 @@
   <div class="large-12 columns">
 <h5>Welcome to the club <?php echo $_POST["name"];?>!</h5>
       <h5>Your member ID is <?php echo $id;?>. Please remember this for future reference.</h5>  
-       <a href="#">Continue</a>
+       <a href="/se-derby/home.html">Continue</a>
   </div>
 </div>
       </div>      
