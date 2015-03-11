@@ -4,7 +4,7 @@ $dbhost = 'localhost';
 $dbuser = 'admin';
 $dbpass = 'admin';
 $db = 'club';
-
+$value = false;
 $email = $_POST['email'];		
 $password = $_POST['pwd'];			
 
@@ -23,14 +23,34 @@ while($row =  $result->fetch_assoc())
    }
 else 
    	echo "Nothing returned";
-//Checking retrieved password with entered password
-if (password_verify($password, $pwd)) {
-    echo '<br>Password is valid!';
-   // header("location:login_success.php");
+//Checking retrieved password with entered password'
+   //echo $password." ".$pwd;
+if ($password == $pwd) {
+    //echo '<br>Password is valid!';
+    $value =true;
+    echo '<script type = "text/javascript"> alert("login Successful");</script>' ;
+    //header("location:login_success.php");
 } else {
-    echo 'Invalid password.';
+  $value= false;
+  echo '<script type = "text/javascript"> alert("login failed");</script>' ;
+   // echo 'Invalid password.';
 }
+//echo '<html>';
+//echo '<head>';
+echo $value;
+if($value){
+  //echo "in if";
+  header('Location:Forms/home.html');
+  //echo '<head><meta url = "Forms/home.html">';
+
+}
+ else {
+  echo "in else";
+  header('Location:Forms/Form_Login.html');
+  //echo '</script>';
+}
+ //echo '</head></html>';
 
 
 
-
+?>
