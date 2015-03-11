@@ -7,9 +7,18 @@
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
 	<script src="js/CurrentRace.js"></script>
-    
+    <script type="text/javascript">
+    function addData()
+    {
+      horse=document.getElementById("horse");
+      select=document.createElement("option");
+      select.value="horse2";
+      select.innerHTML="horse2";
+      horse.appendChild(select);
+    }
+    </script>
   </head>
-  <body>
+  <body onload="addData()">
      <div class="row">
         <div class="large-12 columns">
           <ul class="round button-group">
