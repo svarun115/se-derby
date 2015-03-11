@@ -32,6 +32,10 @@
       </div> </p>
       
       <form>
+        <div class="large-4 columns">
+        <label>Time<input type="time" id="time" name="time"/></label>
+        <label>Date<input type="date" id="date" name="date"/></label>
+      </div>
       <fieldset>
       <table class="large-12 columns" width="600" border="2" id="table">
      <tr id="header">	<th>Horse Name</th>
@@ -43,23 +47,30 @@
 
 		<tr id="row1">
 			<td>
-				<select>
+				<select id="horse">
      			<option value="notype" id="no_type">--Select--</option>
       		<option value="horsename" id="cat1">Horse1</option>
       		</select>
 			</td>
 			
-			<td><select>
+			<td><select id="jockey">
      			<option value="notype" id="no_type">--Select--</option>
       		<option value="horsename" id="cat1">Jockey1</option>
       		</select></td>
-			<td><select>
+			<td><select id="trainer">
      			<option value="notype" id="no_type">--Select--</option>
-      		<option value="horsename" id="cat1">Horse1</option>
+      		<option value="horsename" id="cat1">Trainer1</option>
       		</select></td>
-			<td><select>
+			<td><select id="track">
      			<option value="notype" id="no_type">--Select--</option>
-      		<option value="horsename" id="cat1">Horse1</option>
+      		<option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
       		</select></td>
 			<td><input type="button" value="Delete entry" onclick="deleteRoww(this)" id="delrow"></td>
 				
