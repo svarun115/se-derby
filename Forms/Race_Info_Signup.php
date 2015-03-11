@@ -15,7 +15,9 @@
 	$wind=$_POST["wind"];
 	echo $wind."<br>";
 	$time=$_POST["time"];
-	$racename=race_table($race_name,$date_of_race);
+	$date=$date_of_race."";
+	echo ''.gettype($date);
+	$racename=race_table($race_name,$date);
 	$tablename="racing_history";
 	echo $tablename;
 	$dbhost = 'localhost';
