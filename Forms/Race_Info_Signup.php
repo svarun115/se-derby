@@ -1,25 +1,25 @@
 <?php
 	include "derby_table_creation.php";
 	$race_name=$_POST["name_of_race"];
-	echo $race_name."<br>";
+	//echo $race_name."<br>";
 	$date_of_race=$_POST["date_race"];
-	echo $date_of_race."<br>";
+	//echo $date_of_race."<br>";
 	$catg_of_race=$_POST["race_catg"];
-	echo $catg_of_race."<br>";
+	//echo $catg_of_race."<br>";
 	$race_type=$_POST["type"];
-	echo $race_type."<br>";
+	//echo $race_type."<br>";
 	$temperature=$_POST["temp"];
-	echo $temperature."<br>";
+	//echo $temperature."<br>";
 	$humidity=$_POST["humid"];
-	echo $humidity."<br>";
+	//echo $humidity."<br>";
 	$wind=$_POST["wind"];
-	echo $wind."<br>";
+	//echo $wind."<br>";
 	$time=$_POST["time"];
 	$date=$date_of_race."";
-	echo ''.gettype($date);
+	//echo ''.gettype($date);
 	$racename=race_table($race_name,$date);
 	$tablename="racing_history";
-	echo $tablename;
+	//echo $tablename;
 	$dbhost = 'localhost';
 	$dbuser = 'admin';
 	$dbpass = 'admin';
@@ -35,5 +35,6 @@
 			echo "successful";
 		else
 			echo "error";
+	race_table($date,$time);
 		
 ?>

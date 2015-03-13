@@ -1,4 +1,34 @@
+<?php
+    $dbhost = 'localhost';
+    $dbuser = 'admin';
+    $dbpass = 'admin';
+    $db = 'derby';
+    $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db);
+    
+    $sql="SELECT horse_name from derby.horse";
+    $result=mysqli_query($conn,$sql);
+    $h_name=array();
+    if ($result->num_rows > 0) {
+while( $row=  $result->fetch_assoc())
+    $h_name[]=$row['horse_name'];
+   }
+    $sql="SELECT jockey_name from derby.jockey";
+    $result=mysqli_query($conn,$sql);
+    $j_name=array();
+    if ($result->num_rows > 0) {
+while( $row=  $result->fetch_assoc())
+    $j_name[]=$row['jockey_name'];
+   }
+    $sql="SELECT trainer_name from derby.trainer";
+    $result=mysqli_query($conn,$sql);
+    $t_name=array();
+    if ($result->num_rows > 0) {
+while( $row=  $result->fetch_assoc())
+    $t_name[]=$row['trainer_name'];
+   }
+?>
 <!doctype html>
+
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -11,10 +41,32 @@
     function addData()
     {
       horse=document.getElementById("horse");
-      select=document.createElement("option");
-      select.value="horse2";
-      select.innerHTML="horse2";
-      horse.appendChild(select);
+      jockey=document.getElementById("jockey");
+      trainer=document.getElementById("trainer");
+
+      
+      h_values=<?php echo json_encode($h_name); ?>;
+      t_values=<?php echo json_encode($t_name); ?>;
+      j_values=<?php echo json_encode($j_name); ?>;
+      for(i=0;i<h_values.length;i++)
+      {
+        selecth=document.createElement("option");
+        selectj=document.createElement("option");
+        selectt=document.createElement("option");
+        selecth.value=h_values[i];
+        selecth.innerHTML=h_values[i];
+        selectt.value=t_values[i];
+        selectt.innerHTML=t_values[i];
+        selectj.value=j_values[i];
+        selectj.innerHTML=j_values[i];
+        horse.appendChild(selecth);
+        jockey.appendChild(selectj);
+        trainer.appendChild(selectt);
+
+      }
+      //select.value="horse2";
+      //select.innerHTML="horse2";
+      //horse.appendChild(select);
     }
     </script>
   </head>
@@ -41,7 +93,7 @@
       <h5>Current Race Details</h5>
       </div> </p>
       
-      <form>
+      <form action="create_races.php" method="POST">
         <div class="large-4 columns">
         <label>Time<input type="time" id="time" name="time"/></label>
         <label>Date<input type="date" id="date" name="date"/></label>
@@ -59,17 +111,14 @@
 			<td>
 				<select id="horse">
      			<option value="notype" id="no_type">--Select--</option>
-      		<option value="horsename" id="cat1">Horse1</option>
       		</select>
 			</td>
 			
 			<td><select id="jockey">
      			<option value="notype" id="no_type">--Select--</option>
-      		<option value="horsename" id="cat1">Jockey1</option>
       		</select></td>
 			<td><select id="trainer">
      			<option value="notype" id="no_type">--Select--</option>
-      		<option value="horsename" id="cat1">Trainer1</option>
       		</select></td>
 			<td><select id="track">
      			<option value="notype" id="no_type">--Select--</option>
@@ -87,6 +136,7 @@
 		</tr>
       </table>
       </fieldset>            
+      <input type="submit"/>
       </form>
 
       </div>      
