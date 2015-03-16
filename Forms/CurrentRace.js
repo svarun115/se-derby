@@ -1,4 +1,4 @@
-count= 0;
+count= 2;
 function init () {
 			
 			//count=0;
@@ -6,14 +6,45 @@ function init () {
 		
 		function addRow () {
 			tab = document.getElementsByTagName("table")[0];
-			refrow = document.getElementById("row1");
-			newrow = refrow.cloneNode(true);
-			newrow.id = "row" + count;
+			refrow = document.createElement("tr");
+			h=document.getElementById("horse");
+			j=document.getElementById("jockey");
+			t=document.getElementById("trainer");
+			tk=document.getElementById("track");
+			hnew=document.cloneNode(h);
+			jnew=document.cloneNode(j);
+			tnew=document.cloneNode(t);
+			tknew=document.cloneNode(tk);
+			hnew.name="horse"+count;
+			tnew.name="trainer"+count;
+			jnew.name="jockey"+count;
+			tknew.name="track"+count;
+			rnew = document.createElement("tr");
+			td1=document.createElement("td");
+			td2=document.createElement("td");
+			td3=document.createElement("td");
+			td4=document.createElement("td");
+			td5=document.createElement("td");
+			rnew.appendChild(td1);
+			rnew.appendChild(td2);
+			rnew.appendChild(td3);
+			rnew.appendChild(td4);
+			rnew.appendChild(td5);
+			td1.appendChild(hnew);
+			td2.appendChild(jnew);
+			td3.appendChild(tnew);
+			td4.appendChild(tknew);
+	
+
+			rnew.id = "row" + count;
+
 			count++;
-			btn=document.getElementById("delrow");
+			bt=document.getElementById("delrow");
+			btn=document.cloneNode(bt);
 			btn.id="delrow"+count;
 			btn.addEventListener("click",deleteRow,false);
-			tab.appendChild(newrow)//document.body.appendChild()
+			td5.appendChild(btn);
+			tab.appendChild(rnew)//document.body.appendChild()
 		}
 
 		function deleteRow () {

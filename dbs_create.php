@@ -1,4 +1,5 @@
 <?php
+include 'Forms/derby_table_creation.php';
 echo "WELCOME TO DERBY MANAGEMENT TOOL ";
 
 $dbhost = 'localhost';
@@ -51,6 +52,9 @@ $conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
 			mysqli_query($conn,$sql);
 			$sql = "CREATE TABLE IF NOT EXISTS racing_history ( race_id varchar(30), race_name varchar(30), race_date date,time varchar(25), category int NOT NULL,temperature double NOT NULL,humidity double NOT NULL,wind double NOT NULL,type int(1),PRIMARY KEY (race_id))";
 			mysqli_query($conn,$sql);
+			trainer_table();
+			jockey_table();
+			horse_table();
 			//$sql = "CREATE TABLE IF NOT EXISTS `verification` (`member_id` int(11) NOT NULL,`email` varchar(50) NOT NULL,`password` varchar(25) NOT NULL,`salt` varchar(25) NOT NULL,PRIMARY KEY (`member_id`,`email`))";
 		//creating the member authentication table-----> ADD FOREIGN KEY IN CREATE TABLE STATEMENT
 		$result = mysqli_query($conn,"create table if not exists auth( member_id int(11) primary key, email varchar(60), password varchar(60), foreign key(member_id) references members(member_id) on update cascade on delete cascade)");

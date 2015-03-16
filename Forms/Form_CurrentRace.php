@@ -94,10 +94,6 @@ while( $row=  $result->fetch_assoc())
       </div> </p>
       
       <form action="create_races.php" method="POST">
-        <div class="large-4 columns">
-        <label>Time<input type="time" id="time" name="time"/></label>
-        <label>Date<input type="date" id="date" name="date"/></label>
-      </div>
       <fieldset>
       <table class="large-12 columns" width="600" border="2" id="table">
      <tr id="header">	<th>Horse Name</th>
@@ -107,20 +103,20 @@ while( $row=  $result->fetch_assoc())
 		<th> <input type="button" value="Add entry" height="5px" width = "5px" onclick="addRow()" id="addbtn"></th>
 	</tr>	
 
-		<tr id="row1">
+		<tr id="row1" name="row1">
 			<td>
-				<select id="horse">
+				<select id="horse" name="horse">
      			<option value="notype" id="no_type">--Select--</option>
       		</select>
 			</td>
 			
-			<td><select id="jockey">
+			<td><select id="jockey" name="jockey">
      			<option value="notype" id="no_type">--Select--</option>
       		</select></td>
-			<td><select id="trainer">
+			<td><select id="trainer" name="jockey">
      			<option value="notype" id="no_type">--Select--</option>
       		</select></td>
-			<td><select id="track">
+			<td><select id="track" name="track">
      			<option value="notype" id="no_type">--Select--</option>
       		<option value="1">1</option>
           <option value="2">2</option>

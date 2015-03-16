@@ -17,7 +17,10 @@
 	$time=$_POST["time"];
 	$date=$date_of_race."";
 	//echo ''.gettype($date);
-	$racename=race_table($race_name,$date);
+	$racename=race_table($date,$time);
+	session_start();
+	$_SESSION['date']=$date;
+	$_SESSION['time']=$time;
 	$tablename="racing_history";
 	//echo $tablename;
 	$dbhost = 'localhost';
@@ -35,6 +38,6 @@
 			echo "successful";
 		else
 			echo "error";
-	race_table($date,$time);
+	include('Form_CurrentRace.php');
 		
 ?>
