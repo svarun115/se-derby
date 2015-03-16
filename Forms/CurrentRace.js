@@ -5,6 +5,7 @@ function init () {
 		}
 		
 		function addRow () {
+			alert("in add function");
 			tab = document.getElementsByTagName("table")[0];
 			refrow = document.createElement("tr");
 			h=document.getElementById("horse");
@@ -15,10 +16,17 @@ function init () {
 			jnew=document.cloneNode(j);
 			tnew=document.cloneNode(t);
 			tknew=document.cloneNode(tk);
-			hnew.name="horse"+count;
+			hnew.id="horse"+count;
+			hnew.name ="horse"+count;
+			tnew.id="trainer"+count;
 			tnew.name="trainer"+count;
+			jnew.id = "jockey"+count;
 			jnew.name="jockey"+count;
+			tknew.id = "track"+count;
 			tknew.name="track"+count;
+			alert(hnew.name);
+
+			hnew.setAttribute('name','horse2');
 			rnew = document.createElement("tr");
 			td1=document.createElement("td");
 			td2=document.createElement("td");
@@ -34,7 +42,7 @@ function init () {
 			td2.appendChild(jnew);
 			td3.appendChild(tnew);
 			td4.appendChild(tknew);
-	
+			
 
 			rnew.id = "row" + count;
 

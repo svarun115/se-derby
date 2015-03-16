@@ -36,13 +36,18 @@ while( $row=  $result->fetch_assoc())
     <title>Foundation | Welcome</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
-	<script src="js/CurrentRace.js"></script>
     <script type="text/javascript">
-    function addData()
+    var count=2;
+    function init()
     {
-      horse=document.getElementById("horse");
-      jockey=document.getElementById("jockey");
-      trainer=document.getElementById("trainer");
+      addData("horse","jockey","trainer");
+    }
+    function addData(horse_id,jockey_id,trainer_id,track_id)
+    {
+
+      horse=document.getElementById(horse_id);
+      jockey=document.getElementById(jockey_id);
+      trainer=document.getElementById(trainer_id);
 
       
       h_values=<?php echo json_encode($h_name); ?>;
@@ -62,15 +67,80 @@ while( $row=  $result->fetch_assoc())
         horse.appendChild(selecth);
         jockey.appendChild(selectj);
         trainer.appendChild(selectt);
-
       }
+      trk=document.getElementById(track_id);
+      for(i=1;i<9;i++)
+      {
+        select=document.createElement("option");
+        select.innerHTML=i;
+        trk.appendChild(select);
+      }
+    }
+
+      function addRow () {
+     // alert("in add function");
+      tab = document.getElementsByTagName("table")[0];
+
+      refrow = document.createElement("tr");
+
+      tk=document.getElementById("track");
+
+      hnew=document.createElement("select");
+      jnew=document.createElement("select");
+      tnew=document.createElement("select")
+      tknew=document.createElement("select");
+
+      hnew.id="horse"+count;
+      hnew.name ="horse"+count;
+      tnew.id="trainer"+count;
+      tnew.name="trainer"+count;
+      jnew.id = "jockey"+count;
+      jnew.name="jockey"+count;
+      tknew.id = "track"+count;
+      tknew.name="track"+count;
+      //alert(hnew.id);
+    //  hnew.setAttribute('name','horse2');
+      rnew = document.createElement("tr");
+      td1=document.createElement("td");
+      td2=document.createElement("td");
+      td3=document.createElement("td");
+      td4=document.createElement("td");
+      td5=document.createElement("td");
+      rnew.appendChild(td1);
+      rnew.appendChild(td2);
+      rnew.appendChild(td3);
+      rnew.appendChild(td4);
+      rnew.appendChild(td5);
+      td1.appendChild(hnew);
+      td2.appendChild(jnew);
+      td3.appendChild(tnew);
+      td4.appendChild(tknew);
+      
+
+      rnew.id = "row" + count;
+
+      count++;
+      btn=document.createElement("input");
+      btn.type="button";
+      btn.value="Add Row";
+      btn.id="delrow"+count;
+      btn.addEventListener("click",deleteRow,false);
+      td5.appendChild(btn);
+      tab.appendChild(rnew)//document.body.appendChild()
+      addData(hnew.id,jnew.id,tnew.id,tknew.id);
+    }
+
+    function deleteRow () {
+      alert(this.id);
+      ielement = document.getElementsByTagName('input');
+    }
       //select.value="horse2";
       //select.innerHTML="horse2";
       //horse.appendChild(select);
-    }
+    
     </script>
   </head>
-  <body onload="addData()">
+  <body onload="init()">
      <div class="row">
         <div class="large-12 columns">
           <ul class="round button-group">
@@ -111,10 +181,8 @@ while( $row=  $result->fetch_assoc())
 			</td>
 			
 			<td><select id="jockey" name="jockey">
-     			<option value="notype" id="no_type">--Select--</option>
       		</select></td>
-			<td><select id="trainer" name="jockey">
-     			<option value="notype" id="no_type">--Select--</option>
+			<td><select id="trainer" name="trainer">
       		</select></td>
 			<td><select id="track" name="track">
      			<option value="notype" id="no_type">--Select--</option>
