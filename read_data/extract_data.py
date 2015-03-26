@@ -121,7 +121,7 @@ def pp_parse(filename):
 		#print '__________________________________________'	
 
 def write_to_db():
-	url = 'http://localhost/write_data.php'
+	url = 'http://localhost/se-derby/write_data.php'
 
 #Sending Data one horse at a time
 	for i in range(len(horse_names)):
@@ -196,7 +196,7 @@ def write_to_db():
 					'j_wins':j_wins,"j_second":j_second,'j_third':j_third,'j_percent':j_percent,'t_mounts':j_mounts,
 					't_wins':j_wins,'t_second':j_second,'t_third':j_third,'t_percent':j_percent}
 		r = requests.post(url, data=json.dumps(payload))
-		print r.text
+		print (r.text)
 
 
 if __name__ == '__main__':

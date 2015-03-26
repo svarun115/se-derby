@@ -50,8 +50,9 @@ function trainer_table()
 		}
 
 		$tablename ="trainer";
-		$sql = "create table if not exists $tablename(trainer_name varchar(25),primary key(trainer_name))";
-		mysqli_query($conn,$sql);	
+		$sql = "create table if not exists $tablename(horse_name varchar(25),trainer_name varchar(25), mounts int(10), wins int(10), second int(10), third int(10), percent int(10),foreign key(horse_name) references horse(horse_name),primary key(trainer_name))";
+		if(!mysqli_query($conn,$sql))
+			echo $conn->error;	
 }
 	function horse_table()
 
@@ -71,7 +72,7 @@ function trainer_table()
 		}
 
 		$tablename ="horse";
-		$sql = "create table if not exists $tablename(horse_name varchar(25),primary key(horse_name))";
+		$sql = "create table if not exists $tablename(horse_name varchar(25), breeder varchar(25),weight float(10),power float(20), age float(20), colour varchar(25), sex varchar(10), mounts int(10), wins int(10), second int(10), third int(10),primary key(horse_name))";
 		mysqli_query($conn,$sql);
 	}
 
@@ -92,8 +93,9 @@ function trainer_table()
 		}
 
 		$tablename ="jockey";//.$name.(string)$date["mday"]."_".(string)$date["mon"]."_".(string)$date["year"]."_".(string)$date["hours"].(string)$date["minutes"];
-		$sql = "create table if not exists $tablename(jockey_name varchar(25),primary key(jockey_name))";
-		mysqli_query($conn,$sql);
+		$sql = "create table if not exists $tablename(horse_name varchar(25),jockey_name varchar(25), mounts int(10), wins int(10), second int(10), third int(10), percent int(10),foreign key(horse_name) references horse(horse_name),primary key(jockey_name))";
+		if(!mysqli_query($conn,$sql))
+			echo $conn->error;
 	}
 
 	function event_table()
