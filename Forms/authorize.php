@@ -25,8 +25,8 @@ else
    	echo "Nothing returned";
 //Checking retrieved password with entered password'
    //echo $password." ".$pwd;
-if ($password == $pwd) {
-    //echo '<br>Password is valid!';
+if (password_verify($password, $pwd)){//$password == $pwd) {
+    echo '<br>Password is valid!';
     $value =true;
     echo '<script type = "text/javascript"> alert("login Successful");</script>' ;
     //header("location:login_success.php");
@@ -40,13 +40,13 @@ if ($password == $pwd) {
 echo $value;
 if($value){
   //echo "in if";
-  header('Location:Forms/home.html');
+  header('Location:home.html');
   //echo '<head><meta url = "Forms/home.html">';
 
 }
  else {
   echo "in else";
-  header('Location:Forms/Form_Login.html');
+  header('Location:Form_Login.html');
   //echo '</script>';
 }
  //echo '</head></html>';
