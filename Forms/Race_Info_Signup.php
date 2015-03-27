@@ -17,10 +17,11 @@
 	$time=$_POST["time"];
 	$date=$date_of_race."";
 	//echo ''.gettype($date);
-	$racename=race_table($date,$time);
+	$racename=race_table($date,$time,$race_name);
 	session_start();
 	$_SESSION['date']=$date;
 	$_SESSION['time']=$time;
+	$_SESSION['racename']=$racename;
 	$tablename="racing_history";
 	//echo $tablename;
 	$dbhost = 'localhost';
@@ -34,10 +35,7 @@
 			die();
 		}
 		$sql="insert into $tablename(race_id,race_name, race_date, category, type, temperature, humidity, wind,time) values('$racename','$race_name','$date_of_race','$catg_of_race','$race_type','$temperature','$humidity','$wind','$time')";
-		if(mysqli_query($conn,$sql))
-			echo "successful";
-		else
-			echo "error";
+		mysqli_query($conn,$sql);
 	include('Form_CurrentRace.php');
 		
 ?>

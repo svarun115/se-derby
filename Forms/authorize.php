@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $dbhost = 'localhost';
 $dbuser = 'admin';
@@ -16,7 +17,11 @@ if (mysqli_connect_errno())
 	      }
 
 $sql="SELECT password FROM auth WHERE email='$email'";
+$sql1="SELECT member_id from members where email='$email'";
+
 $result=mysqli_query($conn,$sql);
+$result1=mysqli_query($conn,$sql1);
+
 if ($result->num_rows > 0) {
 while($row =  $result->fetch_assoc())
    	$pwd = $row['password'];
@@ -25,6 +30,13 @@ else
    	echo "Nothing returned";
 //Checking retrieved password with entered password'
    //echo $password." ".$pwd;
+
+while($row1=$result1->fetch_assoc())
+{
+  $member_id_temp=$row1['member_id'];
+  $_SESSION["mem_id"]=$member_id_temp;
+  echo "done";
+}
 if (password_verify($password, $pwd)){//$password == $pwd) {
     echo '<br>Password is valid!';
     $value =true;
