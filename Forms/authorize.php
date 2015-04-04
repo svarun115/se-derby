@@ -7,8 +7,10 @@ $dbpass = 'admin';
 $db = 'club';
 $value = false;
 $email = $_POST['email'];		
-$password = $_POST['pwd'];			
+$password = $_POST['pwd'];	
 
+//if($email=='admin' && $password=='admin')
+ //header('Location:/se-derby/admin_home.html');	
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db);
 if (mysqli_connect_errno())
 	     {
