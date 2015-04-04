@@ -1,13 +1,13 @@
 <?php
 
 $dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = 'welcome';
+$dbuser = 'admin';
+$dbpass = 'admin';
 
 $data = file_get_contents("php://input");
 $json = json_decode(data);
 
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass);
+$conn = mysqli_connect($dbhost, $dbuser, $dbpass,'derby');
 if (mysqli_connect_errno())
 	     {
 	     	echo "Failed to connect to MySQL: " . mysqli_connect_error();

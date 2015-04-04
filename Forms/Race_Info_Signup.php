@@ -36,6 +36,6 @@
 		}
 		$sql="insert into $tablename(race_id,race_name, race_date, category, type, temperature, humidity, wind,time) values('$racename','$race_name','$date_of_race','$catg_of_race','$race_type','$temperature','$humidity','$wind','$time')";
 		mysqli_query($conn,$sql);
-	include('Form_CurrentRace.php');
-		
+	//include('Form_CurrentRace.php');
+ header('Location:Form_CurrentRace.php');		
 ?>

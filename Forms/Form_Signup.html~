@@ -1,0 +1,211 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+    <script type="text/javascript">
+    function check_terms()
+    {
+      if(!document.getElementById("agree").checked)
+      {
+        alert("Please agree to the terms and conditions to proceed");
+      }
+      name=document.getElementById("name");
+      email=document.getElementById("email");
+      phno=document.getElementById("phno");
+      dob=document.getElementById("dob");
+      m=document.getElementById("gender_m");
+      f=document.getElementById("gender_f");
+      mt=document.getElementById("memtype");
+      addr=document.getElementById("addr");
+      city=document.getElementById("city");
+      pin=document.getElementById("pin");
+      if(name.value=="")
+        alert("Please enter name");
+      else if(dob.value=="")
+        alert("Please enter Date of Birth");
+      else if(city.value=="")
+        alert("Please enter City");
+      else if(pin.value=="")
+        alert("Please enter Pincode");
+     else if(f.checked && m.checked)
+       alert("Please select Gender");
+      //else if(mt.value="novalue") //recheck this condition
+        //alert("Please select Membership Type");
+      else if(addr.value=="")
+        alert("Please enter Address");
+      else if(phno.value=="")
+        alert("Please enter name");
+      else if(email.value=="")
+        alert("Please enter name");
+      
+  }
+      
+    function verify_input()
+    {
+      event.preventDefault();
+      pwd=document.getElementById("pwd");
+      cpwd=document.getElementById("cpwd");
+      if(pwd.value!=cpwd.value)
+      {
+        alert("Passwords do not match. Enter again");
+        cpwd.value="";
+        pwd.value="";
+        
+      }
+    
+    }
+    </script>
+  </head>
+  <body>
+   <div class="row">
+        <div class="large-12 columns">
+          <ul class="round button-group">
+            <li><a href="#" class="button">Home</a></li>
+            <li><a href="#" class="button">About Us</a></li>
+            <li><a href="#" class="button">Racing</a></li>
+            <li><a href="#" class="button">Fixtures</a></li>
+            <li><a href="#" class="button">Archives</a></li>
+            <li><a href="#" class="button">Photo Gallery</a></li>
+            <li><a href="#" class="button">Contact Us</a></li>
+          </ul>
+          
+           
+     <!--     <p><img src="http://placehold.it/1000x400&text=[banner img]"/></p>  -->
+        </div>
+      </div>
+      
+       
+      
+      
+       
+      
+      <div class="row">
+      
+ <div class="panel" style='position: relative;'>
+<div>
+  <h5>Member Signup : Fill in the details</h5>
+</div> </p>
+ 
+ <form action= "new_member.php" id="signup" method="post">
+ <fieldset>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Full Name
+        <input type="text" placeholder="First Name Last Name" name="name" />
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <label>Email Address
+        <input type="text" placeholder="Email" name="email"/>
+      </label>
+    </div>
+    <div class="large-6 columns">
+      <label>Contact
+        <input type="text" placeholder="Mobile Number" name="phno" />
+      </label>
+    </div>
+    <div class="large-6 columns">
+      <label>Password
+        <input type="password" id="pwd" name="pwd"/>
+      </label>
+    </div>
+    <div class="large-6 columns">
+      <label>Confirm Password
+        <input type="password" id="cpwd" onblur="verify_input()" />
+      </label>
+    </div>
+  </div>
+
+<div class="row">
+    <div class="large-6 columns">
+      <label>Date of Birth:
+      <input type="date" name="m_dob" placeholder="dd/mm/yyyy"id="dob"/>
+      </label>
+    </div>
+    <div class="large-6 columns">
+      <label>Gender</label>
+      <input type="radio" name="gender" value="M" id="gender_m"><label for="gender_m">Male</label>
+      <input type="radio" name="gender" value="F" id="gender_f"><label for="gender_f">Female</label>
+    </div>    
+  </div>  
+  
+ <div class="row">
+    <div class="large-4 columns">
+    <label>Residential Address
+    <textarea placeholder="Enter Address" name="addr" id="addr"></textarea>
+    </label>    
+    </div> 
+    <div class="large-4 columns">
+    <label>City
+    <input type="text" placeholder="City Name" name="city" id="city"/>
+    </label>        
+    </div> 
+    <div class="large-4 columns">
+    <label>Pincode
+    <input type="text" placeholder="Pincode" name="pin" id="pin"/>
+    </label>    
+    </div> 
+        
+    
+ </div>  
+  
+  <div class="row">
+    <div class="large-4 columns">
+      <label>Membership Type
+        <select name="mem_type" id="memtype">
+          <option value="notype">--Select--</option>
+          <option value="1">Type1</option>
+          <option value="2">Type2</option>
+          <option value="3">Type3</option>
+          <option value="4">Type4</option>
+        </select>
+      </label>
+    </div>
+  </div>
+  
+  <p>
+  <input style="float:none; vertical-align:middle;" type="checkbox" id="agree" />
+  <label style="display:inline; float:none;" for="agree">
+    I agree with the <a href="/pages/terms-and-conditions">terms and conditions</a>.
+  </label>
+</p>
+  <div class="row">
+    <div class="large-3 columns">
+<button onmouseover="check_terms()"
+class="radius button expand">Sign Up</button>
+</div>
+</div>
+  </fieldset>
+</form>
+ 
+      
+      <footer class="row">
+        <div class="large-12 columns">
+          <hr/>
+          <div class="row">
+            <div class="large-6 columns">
+              <p>© Copyright no one at all. Go to town.</p>
+            </div>
+            <div class="large-6 columns">
+              <ul class="inline-list right">
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+                <li><a href="#">Link 4</a></li>
+                <li><a href="#">Link 5</a></li>
+                <li><a href="#">Link 6</a></li>
+                <li><a href="#">Link 7</a></li>
+              </ul>
+            </div>
+          </div>
+        </div> 
+      </footer>
+    
+  </body>
+</html>

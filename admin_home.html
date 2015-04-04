@@ -1,0 +1,78 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+  <nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+   <!--<h1><a href="#">My Site</a></h1>
+    </li>-->
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <!--<ul class="right">
+      <li class="active"><a href="#">Right Button Active</a></li>
+      <li class="has-dropdown">
+        <a href="#">Right Button Dropdown</a>
+        <ul class="dropdown">
+          <li><a href="#">First link in dropdown</a></li>
+          <li class="active"><a href="#">Active link in dropdown</a></li>
+        </ul>
+      </li>
+    </ul>!-->
+
+    <!-- Left Nav Section -->
+	 <ul class="left">
+      <li style="font-weight: bold;"><a href="#">TURF CLUB</a></li>
+    </ul>
+     <ul class="right">
+      <li class="has-dropdown not-click">
+         <a href="#">Administrator</a>
+         <ul class="dropdown">
+         <li><a href="#">Sign out</a></li>
+    </ul>
+    </li>
+    </ul>
+  </section>
+</nav>
+<br>
+      <div class="row">
+        <div class="panel" >
+         <div align="center" class="large-12 large-centered columns" >
+          <h5 align="center" style="padding-top: 20px;padding-bottom: 15px;">Administrator Settings</h5>
+           <div align="center" class="panel callout radius" style="width: 280px; height: 400px;padding-top: 40px;">
+           <button class="buttton" style="width: 180px;" onclick="location.href='Forms/Form_RaceInfo.html'">Add Races</button>
+             <button class="buttton" style="width: 180px;" onclick="">Add Events</button>
+             <button class="buttton" style="width: 180px;" onclick="">Member Info</button>
+             <button class="buttton" style="width: 180px;" onclick="">Betting Summary</button>
+           </div>
+        </div>               
+      </div> 
+      </div>
+	  <script src="js/vendor/jquery.js"></script> 
+<script src="js/foundation.min.js"></script> 
+<script>
+      $(document).foundation({
+  orbit: {
+    animation: 'slide',
+    timer_speed: 1000,
+    pause_on_hover: true,
+    animation_speed: 500,
+    navigation_arrows: true,
+    bullets: false
+  }
+});
+    </script>
+<br>
+
+  </body>
+</html>

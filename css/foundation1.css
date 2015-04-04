@@ -1,0 +1,22 @@
+ .top-bar-section .left{
+      display: block;
+      width: 100%;
+      color: #FFFFFF;
+      padding: 12px 0 12px 0;
+      padding-left: 0.9375rem;
+      font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+      font-size: 0.8525rem;
+      font-weight:normal;
+      text-transform: none; }
+
+ .top-bar-section .right{
+      display: block;
+      width: 100%;
+      color: #FFFFFF;
+      padding: 12px 0 12px 0;
+      padding-left: 0.9375rem;
+      font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+      font-size: 0.8525rem;
+      font-weight:bold;
+      text-transform: none; }
+	  

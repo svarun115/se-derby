@@ -31,12 +31,12 @@ else
 //Checking retrieved password with entered password'
    //echo $password." ".$pwd;
 
-while($row1=$result1->fetch_assoc())
-{
+//while($row1=$result1->fetch_assoc())
+$row1=mysqli_fetch_assoc($result);
   $member_id_temp=$row1['member_id'];
   $_SESSION["mem_id"]=$member_id_temp;
   echo "done";
-}
+//}
 if (password_verify($password, $pwd)){//$password == $pwd) {
     echo '<br>Password is valid!';
     $value =true;
@@ -52,7 +52,7 @@ if (password_verify($password, $pwd)){//$password == $pwd) {
 echo $value;
 if($value){
   //echo "in if";
-  header('Location:home.html');
+  header('Location:/se-derby/derbyhome.html');
   //echo '<head><meta url = "Forms/home.html">';
 
 }

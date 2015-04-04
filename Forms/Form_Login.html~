@@ -1,0 +1,98 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/se-derby/css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+   <div class="row">
+        <div class="large-12 columns">
+          <ul class="round button-group">
+            <li><a href="#" class="button">Home</a></li>
+            <li><a href="#" class="button">About Us</a></li>
+            <li><a href="#" class="button">Racing</a></li>
+            <li><a href="#" class="button">Fixtures</a></li>
+            <li><a href="#" class="button">Archives</a></li>
+            <li><a href="#" class="button">Photo Gallery</a></li>
+            <li><a href="#" class="button">Contact Us</a></li>
+          </ul>
+          
+        </div>
+      </div>
+      
+       
+      
+      
+       
+      
+      <div class="row">
+      
+ <div class="panel" style='position: relative;'>
+<div class="large-4 columns" >
+  <h5>Not a Member?</h5>
+  <a href="Form_Signup.html">Register</a>
+</div> 
+ 
+ 
+ 
+      <div class="large-4 large-centered columns">
+  <div class="login-box">
+  <div class="row">
+  <div class="large-12 columns">
+    <form method="POST" action="authorize.php">
+       <div class="row">
+         <div class="large-12 columns">
+             <input type="text" name="email" placeholder="Username" />
+         </div>
+       </div>
+      <div class="row">
+         <div class="large-12 columns">
+             <input type="password" name="pwd" placeholder="Password" />
+         </div>
+      </div>
+      <div class="row">
+        <div class="large-12 large-centered columns">
+          <button class="radius button expand" onclick="">Log In</button>
+        </div>
+      </div>
+       <div class="row">
+        <div class="large-8 columns">
+          <a href="Form_Password.html">Forgot Password?</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+      </div>      
+      </div>
+               
+      
+      <footer class="row">
+        <div class="large-12 columns">
+          <hr/>
+          <div class="row">
+            <div class="large-6 columns">
+              <p>© Copyright no one at all. Go to town.</p>
+            </div>
+            <div class="large-6 columns">
+              <ul class="inline-list right">
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+                <li><a href="#">Link 4</a></li>
+                <li><a href="#">Link 5</a></li>
+                <li><a href="#">Link 6</a></li>
+                <li><a href="#">Link 7</a></li>
+              </ul>
+            </div>
+          </div>
+        </div> 
+      </footer>
+    
+  </body>
+</html>

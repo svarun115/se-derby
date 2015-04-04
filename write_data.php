@@ -1,8 +1,8 @@
 <?php
 
 $dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = 'password';
+$dbuser = 'admin';
+$dbpass = 'admin';
 $db2='derby';
 
 $data = file_get_contents("php://input");
@@ -34,6 +34,7 @@ $t_wins = $json['t_wins'];
 $t_second = $json['t_second'];
 $t_third = $json['t_third'];
 $t_percent = $json['t_percent'];
+$t_mounts=$json['t_mounts'];
 $j_mounts = $json['j_mounts'];
 $j_wins = $json['j_wins'];
 $j_second = $json['j_second'];

@@ -4,7 +4,8 @@
     $dbpass = 'admin';
     $db = 'derby';
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db);
-    
+    if(!$conn)
+	echo $conn->error();    
     $sql="SELECT horse_name from derby.horse";
     $result=mysqli_query($conn,$sql);
     $h_name=array();
@@ -33,9 +34,9 @@ while( $row=  $result->fetch_assoc())
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
-    <link rel="stylesheet" href="css/foundation.css" />
-    <script src="js/vendor/modernizr.js"></script>
+    <title>Current Race</title>
+    <link rel="stylesheet" href="/se-derby/css/foundation.css" />
+    <script src="/se-derby/js/vendor/modernizr.js"></script>
     <script type="text/javascript">
     var count=2;
     function init()
@@ -122,7 +123,7 @@ while( $row=  $result->fetch_assoc())
       count++;
       btn=document.createElement("input");
       btn.type="button";
-      btn.value="Add Row";
+      btn.value="Delete Row";
       btn.id="delrow"+count;
       btn.addEventListener("click",deleteRow,false);
       td5.appendChild(btn);
