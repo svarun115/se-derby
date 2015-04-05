@@ -96,7 +96,7 @@ foreach ($horse_name as $hname) {
 			$odds[$hname]=($pool-$sum[$hname])/$sum[$hname];
 			$whole=floor($odds[$hname]);
 			$frac=$odds[$hname]-$whole;
-			//echo $frac;
+			echo $frac;
 			if($frac!=0)
 			{
 			$mult=10;
