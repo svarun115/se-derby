@@ -37,12 +37,7 @@
   <div class="login-box">
   <div class="row">
   <div class="large-12 columns">
-    <form>
-       <div class="row">
-         <div class="large-12 columns">
-             <input type="text" name="username" placeholder="Username" />
-         </div>
-       </div>
+    <form action="change_password.php">
       <div class="row">
          <div class="large-12 columns">
              <input type="text" name="email" placeholder="Email Address" />
@@ -50,7 +45,7 @@
       </div>
       <div class="row">
         <div class="large-12 large-centered columns">
-          <button class="radius button expand" onclick="">Submit</button>
+          <button class="radius button expand">Submit</button>
         </div>
       </div>
     </form>
