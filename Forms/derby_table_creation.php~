@@ -1,6 +1,6 @@
 <?php
 	//$derby_name="";
-//include 'race_details.php';
+include 'race_details.php';
 	function race_table($date,$time,$name)
 	{
 		
@@ -20,8 +20,8 @@
 		$time_array = explode(":",$time);
 		$derby_name=$date_array[0]."_".$date_array[1]."_".$date_array[2];
 		$tablename ="r_".$derby_name."_".$time_array[0]."_".$time_array[1]."_".$name;
-		//copy("template.php",$tablename.".php");
-		//write_file($tablename.".php");
+		copy("template.php",$tablename.".php");
+		write_file($tablename.".php");
 		//horse_table($derby_name);
 		//jockey_table($derby_name);
 		//trainer_table($derby_name);

@@ -1,0 +1,72 @@
+<?php
+function write_file($filename)
+{
+$data=<<<'EOT'<?php 
+$connection = mysql_connect("localhost", "admin", "admin","derby");
+ 
+// select the database that we will be using
+//mysqli_select_db("derby");
+$sql = "SHOW TABLES FROM derby";
+$result = mysql_query($sql);
+
+if (!$result) {
+    echo "DB Error, could not list tables\n";
+    echo 'MySQL Error: ' . $connection->error;
+    exit;
+}
+$count=0;
+echo "<table>";
+echo "<tr><th>RACE NAME</th><th>DATE</th><th>TIME</th></tr>";
+while ($row = mysql_fetch_row($result)) {
+    //echo "Table: ".$row[0]."\n";
+    $table_array=explode("_",$row[0]);
+    //echo $table_array[0]."<br>";
+    if($table_array[0]=='r')
+	{
+		//echo "In IF\n";	
+		$date= $table_array[2]."-".$table_array[3]."-".$table_array[1];
+		$time=$table_array[4].":".$table_array[5];
+		$name=$table_array[6];
+		echo "<tr onmouseover=\"hilite(this)\" onmouseout=\"lowlite(this)\"><td><a href=$row[0]."."php".">$name</td><td>$date</td>
+      <td>$time</td></tr>\n";
+	$count++;
+	}
+}
+echo "</table>";
+
+// close the connection
+mysql_close($connection);
+ 
+?> 
+EOT;
+file_put_contents($filename, $data, FILE_APPEND | LOCK_EX);
+$date=<<<'EOT'
+</div> 
+<footer class="row">
+        <div class="large-12 columns">
+          <hr/>
+          <div class="row">
+            <div class="large-6 columns">
+              <p>© Copyright no one at all. Go to town.</p>
+            </div>
+            <div class="large-6 columns">
+              <ul class="inline-list right">
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+                <li><a href="#">Link 4</a></li>
+                <li><a href="#">Link 5</a></li>
+                <li><a href="#">Link 6</a></li>
+                <li><a href="#">Link 7</a></li>
+              </ul>
+            </div>
+          </div>
+        </div> 
+      </footer>
+	
+	</body>
+	</html>
+EOT;
+file_put_contents($filename, $data, FILE_APPEND | LOCK_EX);
+}
+?>
