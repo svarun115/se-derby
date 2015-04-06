@@ -30,7 +30,7 @@
 <?php
  
 // make a connection
-$connection = mysql_connect("localhost", "root", "");
+$connection = mysql_connect("localhost", "admin", "admin");
  
 // select the database that we will be using
 mysql_select_db("derby");
