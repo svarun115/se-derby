@@ -7,11 +7,9 @@
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db); 
 	$conn1=mysqli_connect($dbhost, $dbuser, $dbpass,$db1);
 		$race=$_POST['race_type'];
-		$type=$_POST['type'];
 		session_start();
 		$memberId=$_SESSION['id'];
 		$_SESSION['race']=$race;
-		$_SESSION['type']=$type;
 ?>
 		
 		
