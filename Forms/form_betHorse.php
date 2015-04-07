@@ -1,3 +1,20 @@
+<?php
+    $dbhost = 'localhost';
+    $dbuser='admin';
+    $dbpass = 'admin';
+    $db = 'derby';
+	$db1='club';
+    $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db); 
+	$conn1=mysqli_connect($dbhost, $dbuser, $dbpass,$db1);
+		$race=$_POST['race_type'];
+		$type=$_POST['type'];
+		session_start();
+		$memberId=$_SESSION['id'];
+		$_SESSION['race']=$race;
+		$_SESSION['type']=$type;
+?>
+		
+		
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
@@ -59,24 +76,41 @@
       <div>
       <h5></b>Betting & Entertainment</b></h5>
       </div> </p>
-	  <form action="form_betHorse.php" method="post">
-	  <div class="row">
+	  <form action="betting.php" method="post">
+      <div class="row">
 	<div class="large-4 columns">
-     <label> <b>Race:</b></label>
-	 <select id="race" name="race_type" onchange="update()">
-	<?php require 'testr.php';?>
+     <label> <b>Horse:</b></label>
+	 <select id="sel" name="horse_type">
+	<?php require 'test.php';?>
 	</select>
     </div>
-      
-	<div class="large-4 columns">
-     <label> <b>Race type:</b></label>
-	 <select id="sel" name="type">
-	<?php require 'type.php';?>
-	</select>
+	<div class="row">
+    <div class="large-4 columns">
+      <label><b>Betting Amount:</b>
+        <input type="Number" name="amount" min="10" />
+      </label>
     </div>
-	</div>
-	<input type="submit" class="radius button expand" style="width:124px;" value="Select the Horse"/>
+  </div>
+
+  </div>
+   <input type="submit" class="radius button expand" style="width:124px;" value="submit"/>
    <br/>
+	<div class="row">
+    <div class="large-4 columns">
+      <label><b>Horses and details:</b><p>
+        <table border="1px">
+		<tr>
+		<th> Horse-Name</th>
+		<th>Jockey</th>
+		<th>Trainer</th>
+		</tr>
+		<?php require 'Bet_table.php';?>
+		</table>
+      </label>
+    </div>
+  </div>
+ 
+   </div>
    </form>
   </body>
   </html>
