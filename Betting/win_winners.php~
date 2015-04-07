@@ -4,7 +4,7 @@ $db2='derby';
 $dbuser = 'admin';
 $dbpass = 'admin';
 $conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
-
+$conn1=mysqli_connect($dbhost,$dbuser,$dbpass,'club');
 $winner="Eton Blue"; //Change to post
 
 $sql="SELECT odd from win_odds where horse_name='$winner'";
@@ -26,9 +26,26 @@ while($row =  $result->fetch_assoc())
       $i++;
     }
 }
-
-
+$j=0;
+for($j=0;$j<$i;$j++)
+{
+$mid=$member_winners[$j];
+$amt=(float)$payoff[$member_winners[$i]];
+$sql3="SELECT balance from account where member_id='$member_id'";
+$result=mysqli_query($conn1,$sql3);
+		$row = mysqli_fetch_assoc($result)['balance'];
+		$row=$row-$amount;
+		$sql4="UPDATE account set balance='$row' where member_id='$member_id'";
+		mysqli_query($conn1,$sql4);
+}
+$sql3="SELECT balance from account where member_id='$member_id'";
+$result=mysqli_query($conn1,$sql3);
+$row = mysqli_fetch_assoc($result)['balance'];
+$row=$row-$amount;
+$sql4="UPDATE account set balance='$row' where member_id='$member_id'";
+mysqli_query($conn1,$sql4);
 echo json_encode($payoff);
+echo json_encode($winner);
 //Send payoff to android
 
 

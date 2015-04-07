@@ -5,6 +5,7 @@ $db2='derby';
 $dbuser = 'admin';
 $dbpass = 'admin';
 $conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
+$conn1=mysqli_connect($dbhost,$dbuser,$dbpass,'club');
 $sum = array();
 $sql = "CREATE TABLE IF NOT EXISTS win (member_id int(11) NOT NULL DEFAULT '0',horse_name varchar(25) NOT NULL,amount float(10),PRIMARY KEY (member_id),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
 if(!mysqli_query($conn,$sql))
@@ -22,7 +23,12 @@ $sql="INSERT into derby.win(member_id,horse_name,amount) values ('$member_id','$
 if(!mysqli_query($conn,$sql))
 	echo $conn->error;
 
-
+$sql3="SELECT balance from account where member_id='$member_id'";
+$result=mysqli_query($conn1,$sql3);
+		$row = mysqli_fetch_assoc($result)['balance'];
+		$row=$row-$amount;
+		$sql4="UPDATE account set balance='$row' where member_id='$member_id'";
+		mysqli_query($conn1,$sql4);
 //Caculate new odds
 $horse_name=array();
 $sql = "SELECT * FROM derby.win";
