@@ -67,13 +67,7 @@
 	<?php require 'testr.php';?>
 	</select>
     </div>
-      
-	<div class="large-4 columns">
-     <label> <b>Race type:</b></label>
-	 <select id="sel" name="type">
-	<?php require 'type.php';?>
-	</select>
-    </div>
+     
 	</div>
 	<input type="submit" class="radius button expand" style="width:124px;" value="Select the Horse"/>
    <br/>
