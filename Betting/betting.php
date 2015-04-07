@@ -1,21 +1,24 @@
- <?php
+<?php
     $dbhost = 'localhost';
     $dbuser='admin';
     $dbpass = 'admin';
     $db = 'derby';
 	$db1='club';
-    $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db); 
+    	$conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db); 
 	$conn1=mysqli_connect($dbhost, $dbuser, $dbpass,$db1);
 		$horse=$_POST['horse_type'];
 		$amount=$_POST['amount'];
 		$tablename="Win";
 		session_start();
-		$memberId=$_SESSION['id']; 
+		$memberId=$_SESSION['id'];
+		$race=$_SESSION['race'];
 		echo $amount;
-		$sql2 =  "CREATE TABLE IF NOT EXISTS $tablename (member_id int(11) NOT NULL DEFAULT '0',horse_name varchar(25) NOT NULL,amount float(10),PRIMARY KEY (member_id),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
-		$sql5="INSERT into $tablename values('$memberId','$horse','$amount')";
+		echo $horse;
+		echo $race;
+		$sql2 =  "CREATE TABLE IF NOT EXISTS $tablename (member_id int(11) NOT NULL DEFAULT '0',race_name varchar (25) NOT NULL,horse_name varchar(25) NOT NULL,amount float(10),PRIMARY KEY (member_id),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
+		mysqli_query($conn,$sql2);
+		$sql5="INSERT into $tablename values('$memberId','$race','$horse','$amount')";
 		$res=mysqli_query($conn,$sql5);
-		
 		
 		$sql2="CREATE TABLE IF NOT EXISTS Account(member_id int(11) NOT NULL DEFAULT '0', Balance int(15), PRIMARY KEY(member_id), foreign key(member_id) references members(member_id))";
 		mysqli_query($conn1,$sql2);
@@ -27,6 +30,7 @@
 		print $row;
 		$sql4="UPDATE Account set Balance='$row' where member_id='$memberId'";
 		mysqli_query($conn1,$sql4);
+
 		
 		$sql="SELECT sum(amount) AS pool FROM win";
 		$result=mysqli_query($conn,$sql);
