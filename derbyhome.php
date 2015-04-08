@@ -1,10 +1,3 @@
-<?php 
-session_start();
-if(isset($_SESSION["mem_id"]))
-      $name=$_SESSION["mem_id"];
-    else
-    $name="Guest"; 
-?>
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
@@ -43,23 +36,26 @@ if(isset($_SESSION["mem_id"]))
     </ul>
     
     <!--If session, display this -->
-    <ul class="right">
-         <li class="has-dropdown not-click">
-         <?php echo "<a href='#'>".$name."</a>"; ?>
-         <ul class="dropdown">
-         <li><a href="#">Sign out</a></li>
-    </ul>
-        </ul> <!-- till here -->
-        
-        <!-- Else -->
-    <ul class="right">
-      <li><a href="Forms/Form_Signup.html">SIGNUP</a></li>
-    </ul>
-	 <ul class="right">
-      <li><a href="Forms/Form_Login.html">LOGIN</a></li>
-    </ul>
-    <!-- till here -->
-    
+    <?php
+    session_start();
+if(!empty($_SESSION['name']))
+      { 
+    echo "<ul class='right'>";
+    echo " <li class='has-dropdown not-click'>";
+    echo "<a href='#'>".$_SESSION['name']."</a>"; 
+    echo "<ul class='dropdown'>";
+    echo "<li><a href='signout.php'>Sign out</a></li>";
+    echo "</ul>";
+    echo"    </ul>";
+       }
+        else{
+    echo "<ul class='right'>";
+    echo  "<li><a href='Forms/Form_Signup.html'>SIGNUP</a></li>";
+    echo "</ul>";
+	echo "<ul class='right'>";
+    echo "<li><a href='Forms/Form_Login.html'>LOGIN</a></li>";
+    echo "</ul>";}
+    ?>
   </section>
 </nav>
 <br>
