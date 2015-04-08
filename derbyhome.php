@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -70,11 +71,12 @@ if(!empty($_SESSION['name']))
                 <li><a href="horse_list.php" >Horses </li>
                 <li><a href="jockey_list.php" >Jockeys </li>
                 <li><a href="trainer_list.php" >Trainers </li>
-                <li><a href="betting_rules.html" >Betting</li>
+                <li><a href="race.php">Races</a></li>
             </ul>                        
             </li>
             <li  class="has-dropdown not-click"><a href="#" class="button" data-dropdown="hover2" data-options="is_hover:true">Betting</a>
                <ul id="hover2" class="f-dropdown" data-dropdown-content>
+               <li><a href="betting_rules.html" >Betting Help</li>
                 <li><a href="/se-derby/Forms/Form_betting.php" >Win</li>
                 <li><a href="/se-derby/Forms/Form_betting.html" >Place</li>
                </ul>
@@ -116,6 +118,19 @@ if(!empty($_SESSION['name']))
   }
 });
     </script>
+<?php
+//echo $_SESSION['error'];
+if(empty($_SESSION['name']))
+{
+if(isset($_SESSION['error']))
+{
+echo "<script type='text/javascript'>";
+echo "alert('You are not logged in. You cannot place a bet. Sorry!');";
+echo "</script>";
+unset($_SESSION['error']);
+}
+}
+?>
 <br>
       <div class="row-container" data-equalizer>
         <div class=" large-4 columns" data-equalizer-watch>

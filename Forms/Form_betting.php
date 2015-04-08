@@ -1,4 +1,12 @@
 <!doctype html>
+<?php
+session_start();
+if(empty($_SESSION['name']))
+{
+	$_SESSION['error']=1;
+header('Location:/se-derby/derbyhome.php');
+}
+?>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -26,7 +34,7 @@
 	</style>
     <script src="/se-derby/js/vendor/modernizr.js"></script>
 	<script src="js/CurrentRace.js"></script>
-	
+
     <script type="text/javascript">
 
 	function update()
