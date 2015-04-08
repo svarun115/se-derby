@@ -1,3 +1,9 @@
+<?php 
+if(isset($_SESSION["mem_id"]))
+      $name=$_SESSION["mem_id"];
+    else
+    $name="Guest"; 
+?>
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
@@ -38,7 +44,7 @@
     <!--If session, display this -->
     <ul class="right">
          <li class="has-dropdown not-click">
-         <a href="#">Username</a>
+         <?php echo "<a href='#'>".$name."</a>"; ?>
          <ul class="dropdown">
          <li><a href="#">Sign out</a></li>
     </ul>
@@ -70,7 +76,12 @@
                 <li><a href="betting_rules.html" >Betting</li>
             </ul>                        
             </li>
-            <li><a href="race.php" class="button">Fixtures</a></li>
+            <li  class="has-dropdown not-click"><a href="#" class="button" data-dropdown="hover2" data-options="is_hover:true">Betting</a>
+               <ul id="hover2" class="f-dropdown" data-dropdown-content>
+                <li><a href="Form_betting.php" >Win</li>
+                <li><a href="Form_betting.html" >Place</li>
+               </ul>
+             </li>
             <li><a href="#" class="button">Archives</a></li>
             <li><a href="Photo_gallery.html" class="button">Photo Gallery</a></li>
             <li><a href="contact_us.html" class="button">Contact us</a></li>

@@ -8,8 +8,9 @@
 	$conn1=mysqli_connect($dbhost, $dbuser, $dbpass,$db1);
 		$race=$_POST['race_type'];
 		session_start();
-		$memberId=$_SESSION['id'];
+		$memberId=$_SESSION['mem_id'];
 		$_SESSION['race']=$race;
+   // $_POST["mem_id"]=$memberId;
 ?>
 		
 		
@@ -19,7 +20,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Betting & Entertainment</title>
-    <link rel="stylesheet" href="foundation.css" />
+    <link rel="stylesheet" href="/se-derby/css/foundation.css" />
 	<style>
 	table, td, th {
     border: 1px  black;
@@ -37,10 +38,9 @@
     vertical-align: bottom;
 	}
 	
-	
 	</style>
-    <script src="js/vendor/modernizr.js"></script>
-	<script src="js/CurrentRace.js"></script>
+    <script src="/se-derby/js/vendor/modernizr.js"></script>
+	<script src="/se-derby/js/CurrentRace.js"></script>
 	
     <script type="text/javascript">
 
@@ -74,7 +74,7 @@
       <div>
       <h5></b>Betting & Entertainment</b></h5>
       </div> </p>
-	  <form action="betting.php" method="post">
+	  <form action="/se-derby/Betting/win_bet.php" method="POST">
       <div class="row">
 	<div class="large-4 columns">
      <label> <b>Horse:</b></label>

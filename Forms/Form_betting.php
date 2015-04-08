@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Betting & Entertainment</title>
-    <link rel="stylesheet" href="foundation.css" />
+    <link rel="stylesheet" href="/se-derby/css/foundation.css" />
 	<style>
 	table, td, th {
     border: 1px  black;
@@ -24,7 +24,7 @@
 	
 	
 	</style>
-    <script src="js/vendor/modernizr.js"></script>
+    <script src="/se-derby/js/vendor/modernizr.js"></script>
 	<script src="js/CurrentRace.js"></script>
 	
     <script type="text/javascript">
@@ -67,8 +67,6 @@
 	<?php require 'testr.php';?>
 	</select>
     </div>
-     
-	</div>
 	<input type="submit" class="radius button expand" style="width:124px;" value="Select the Horse"/>
    <br/>
    </form>

@@ -13,7 +13,7 @@
 	$race=$_SESSION['race'];//user session
 	$sql = "SHOW TABLES FROM derby";
 	$result = mysqli_query($conn,$sql);
-
+	$_POST["mem_id"]=$_SESSION["mem_id"];
 	if (!$result) {
     echo "DB Error, could not list tables\n";
     echo 'MySQL Error: ' . $connection->error;
@@ -40,7 +40,7 @@ $table="0";
 	$sql="SELECT horse_name,jockey_name,trainer_name from $table";
 	$res=mysqli_query($conn,$sql);
 	if(!$res)
-		echo "failed";
+		echo $conn->error;
 	while($row = mysqli_fetch_assoc($res)){
 		echo "<tr>";
         if ($row) {

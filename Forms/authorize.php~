@@ -9,8 +9,8 @@ $value = false;
 $email = $_POST['email'];		
 $password = $_POST['pwd'];	
 
-if($email=='admin' && $password=='admin')
- header('Location:/se-derby/admin_home.html');	
+//if($email=='admin' && $password=='admin')
+ //header('Location:/se-derby/admin_home.html');	
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db);
 if (mysqli_connect_errno())
 	     {
@@ -54,7 +54,7 @@ if (password_verify($password, $pwd)){//$password == $pwd) {
 echo $value;
 if($value){
   //echo "in if";
-  header('Location:/se-derby/derbyhome.html');
+  header('Location:/se-derby/derbyhome.php');
   //echo '<head><meta url = "Forms/home.html">';
 
 }

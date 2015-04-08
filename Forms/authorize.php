@@ -54,7 +54,7 @@ if (password_verify($password, $pwd)){//$password == $pwd) {
 echo $value;
 if($value){
   //echo "in if";
-  header('Location:/se-derby/derbyhome.html');
+  header('Location:/se-derby/derbyhome.php');
   //echo '<head><meta url = "Forms/home.html">';
 
 }

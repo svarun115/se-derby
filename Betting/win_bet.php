@@ -10,10 +10,10 @@ $sum = array();
 $sql = "CREATE TABLE IF NOT EXISTS win (member_id int(11) NOT NULL DEFAULT '0',horse_name varchar(25) NOT NULL,amount float(10),PRIMARY KEY (member_id),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
 if(!mysqli_query($conn,$sql))
 	echo $conn->error;
-
-$member_id="4"; //Change to POST
-$horse_name="Eton Blue"; //Change to POST
-$amount=123; //Change to POST
+session_start();
+$member_id=$_SESSION["mem_id"]; //Change to POST
+$horse_name=$_POST["horse_type"]; //Change to POST
+$amount=$_POST["amount"]; //Change to POST
 
 //This script needs to be called by the android module everytime a user places the bet
 $sql = "CREATE TABLE IF NOT EXISTS win_odds (horse_name varchar(25) NOT NULL,odd varchar(10),PRIMARY KEY (horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
