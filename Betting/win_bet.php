@@ -11,9 +11,9 @@ $sql = "CREATE TABLE IF NOT EXISTS win (member_id int(11) NOT NULL DEFAULT '0',h
 if(!mysqli_query($conn,$sql))
 	echo $conn->error;
 session_start();
-$member_id=$_SESSION["mem_id"]; //Change to POST
-$horse_name=$_POST["horse_type"]; //Change to POST
-$amount=$_POST["amount"]; //Change to POST
+$member_id=$_SESSION["mem_id"];
+$horse_name=$_POST["horse_type"]; 
+$amount=$_POST["amount"]; 
 
 //This script needs to be called by the android module everytime a user places the bet
 $sql = "CREATE TABLE IF NOT EXISTS win_odds (horse_name varchar(25) NOT NULL,odd varchar(10),PRIMARY KEY (horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
@@ -114,7 +114,11 @@ foreach ($horse_name as $hname) {
 foreach ($horse_name as $hname) {
 	$name=$odds[$hname];
 	$sql="INSERT into derby.win_odds(horse_name,odd) values ('$hname','$name')";
+	if(!mysqli_query($conn,$sql)){
+		$sql="UPDATE win_odds set odd='$name' where horse_name='$hname'";
+	
 	mysqli_query($conn,$sql);
+}
 }
 
 
