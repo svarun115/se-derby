@@ -81,7 +81,7 @@ if(!empty($_SESSION['name']))
                 <li><a href="/se-derby/Forms/Form_betting.html" >Place</li>
                </ul>
              </li>
-            <li><a href="#" class="button">Archives</a></li>
+            <li><a href="race_history.php" class="button">Archives</a></li>
             <li><a href="Photo_gallery.html" class="button">Photo Gallery</a></li>
             <li><a href="contact_us.html" class="button">Contact us</a></li>
           </ul>

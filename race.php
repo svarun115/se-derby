@@ -26,7 +26,7 @@
       </div>
 <div id="list" style="margin:20px 260px 0px 196px;">
 <?php 
-
+session_start();
 // make a connection
 $connection = mysql_connect("localhost", "admin", "admin","derby");
  
@@ -53,7 +53,7 @@ while ($row = mysql_fetch_row($result)) {
 		$date= $table_array[2]."-".$table_array[3]."-".$table_array[1];
 		$time=$table_array[4].":".$table_array[5];
 		$name=$table_array[6];
-		echo "<tr onmouseover=\"hilite(this)\" onmouseout=\"lowlite(this)\"><td><a href=$row[0]."."php".">$name</td><td>$date</td>
+		echo "<tr onmouseover=\"hilite(this)\" onmouseout=\"lowlite(this)\"><td><a href=display.php?sub=$row[0]>$name</td><td>$date</td>
       <td>$time</td></tr>\n";
 	$count++;
 	}

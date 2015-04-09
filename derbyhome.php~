@@ -1,11 +1,5 @@
-<?php 
-session_start();
-if(isset($_SESSION["mem_id"]))
-      $name=$_SESSION["mem_id"];
-    else
-    $name="Guest"; 
-?>
 <!doctype html>
+
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -43,23 +37,26 @@ if(isset($_SESSION["mem_id"]))
     </ul>
     
     <!--If session, display this -->
-    <ul class="right">
-         <li class="has-dropdown not-click">
-         <?php echo "<a href='#'>".$name."</a>"; ?>
-         <ul class="dropdown">
-         <li><a href="#">Sign out</a></li>
-    </ul>
-        </ul> <!-- till here -->
-        
-        <!-- Else -->
-    <ul class="right">
-      <li><a href="Forms/Form_Signup.html">SIGNUP</a></li>
-    </ul>
-	 <ul class="right">
-      <li><a href="Forms/Form_Login.html">LOGIN</a></li>
-    </ul>
-    <!-- till here -->
-    
+    <?php
+    session_start();
+if(!empty($_SESSION['name']))
+      { 
+    echo "<ul class='right'>";
+    echo " <li class='has-dropdown not-click'>";
+    echo "<a href='#'>".$_SESSION['name']."</a>"; 
+    echo "<ul class='dropdown'>";
+    echo "<li><a href='signout.php'>Sign out</a></li>";
+    echo "</ul>";
+    echo"    </ul>";
+       }
+        else{
+    echo "<ul class='right'>";
+    echo  "<li><a href='Forms/Form_Signup.html'>SIGNUP</a></li>";
+    echo "</ul>";
+	echo "<ul class='right'>";
+    echo "<li><a href='Forms/Form_Login.html'>LOGIN</a></li>";
+    echo "</ul>";}
+    ?>
   </section>
 </nav>
 <br>
@@ -74,13 +71,14 @@ if(isset($_SESSION["mem_id"]))
                 <li><a href="horse_list.php" >Horses </li>
                 <li><a href="jockey_list.php" >Jockeys </li>
                 <li><a href="trainer_list.php" >Trainers </li>
-                <li><a href="betting_rules.html" >Betting</li>
+                <li><a href="race.php">Races</a></li>
             </ul>                        
             </li>
             <li  class="has-dropdown not-click"><a href="#" class="button" data-dropdown="hover2" data-options="is_hover:true">Betting</a>
                <ul id="hover2" class="f-dropdown" data-dropdown-content>
-                <li><a href="Form_betting.php" >Win</li>
-                <li><a href="Form_betting.html" >Place</li>
+               <li><a href="betting_rules.html" >Betting Help</li>
+                <li><a href="/se-derby/Forms/Form_betting.php" >Win</li>
+                <li><a href="/se-derby/Forms/Form_betting.html" >Place</li>
                </ul>
              </li>
             <li><a href="#" class="button">Archives</a></li>
@@ -120,6 +118,19 @@ if(isset($_SESSION["mem_id"]))
   }
 });
     </script>
+<?php
+//echo $_SESSION['error'];
+if(empty($_SESSION['name']))
+{
+if(isset($_SESSION['error']))
+{
+echo "<script type='text/javascript'>";
+echo "alert('You are not logged in. You cannot place a bet. Sorry!');";
+echo "</script>";
+unset($_SESSION['error']);
+}
+}
+?>
 <br>
       <div class="row-container" data-equalizer>
         <div class=" large-4 columns" data-equalizer-watch>
