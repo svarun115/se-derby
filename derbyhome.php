@@ -78,7 +78,7 @@ if(!empty($_SESSION['name']))
                <ul id="hover2" class="f-dropdown" data-dropdown-content>
                <li><a href="betting_rules.html" >Betting Help</li>
                 <li><a href="/se-derby/Forms/Form_betting.php" >Win</li>
-                <li><a href="/se-derby/Forms/Form_betting.html" >Place</li>
+                <li><a href="/se-derby/Forms/Form_Race_name.php" >Place</li>
                </ul>
              </li>
             <li><a href="race_history.php" class="button">Archives</a></li>

@@ -1,3 +1,4 @@
+
 <?php
 session_start();
           $race=$_POST["race_name"];
@@ -95,7 +96,7 @@ session_start();
           </ul>
          </div>
       </div>          
-    
+    <form action="/se-derby/Betting/inplace_bet.php" method = "post">
     <div class="row">
      <h4><pre>  Inplace Betting</pre></h4>
      <div class="large-12 columns">
@@ -131,7 +132,7 @@ session_start();
           {
            // echo $row["horse_name"];
           $id= "horse".$count;
-         echo '<option value='.$row["horse_name"].' id='.$id.'>'.$row["horse_name"].'</option>';
+         echo '<option value="'.$row["horse_name"].'" id='.$id.'>'.$row["horse_name"].'</option>';
           //echo "hello";
           $count++;
           }
@@ -177,7 +178,7 @@ session_start();
           {
            // echo $row["horse_name"];
           $id= "horse".$count;
-         echo '<option value='.$row["horse_name"].' id='.$id.'>'.$row["horse_name"].'</option>';
+         echo '<option value="'.$row["horse_name"].'" id='.$id.'>'.$row["horse_name"].'</option>';
           //echo "hello";
           $count++;
           }
@@ -201,6 +202,7 @@ session_start();
       </label>
     </div>
   </div>
+  </form>
   <br>
    <div class="row">
     <div class="large-4 columns">

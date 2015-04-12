@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(empty($_SESSION['name']))
+{
+  $_SESSION['error']=1;
+header('Location:/se-derby/derbyhome.php');
+}
+?>
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
