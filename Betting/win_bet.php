@@ -18,18 +18,35 @@ $amount=$_POST["amount"];
 //This script needs to be called by the android module everytime a user places the bet
 $sql = "CREATE TABLE IF NOT EXISTS win_odds (horse_name varchar(25) NOT NULL,odd varchar(10),PRIMARY KEY (horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
 mysqli_query($conn,$sql);
-
-$sql="INSERT into derby.win(member_id,horse_name,amount) values ('$member_id','$horse_name','$amount')";
-if(!mysqli_query($conn,$sql))
-	echo $conn->error;
+$validate=True;
 
 $sql3="SELECT balance from account where member_id='$member_id'";
 $result=mysqli_query($conn1,$sql3);
 		$row = mysqli_fetch_assoc($result)['balance'];
 		$row=$row-$amount;
+		if($row<0)
+		{
+			echo "<h2>Account balance low. Cannot place bet.</h2><br>";
+			echo "<a href='/se-derby/derbyhome.php'>Back to Home</a>";
+			$validate=False;
+			//header('Location:/se-derby/derbyhome.php');
+		}
+if($validate)
+{
 		$sql4="UPDATE account set balance='$row' where member_id='$member_id'";
 		mysqli_query($conn1,$sql4);
 //Caculate new odds
+$sql="INSERT into derby.win(member_id,horse_name,amount) values ('$member_id','$horse_name','$amount')";
+if(!mysqli_query($conn,$sql))
+	{
+		//echo $conn->error;
+		$sql="SELECT amount from derby.win where member_id='$member_id'";
+		$r= mysqli_query($conn1,$sql);
+		$row = mysqli_fetch_assoc($r)['amount'];
+		$row=$row+$amount;
+		$sql="UPDATE derby.win set amount='$row' where member_id='$member_id'";
+		mysqli_query($conn1,$sql);
+	}
 $horse_name=array();
 $sql = "SELECT * FROM derby.win";
 $result = mysqli_query($conn, $sql);
@@ -104,6 +121,8 @@ foreach ($horse_name as $hname) {
 			$n2=$mult/$gcd;
 			$odds[$hname]=$n1."-".$n2;
 			}
+			else if($odds[$hname]<0)
+			$odds[$hname]="1-1";
 			else
 			$odds[$hname]=$odds[$hname]."- 1";
 		}
@@ -120,8 +139,12 @@ foreach ($horse_name as $hname) {
 	mysqli_query($conn,$sql);
 }
 }
-
-
+echo "<h2>Your bet has been placed successfully</h2><br>";
+echo "<h3>Bet Summary</h3><br>";
+echo "Race:".$_SESSION['race']."<br>";
+echo "Horse Name:".$_POST["horse_type"]."<br>";
+echo "Amount:".$amount."<br>";
+}
 mysqli_close($conn);
 
 ?>

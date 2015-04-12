@@ -1,7 +1,9 @@
 
 <?php
 session_start();
-          $race=$_POST["race_name"];
+             $race=$_POST["race_name"];
+              $_SESSION["race"]=$race;
+          
          // echo "<h2>".$race."</h2>";
           $dbhost = 'localhost';
           $db2='derby';
@@ -202,17 +204,32 @@ session_start();
       </label>
     </div>
   </div>
-  </form>
+ 
+ 
   <br>
    <div class="row">
     <div class="large-4 columns">
  <button class="radius button expand" onclick="">Submit</button>
 </div>
 </div>
+ <div class="row">
+    <div class="large-4 columns">
+      <label><b>Horses and details:</b><p>
+        <table border="1px">
+    <tr>
+    <th> Horse-Name</th>
+    <th>Jockey</th>
+    <th>Trainer</th>
+    </tr>
+    <?php require 'Bet_table.php';?>
+    </table>
+      </label>
+    </div>
+  </div>
     </div>
     </div>
     </div>
-   
+    </form>
       <footer class="row">
         <div class="large-12 columns">
           <hr/>

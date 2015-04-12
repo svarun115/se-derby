@@ -12,13 +12,13 @@ if (!$conn) {
 
 echo "sql part";
 
-$winner_first="silver";
-$winner_second="sunshine";
+$winner_first="Lord Trondor";//change
+$winner_second="Market Outlook";//change
 $payoff=0;
 $profit_first=0;
 $profit_second=0;
 $sql="select * from place";
-$sql1="select * from odds";
+$sql1="select * from odds_place";
 
 $result=mysqli_query($conn,$sql);
 $result2=mysqli_query($conn,$sql1);

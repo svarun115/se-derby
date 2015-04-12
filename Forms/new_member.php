@@ -60,7 +60,7 @@
   <div class="large-12 columns">
 <h5>Welcome to the club <?php echo $_POST["name"];?>!</h5>
       <h5>Your member ID is <?php echo $id;?>. Please remember this for future reference.</h5>  
-       <a href="home.html">Continue</a>
+       <a href="/se-derby/derbyhome.php">Continue</a>
   </div>
 </div>
       </div>      

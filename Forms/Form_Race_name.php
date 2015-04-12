@@ -1,10 +1,30 @@
 <?php
 session_start();
+//$_SESSION["error_inplace"]=0;
 if(empty($_SESSION['name']))
 {
   $_SESSION['error']=1;
 header('Location:/se-derby/derbyhome.php');
 }
+          if(isset($_SESSION["error_inplace"]))
+          {
+            $error_no=$_SESSION["error_inplace"];
+            if($error_no=="1")
+            {
+              $message = "The horse names are not properly selected.";
+              echo "<script type='text/javascript'>alert('$message');</script>";
+              $_SESSION["error_inplace"]=0;
+            }
+            else if ($error_no=="2")
+            {
+              $message = "Balance in account is insufficient to place this bet.";
+              echo "<script type='text/javascript'>alert('$message');</script>";
+              $_SESSION["error_inplace"]=0;
+            }
+            
+            
+         }
+
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
