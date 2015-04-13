@@ -7,7 +7,7 @@ $dbpass = 'admin';
 $conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
 $conn1=mysqli_connect($dbhost,$dbuser,$dbpass,'club');
 $sum = array();
-$sql = "CREATE TABLE IF NOT EXISTS win (member_id int(11) NOT NULL DEFAULT '0',horse_name varchar(25) NOT NULL,amount float(10),PRIMARY KEY (member_id),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
+$sql = "CREATE TABLE IF NOT EXISTS win (member_id int(11) NOT NULL DEFAULT '0',horse_name varchar(25) NOT NULL,amount float(10),PRIMARY KEY (member_id,horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
 if(!mysqli_query($conn,$sql))
 	echo $conn->error;
 session_start();
