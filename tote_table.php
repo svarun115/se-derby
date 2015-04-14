@@ -30,25 +30,40 @@
 <?php
  
 // make a connection
+<<<<<<< HEAD
 $conn = mysqli_connect('localhost','admin','admin','derby');
  
 // select the database that we will be using
 //mysql_select_db("derby");
+=======
+$connection = mysql_connect("localhost", "admin", "admin");
+ 
+// select the database that we will be using
+mysql_select_db("derby");
+>>>>>>> 27c94fd9c0aa489ce384a2d2be2b4a5f2a25cfc1
 
 // build and execute the query
 $sql = "SELECT odds.horse_name, odds.odd, win_odds.odd
 FROM odds
 INNER JOIN win_odds
 ON odds.horse_name=win_odds.horse_name";
+<<<<<<< HEAD
 $result = mysqli_query($conn,$sql);
 if(!$result)
 	echo $conn->error;
+=======
+$result = mysql_query($sql);
+>>>>>>> 27c94fd9c0aa489ce384a2d2be2b4a5f2a25cfc1
 echo "<h3>TOTE TABLE</h3>";
 echo "<table>";
 echo "<th>Horse</th>";
 echo "<th>Odds</th>";
 echo "<tr><th>Horse Name</th><th>Place bet</th><th>Win bet</th></tr>";
+<<<<<<< HEAD
 while($row = mysqli_fetch_row($result))
+=======
+while($row = mysql_fetch_row($result))
+>>>>>>> 27c94fd9c0aa489ce384a2d2be2b4a5f2a25cfc1
 {
 	if($row[1]!=NULL || $row[2]!=NULL)
 	{
@@ -57,7 +72,11 @@ while($row = mysqli_fetch_row($result))
 }	
 echo "</table>";
 // close the connection
+<<<<<<< HEAD
 //mysql_close($connection);
+=======
+mysql_close($connection);
+>>>>>>> 27c94fd9c0aa489ce384a2d2be2b4a5f2a25cfc1
  
 ?> 
 </div> 
