@@ -29,23 +29,23 @@ if($horse1=="notype"||$horse2 == "notype"||$horse1==$horse2)
 {
 	$_SESSION['error_inplace']=1;
 	//$_SESSION['error_message']="The horse names are not properly selected.";
-	header('Location:/se-derby/Forms/Form_Race_name.php');
+	//header('Location:/se-derby/Forms/Form_Race_name.php');
 }
 $sql_getmemid= "SELECT member_id from club.members where name like '".$member_name."';";
 $result_mem=mysqli_query($conn1,$sql_getmemid);
 $row_mem = mysqli_fetch_assoc($result_mem);
 $member_id = $row_mem["member_id"];
 
-$sql_amt="SELECT balance from club.account where memeber_id=$memeber_id;";
-$result_amt=mysqli_query($conn1,$sql_amt);
-$row_amt=mysqli_fetch_assoc($result_amt);
-$balance=$row_amt["balance"];
+//$sql_amt="SELECT balance from club.account where memeber_id=$member_id;";
+//$result_amt=mysqli_query($conn1,$sql_amt);
+//$row_amt=mysqli_fetch_assoc($result_amt);
+$balance=100;//$row_amt["balance"];
 
 if($amount>$balance)
 {
 	$_SESSION['error_inplace']=2;
 	//$_SESSION['error_message']="Balance in account is insufficient to place this bet.";
-	header('Location:/se-derby/Forms/Form_Race_name.php');
+	//header('Location:/se-derby/Forms/Form_Race_name.php');
 }
 echo "<br>member id = ".$member_id."<br>";
 $sql1 = "SELECT horse_name from $race_table";
