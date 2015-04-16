@@ -6,7 +6,7 @@ if(empty($_SESSION['name']))
   $_SESSION['error']=1;
 header('Location:/se-derby/derbyhome.php');
 }
-         /* if(isset($_SESSION["error_inplace"]))
+          if(isset($_SESSION["error_inplace"]))
           {
             $error_no=$_SESSION["error_inplace"];
             if($error_no=="1")
@@ -23,7 +23,7 @@ header('Location:/se-derby/derbyhome.php');
             }
             
             
-         }*/
+         }
 
 ?>
 <!doctype html>

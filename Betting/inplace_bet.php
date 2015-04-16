@@ -28,24 +28,34 @@ if (!$conn1)
 if($horse1=="notype"||$horse2 == "notype"||$horse1==$horse2)
 {
 	$_SESSION['error_inplace']=1;
-	//$_SESSION['error_message']="The horse names are not properly selected.";
-	//header('Location:/se-derby/Forms/Form_Race_name.php');
+	$_SESSION['error_message']="The horse names are not properly selected.";
+	header('Location:/se-derby/Forms/Form_Race_name.php');
 }
 $sql_getmemid= "SELECT member_id from club.members where name like '".$member_name."';";
 $result_mem=mysqli_query($conn1,$sql_getmemid);
 $row_mem = mysqli_fetch_assoc($result_mem);
 $member_id = $row_mem["member_id"];
 
-//$sql_amt="SELECT balance from club.account where memeber_id=$member_id;";
-//$result_amt=mysqli_query($conn1,$sql_amt);
-//$row_amt=mysqli_fetch_assoc($result_amt);
-$balance=100;//$row_amt["balance"];
+$sql_amt="SELECT balance from club.account where member_id=$member_id;";
+if(!($result_amt=mysqli_query($conn1,$sql_amt)))
+	echo $conn1->error;
 
+$row_amt=mysqli_fetch_assoc($result_amt);
+$balance=$row_amt["balance"];
+$foo = settype($amount,"float");
+//echo "--------------------- amt =".$amount."--------bal=".$balance."<br>";
 if($amount>$balance)
 {
 	$_SESSION['error_inplace']=2;
-	//$_SESSION['error_message']="Balance in account is insufficient to place this bet.";
-	//header('Location:/se-derby/Forms/Form_Race_name.php');
+	$_SESSION['error_message']="Balance in account is insufficient to place this bet.";
+	header('Location:/se-derby/Forms/Form_Race_name.php');
+}
+else
+{
+	$new_balance = $balance-$amount;
+	$sql = "UPDATE club.account SET balance = $new_balance where member_id=$member_id;";
+	if(!($result_amt=mysqli_query($conn1,$sql)))//;
+		echo $conn1->error;
 }
 echo "<br>member id = ".$member_id."<br>";
 $sql1 = "SELECT horse_name from $race_table";
@@ -66,24 +76,31 @@ $odds_fraction=array();
 
 	//$horse_name=array("silver","sunshine","arrow","majestic","royal");
 	//queries
-$sql = "CREATE TABLE IF NOT EXISTS place (member_id int(11) NOT NULL,horse_name_place1 varchar(25) NOT NULL,horse_name_place2 varchar(25) NOT NULL,amount float(10),PRIMARY KEY (member_id),foreign key(horse_name_place1) references horse(horse_name) ,foreign key(horse_name_place2) references horse(horse_name) on update cascade on delete cascade)";
+$sql = "CREATE TABLE IF NOT EXISTS place (member_id int(11) NOT NULL,race_name varchar(25) NOT NULL,horse_name_place1 varchar(25) NOT NULL,horse_name_place2 varchar(25) NOT NULL,amount float(10),PRIMARY KEY (member_id,race_name,horse_name_place1,horse_name_place2),foreign key(horse_name_place1) references horse(horse_name) ,foreign key(horse_name_place2) references horse(horse_name) on update cascade on delete cascade)";
 if(!mysqli_query($conn,$sql))
   echo $conn->error;
 
 	/*$sql="CREATE TABLE IF NOT EXISTS odds (horse_name varchar(25) NOT NULL, odd_fraction float default '0',primary key(horse_name) foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade";
 	echo "hereeeeee";
 	*/
-$sql = "CREATE TABLE IF NOT EXISTS odds_place (horse_name varchar(25) NOT NULL,odd float(10),PRIMARY KEY (horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
+$table_name= $race."_odds_place";
+$sql = "CREATE TABLE IF NOT EXISTS $table_name (horse_name varchar(25) NOT NULL,odds varchar(25),odds_fraction float(20),PRIMARY KEY (horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
 if(mysqli_query($conn,$sql))
   echo "success";
 else
 	echo "UGH!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
-
+foreach ($horse_name as $hname) {
+$sql="INSERT into $table_name(horse_name,odds,odds_fraction) values ('$hname','4-5',3.09)";
+	if(mysqli_query($conn,$sql))
+ 	 echo "success";
+ 	else
+ 		echo $conn->error;
+}
 echo "<br> Hello ".$member_id."<br>";
 echo "<br> Hello ".$horse1."<br>";
 echo "<br> Hello ".$horse2."<br>";
 // Insert the values obtained into the place table.
-$sql2 = "INSERT into derby.place(member_id,horse_name_place1,horse_name_place2,amount) values ('$member_id','$horse1','$horse2','$amount');";
+$sql2 = "INSERT into derby.place(member_id,race_name,horse_name_place1,horse_name_place2,amount) values ('$member_id','$race','$horse1','$horse2','$amount');";
 if(!($result2 = mysqli_query($conn,$sql2)))
 	echo $conn->error;
 // code copied from here
@@ -137,7 +154,9 @@ foreach($horse_name as $hname)
 }
 foreach ($horse_name as $hname) {
 	# code...
-	echo $hname."=".$sum[$hname]."<br>";
+	//echo $hname."=".$sum[$hname]."<br>";
+	$odds[$hname]="0-0";
+	$odds_fraction[$hname]=0;
 }
 
 function gcd($x, $y)
@@ -159,24 +178,79 @@ function gcd($x, $y)
                     return $z;
           }
 }
+function float2rat($n, $tolerance = 1.e-6) {
+	echo "n=".$n."<br>";
+    $h1=1; $h2=0;
+    $k1=0; $k2=1;
+    $b = (float)1/$n;
+    echo "bbb===".$b."<br>";
+    do {
+        $b = 1/$b;
+        $a = floor($b);
+        $aux = $h1; $h1 = $a*$h1+$h2; $h2 = $aux;
+        $aux = $k1; $k1 = $a*$k1+$k2; $k2 = $aux;
+        $b = $b-$a;
+    } while (abs($n-$h1/$k1) > $n*$tolerance);
 
-$pool=$pool*0.85; //Considering 15% taxes
+    return "$h1-$k1";
+}
+
+function toFraction($number){ 
+    $numerator = 1; 
+    $denominator = 0; 
+    for(; $numerator < 1000; $numerator++){ 
+        $temp = $numerator / $number; 
+        if(ceil($temp) - $temp == 0){ 
+            $denominator = $temp; 
+            break; 
+        } 
+    } 
+    return ($denominator > 0) ? $numerator . '/' . $denominator : false; 
+}  
+
+function decToFraction($float) {
+    // 1/2, 1/4, 1/8, 1/16, 1/3 ,2/3, 3/4, 3/8, 5/8, 7/8, 3/16, 5/16, 7/16,
+    // 9/16, 11/16, 13/16, 15/16
+    $whole = floor ( $float );
+    $decimal = $float - $whole;
+    $leastCommonDenom = 48; // 16 * 3;
+    $denominators = array (2, 3, 4, 8, 16, 24, 48 );
+    $roundedDecimal = round ( $decimal * $leastCommonDenom ) / $leastCommonDenom;
+    if ($roundedDecimal == 0)
+        return $whole;
+    if ($roundedDecimal == 1)
+        return $whole + 1;
+    foreach ( $denominators as $d ) {
+        if ($roundedDecimal * $d == floor ( $roundedDecimal * $d )) {
+            $denom = $d;
+            break;
+        }
+    }
+    return ($whole == 0 ? '' : $whole) . " " . ($roundedDecimal * $denom) . "/" . $denom;
+}
+//printf("%s\n", float2rat(66.66667)); # 200/3
+//printf("%s\n", float2rat(sqrt(2)));  # 1393/985
+//printf("%s\n", float2rat(0.43212));  # 748/1731
+
+
+
 foreach ($horse_name as $hname) {
 	# code...
 		if($sum[$hname]==0)
 		{
-			$odds[$hname]=0;
 			$odds_fraction[$hname]=0;
 		}
 		else
 		{
-			$odds[$hname]=($pool-$sum[$hname])/$sum[$hname];
-			if($odds[$hname]<0)
-			{
-				$odds[$hname]="1";
-				$odds_fraction[$hname]="1-1";
-			}
-			$whole=floor($odds[$hname]);
+			$odds_fraction[$hname]=($pool-$sum[$hname])/$sum[$hname];
+			//converting decimal to fraction
+			echo "odds_fraction==".$odds_fraction[$hname]."<br>";
+			if($odds_fraction[$hname])
+				$odds[$hname]=float2rat($odds_fraction[$hname]);
+			else if($odds_fraction[$hname]==0)
+				$odds[$hname]="1-1";
+
+			/*$whole=floor($odds[$hname]);
 			$frac=$odds[$hname]-$whole;
 			if($frac!=0)
 			{
@@ -189,27 +263,24 @@ foreach ($horse_name as $hname) {
 			$odds_fraction[$hname]=$n1/$n2;;
 			$odds[$hname]=$n1."-".$n2;
 			}
-			else if($odds[$hname]<0)
-			$odds[$hname]="1-1";
 			else
 			$odds[$hname]=$odds[$hname]."- 1";
-		}
+		}*/
+}
 }
  //Send calculated odds to Tote table
 foreach ($horse_name as $hname) {
 	# code...
-	echo "Done:".$hname." :odds is: ".$odds[$hname]."<br>";
+	echo "Done:".$hname." :odds is: ".$odds[$hname]."  Odds_fraction:".$odds_fraction[$hname]."<br>";
 	$name=$odds_fraction[$hname];
-	$sql="INSERT into derby.odds_place(horse_name,odd) values ('$hname','$name')";
+	$sql="UPDATE $table_name SET odds='".$odds[$hname]."', odds_fraction=$odds_fraction[$hname] WHERE horse_name='".$hname ."';";
 	if(mysqli_query($conn,$sql))
  	 echo "success";
  	else
- 		echo"fail";
+ 		echo $conn->error;
 }
 
-/*
-Doubts- when taking amount for that horse, do we take 60, 40 % or do we take the full amount.
-Based on the above, we get different odds. which one is right.
-*/
-?>
 
+mysqli_close($conn);
+
+?>

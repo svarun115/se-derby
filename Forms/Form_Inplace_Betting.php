@@ -97,7 +97,10 @@ session_start();
             <li><a href="contact_us.html" class="button">Contact us</a></li>
           </ul>
          </div>
-      </div>          
+      </div>
+
+      
+      
     <form action="/se-derby/Betting/inplace_bet.php" method = "post">
     <div class="row">
      <h4><pre>  Inplace Betting</pre></h4>
