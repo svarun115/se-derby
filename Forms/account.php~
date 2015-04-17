@@ -18,7 +18,7 @@
 	
 	$bal=mysqli_fetch_assoc($result)['balance'];
 	echo $bal;
-	if($bal!='')
+	if($bal=='')
 	{
 	$balance=$bal+$balance;
 	$sql="UPDATE account set balance='$balance' where member_id='$m_id'";

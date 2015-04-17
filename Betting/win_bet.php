@@ -40,11 +40,11 @@ $sql="INSERT into derby.win(member_id,horse_name,amount) values ('$member_id','$
 if(!mysqli_query($conn,$sql))
 	{
 		//echo $conn->error;
-		$sql="SELECT amount from derby.win where member_id='$member_id'";
+		$sql="SELECT amount from derby.win where member_id='$member_id' and horse_name='$horse_name'";
 		$r= mysqli_query($conn1,$sql);
 		$row = mysqli_fetch_assoc($r)['amount'];
 		$row=$row+$amount;
-		$sql="UPDATE derby.win set amount='$row' where member_id='$member_id'";
+		$sql="UPDATE derby.win set amount='$row' where member_id='$member_id' and horse_name='$horse_name'";
 		mysqli_query($conn1,$sql);
 	}
 $horse_name=array();
@@ -99,7 +99,7 @@ function gcd($x, $y)
           }
 }
 
-$pool=$pool*0.85; //Considering 15% taxes
+$pool=$pool; //Considering 15% taxes
 foreach ($horse_name as $hname) {
 		if($sum[$hname]==0)
 		{
@@ -121,7 +121,7 @@ foreach ($horse_name as $hname) {
 			$n2=$mult/$gcd;
 			$odds[$hname]=$n1."-".$n2;
 			}
-			else if($odds[$hname]<0)
+			else if($odds[$hname]<=0)
 			$odds[$hname]="1-1";
 			else
 			$odds[$hname]=$odds[$hname]."- 1";
