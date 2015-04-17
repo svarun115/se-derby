@@ -69,7 +69,7 @@ while($row=mysqli_fetch_assoc($result1))
    	$horse_name[$count++] = $row["horse_name"];
     }
 foreach($horse_name as $h)
-    echo $h."<br>";
+    //echo $h."<br>";
 $sum = array();
 $odds_fraction=array();
 	//$sum['silver']=0;
@@ -86,19 +86,19 @@ if(!mysqli_query($conn,$sql))
 $table_name= $race."_odds_place";
 $sql = "CREATE TABLE IF NOT EXISTS $table_name (horse_name varchar(25) NOT NULL,odds varchar(25),odds_fraction float(20),PRIMARY KEY (horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
 if(mysqli_query($conn,$sql))
-  echo "success";
+  //echo "success";
 else
-	echo "UGH!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+	//echo "UGH!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
 foreach ($horse_name as $hname) {
 $sql="INSERT into $table_name(horse_name,odds,odds_fraction) values ('$hname','4-5',3.09)";
 	if(mysqli_query($conn,$sql))
- 	 echo "success";
+ 	 //echo "success";
  	else
- 		echo $conn->error;
+ 		//echo $conn->error;
 }
-echo "<br> Hello ".$member_id."<br>";
-echo "<br> Hello ".$horse1."<br>";
-echo "<br> Hello ".$horse2."<br>";
+//echo "<br> Hello ".$member_id."<br>";
+//echo "<br> Hello ".$horse1."<br>";
+//echo "<br> Hello ".$horse2."<br>";
 // Insert the values obtained into the place table.
 $sql2 = "INSERT into derby.place(member_id,race_name,horse_name_place1,horse_name_place2,amount) values ('$member_id','$race','$horse1','$horse2','$amount');";
 if(!($result2 = mysqli_query($conn,$sql2)))
@@ -117,11 +117,11 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
-        echo "member: " . $row["member_id"]. " - horse name 1: " . $row["horse_name_place1"]. " - horse name 2:" . $row["horse_name_place2"]. "-amount:".$row["amount"] ."<br>";
+  //      echo "member: " . $row["member_id"]. " - horse name 1: " . $row["horse_name_place1"]. " - horse name 2:" . $row["horse_name_place2"]. "-amount:".$row["amount"] ."<br>";
     }
-} else {
-    echo "0 results";
-}
+} /*else {
+    //echo "0 results";
+}*/
 
 
 //try part 
@@ -137,19 +137,19 @@ foreach($horse_name as $hname)
 
 
 
-	echo 'should enter if';
+	//echo 'should enter if';
 
 	if (mysqli_num_rows($result1) > 0) {
 	    // output data of each row
-	    echo "entered if";
+	  //  echo "entered if";
 	    while($row = mysqli_fetch_assoc($result1)) {
-	        echo "-amount:".$row["amount"] ."<br>";
+	       // echo "-amount:".$row["amount"] ."<br>";
 	        $sum[$hname] +=$row["amount"];
 	    }
-	} else {
-	    echo "0 results";
-	}
-	echo "pool:".$pool."<br>";
+	} //else {
+	    //echo "0 results";
+	//}
+	//echo "pool:".$pool."<br>";
 
 }
 foreach ($horse_name as $hname) {
@@ -179,11 +179,11 @@ function gcd($x, $y)
           }
 }
 function float2rat($n, $tolerance = 1.e-6) {
-	echo "n=".$n."<br>";
+	//echo "n=".$n."<br>";
     $h1=1; $h2=0;
     $k1=0; $k2=1;
     $b = (float)1/$n;
-    echo "bbb===".$b."<br>";
+    //echo "bbb===".$b."<br>";
     do {
         $b = 1/$b;
         $a = floor($b);
@@ -244,7 +244,7 @@ foreach ($horse_name as $hname) {
 		{
 			$odds_fraction[$hname]=($pool-$sum[$hname])/$sum[$hname];
 			//converting decimal to fraction
-			echo "odds_fraction==".$odds_fraction[$hname]."<br>";
+			//echo "odds_fraction==".$odds_fraction[$hname]."<br>";
 			if($odds_fraction[$hname])
 				$odds[$hname]=float2rat($odds_fraction[$hname]);
 			else if($odds_fraction[$hname]==0)
@@ -271,15 +271,21 @@ foreach ($horse_name as $hname) {
  //Send calculated odds to Tote table
 foreach ($horse_name as $hname) {
 	# code...
-	echo "Done:".$hname." :odds is: ".$odds[$hname]."  Odds_fraction:".$odds_fraction[$hname]."<br>";
+	//echo "Done:".$hname." :odds is: ".$odds[$hname]."  Odds_fraction:".$odds_fraction[$hname]."<br>";
 	$name=$odds_fraction[$hname];
 	$sql="UPDATE $table_name SET odds='".$odds[$hname]."', odds_fraction=$odds_fraction[$hname] WHERE horse_name='".$hname ."';";
 	if(mysqli_query($conn,$sql))
- 	 echo "success";
+ 	 //echo "success";
  	else
  		echo $conn->error;
 }
-
+/*$sql_getall = "SELECT * FROM $table_name;"
+$result_getall = (mysqli_query($conn,$sql_getall));
+while($row = mysqli_fetch_assoc($result_getall))
+{
+	echo json_encode()
+}
+*/
 
 mysqli_close($conn);
 

@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Gallery Theme - Jssor Slider, Carousel, Slideshow with Javascript Source Code</title>
+    <title>Image Gallery</title>
 	    <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
 	<link rel="stylesheet" href="css/prettyPhoto.css" type="text/css">
@@ -56,81 +56,19 @@ $(window).load(function(){
 </style>
 </head>
 <body>
- <nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-   <!--<h1><a href="#">My Site</a></h1>
-    </li>-->
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
-
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <!--<ul class="right">
-      <li class="active"><a href="#">Right Button Active</a></li>
-      <li class="has-dropdown">
-        <a href="#">Right Button Dropdown</a>
-        <ul class="dropdown">
-          <li><a href="#">First link in dropdown</a></li>
-          <li class="active"><a href="#">Active link in dropdown</a></li>
-        </ul>
-      </li>
-    </ul>!-->
-
-    <!-- Left Nav Section -->
-     <ul class="left">
-      <li style="font-weight: bold;"><a href="#">TURF CLUB</a></li>
-    </ul>
-    
-    <!--If session, display this -->
-    <ul class="right">
-         <li class="has-dropdown not-click">
-         <?php echo "<a href='#'>".$name."</a>"; ?>
-         <ul class="dropdown">
-         <li><a href="#">Sign out</a></li>
-    </ul>
-        </ul> <!-- till here -->
-        
-        <!-- Else -->
-    <ul class="right">
-      <li><a href="Forms/Form_Signup.html">SIGNUP</a></li>
-    </ul>
-     <ul class="right">
-      <li><a href="Forms/Form_Login.html">LOGIN</a></li>
-    </ul>
-    <!-- till here -->
-    
-  </section>
-</nav>
-<br>
-
-    <div class="row">
+	<div class="row">
         <div class="large-12 columns">
           <ul class="round button-group">
-            <li><a href="derbyhome.html" class="button">Home</a></li>
-            <li><a href="About_Us.html" class="button">About Us</a></li>
-            <li class="has-dropdown not-click"><a href="#" class="button" data-dropdown="hover1" data-options="is_hover:true">Racing</a>
-            <ul id="hover1" class="f-dropdown" data-dropdown-content>
-                <li><a href="horse_list.php" >Horses </li>
-                <li><a href="jockey_list.php" >Jockeys </li>
-                <li><a href="trainer_list.php" >Trainers </li>
-                <li><a href="betting_rules.html" >Betting</li>
-            </ul>                        
-            </li>
-            <li  class="has-dropdown not-click"><a href="#" class="button" data-dropdown="hover2" data-options="is_hover:true">Betting</a>
-               <ul id="hover2" class="f-dropdown" data-dropdown-content>
-                <li><a href="Form_betting.php" >Win</li>
-                <li><a href="Form_betting.html" >Place</li>
-               </ul>
-             </li>
+            <li><a href="#" class="button">Home</a></li>
+            <li><a href="#" class="button">About Us</a></li>
+            <li><a href="#" class="button">Racing</a></li>
+            <li><a href="#" class="button">Fixtures</a></li>
             <li><a href="#" class="button">Archives</a></li>
-            <li><a href="Photo_gallery.html" class="button">Photo Gallery</a></li>
-            <li><a href="contact_us.html" class="button">Contact us</a></li>
+            <li><a href="#" class="button">Photo Gallery</a></li>
+            <li><a href="#" class="button">Contact us</a></li>
           </ul>
-         </div>
-      </div>          
-          
+        </div>
+    </div>
     <!-- use jssor.slider.min.js instead for release -->
     <!-- jssor.slider.min.js = (jssor.js + jssor.slider.js) -->
     <script type="text/javascript" src="js1/jssor.js"></script>
@@ -241,7 +179,9 @@ $(window).load(function(){
     </script>
     <!-- Jssor Slider Begin -->
     <!-- To move inline styles to css file/block, please specify a class name for each element. --> 
-    <div id="slider1_container" style="position: relative; top: 20px; left: 300px; width: 800px;
+	<div class="row">
+	<div class="well">
+    <div id="slider1_container" style="position: relative; left:50px; width: 800px;
         height: 456px; background: #191919; overflow: hidden;">
 
         <!-- Loading Screen -->
@@ -304,6 +244,78 @@ $(window).load(function(){
             <div>
                 <img u="image" src="img/12.jpg" />
                 <img u="thumb" src="img/thumb-12.jpg" />
+            </div>
+			<div>
+                <img u="image" src="img/13.jpeg" />
+                <img u="thumb" src="img/thumb-13.jpeg" />
+            </div>
+			<div>
+                <img u="image" src="img/14.jpg" />
+                <img u="thumb" src="img/thumb-14.jpg" />
+            </div>
+			<div>
+                <img u="image" src="img/15.jpg" />
+                <img u="thumb" src="img/thumb-15.jpg" />
+            </div>
+			<div>
+                <img u="image" src="img/16.jpg" />
+                <img u="thumb" src="img/thumb-16.jpg" />
+            </div>
+			<div>
+                <img u="image" src="img/17.jpg" />
+                <img u="thumb" src="img/thumb-17.jpg" />
+            </div>
+			<div>
+                <img u="image" src="img/18.jpg" />
+                <img u="thumb" src="img/thumb-18.jpg" />
+            </div>
+			<div>
+                <img u="image" src="img/19.jpg" />
+                <img u="thumb" src="img/thumb-19.jpg" />
+            </div>
+			<div>
+                <img u="image" src="img/20.jpg" />
+                <img u="thumb" src="img/thumb-20.jpg" />
+            </div>
+			<div>
+                <img u="image" src="img/21.jpg" />
+                <img u="thumb" src="img/thumb-21.jpg" />
+            </div>
+			<div>
+                <img u="image" src="img/22.jpg" />
+                <img u="thumb" src="img/thumb-22.jpg" />
+            </div>
+			<div>
+                <img u="image" src="img/23.jpg" />
+                <img u="thumb" src="img/thumb-23.jpg" />
+            </div>
+			<div>
+                <img u="image" src="img/24.jpg" />
+                <img u="thumb" src="img/thumb-24.jpg" />
+            </div>
+			<div>
+                <img u="image" src="img/25.jpg" />
+                <img u="thumb" src="img/thumb-25.jpg" />
+            </div>
+			<div>
+                <img u="image" src="img/26.jpg" />
+                <img u="thumb" src="img/thumb-26.jpg" />
+            </div>
+			<div>
+                <img u="image" src="img/27.jpg" />
+                <img u="thumb" src="img/thumb-27.jpg" />
+            </div>
+			<div>
+                <img u="image" src="img/28.jpg" />
+                <img u="thumb" src="img/thumb-28.jpg" />
+            </div>
+			<div>
+                <img u="image" src="img/29.jpg" />
+                <img u="thumb" src="img/thumb-29.jpg" />
+            </div>
+			<div>
+                <img u="image" src="img/30.jpg" />
+                <img u="thumb" src="img/thumb-30.jpg" />
             </div>
         </div>
         
@@ -449,6 +461,8 @@ $(window).load(function(){
             jssor_slider1_starter('slider1_container');
         </script>
     </div>
+	</div>
+	</div>
     <!-- Jssor Slider End -->
 	
 	<footer class="row">
