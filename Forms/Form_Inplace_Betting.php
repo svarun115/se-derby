@@ -83,7 +83,7 @@ if(!empty($_SESSION['name']))
     echo  "<li><a href='Forms/Form_Signup.html'>SIGNUP</a></li>";
     echo "</ul>";
 	echo "<ul class='right'>";
-    echo "<li><a href='Form_Login.php'>LOGIN</a></li>";
+    echo "<li><a href='Form_Login.html'>LOGIN</a></li>";
     echo "</ul>";}
     ?>
   </section>
