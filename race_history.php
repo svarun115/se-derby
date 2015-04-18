@@ -95,19 +95,19 @@ if(!empty($_SESSION['name']))
 <?php
  
 // make a connection
-$connection = mysql_connect("localhost", "root", "");
+$connection = mysqli_connect("localhost", "admin", "admin","club");
  
 // select the database that we will be using
-mysql_select_db("club");
+//mysql_select_db("club");
  
 // build and execute the query
 $sql = "SELECT * FROM racing_history";
-$result = mysql_query($sql);
+$result = mysqli_query($connection,$sql);
  $var1=1;
 echo "<table>";
 echo "<tr><th>Race Name</th><th>Race Date</th><th>Time</th><th>Category</th><th>Temparature</th>
       <th>Humidity</th><th>Wind</th><th>Type</th><th>Winner</th><th>Second Place</th></tr>";
-while($row = mysql_fetch_row($result))
+while($row = mysqli_fetch_row($result))
 {
 if(($row[9]!=null||$row[10]!=null))
 {
@@ -118,14 +118,14 @@ echo "<tr onmouseover=\"hilite(this)\" onmouseout=\"lowlite(this)\"><td>$row[1]<
 }
 else
 {
-	mysql_error();
+	//mysqli_error();
 }
 }
 echo "</table>";
 
 
 // close the connection
-mysql_close($connection);
+mysqli_close($connection);
  
 ?> 
 </div> 
