@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id = "@+id/fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar" />
+    <android.support.v4.widget.DrawerLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="50dp"
+            android:text="ABOUT THE DERBY"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:textColor="@color/material_blue_grey_800"
+            android:text="The Bangalore Race Course is considered as one of the best in the country for the challenge it poses both to the horse and to the riders, the credit should go to the successive administrators who have wisely made use of the natural and undulating contours of the land. The Bangalore Race Course is probably the only one on the world where a limited space of barely 85 acres has been so comprehensively utilised to provide facilities such as stabling for over 1000 horses, three training tracks, an equine swimming pool, training schools, walking rings, a veterinary hospital and even an amateur riding school.
+Bangalore Turf Club played a crucial role in the starting of off-course betting in association with Royal Western India Turf Club in 1975, which gave a new lease of life to the sport. At that stage, the clubs faced a great financial strain. But with the conduct of off-course betting which is now an all India affair, a degree of financial stability has been ensured so much so that off-course betting is now a lifeline of all Turf Clubs of India."/>
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="35dp"
+             android:layout_marginTop="400dp"
+             android:textColor="#03A9F4"
+             android:textSize="15sp"
+             android:textStyle="italic"
+             android:text="CONTACT US - VISIT OUR WEBSITE - LINK"/>
+        <fragment
+            android:id="@+id/fragment_navigation_drawer"
+            android:name="com.example.pranav.derbymananger.NavigationDrawerFragment"
+            android:layout_width="280dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:layout="@layout/fragment_navigation_drawer"
+            tools:layout="@layout/fragment_navigation_drawer" />
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>

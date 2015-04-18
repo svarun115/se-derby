@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id = "@+id/fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar"/>
+    <android.support.v4.widget.DrawerLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:src="@drawable/derby"
+                android:layout_gravity="center_horizontal|top" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="170dp"
+                android:layout_marginLeft="70dp"
+                android:text="WELCOME TO DERBY MANAGER"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="266dp"
+                android:layout_height="274dp"
+
+                android:text="Hey! Get updated about all the current races and events going on and also access our website for full details of the club. Betting made easy through the app on the go. Go through the current news and events here through this link "
+                android:textSize="18sp"
+                android:id="@+id/textView"
+
+                android:textColor="@color/material_deep_teal_500"
+                android:layout_gravity="center_horizontal|bottom" />
+
+
+        </FrameLayout>
+
+
+        <fragment
+            android:id="@+id/fragment_navigation_drawer"
+            android:name="com.example.pranav.derbymananger.NavigationDrawerFragment"
+            android:layout_width="280dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:layout="@layout/fragment_navigation_drawer"
+            tools:layout="@layout/fragment_navigation_drawer" />
+
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>
