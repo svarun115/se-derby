@@ -1,3 +1,92 @@
+<!doctype html>
+
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/se-derby/css/foundation.css" />
+    <script src="/se-derby/js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+  <nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+   <!--<h1><a href="#">My Site</a></h1>
+    </li>-->
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <!--<ul class="right">
+      <li class="active"><a href="#">Right Button Active</a></li>
+      <li class="has-dropdown">
+        <a href="#">Right Button Dropdown</a>
+        <ul class="dropdown">
+          <li><a href="#">First link in dropdown</a></li>
+          <li class="active"><a href="#">Active link in dropdown</a></li>
+        </ul>
+      </li>
+    </ul>!-->
+
+    <!-- Left Nav Section -->
+	 <ul class="left">
+      <li style="font-weight: bold;"><a href="#">TURF CLUB</a></li>
+    </ul>
+    
+    <!--If session, display this -->
+    <?php
+    session_start();
+if(!empty($_SESSION['name']))
+      { 
+    echo "<ul class='right'>";
+    echo " <li class='has-dropdown not-click'>";
+    echo "<a href='#'>".$_SESSION['name']."</a>"; 
+    echo "<ul class='dropdown'>";
+    echo "<li><a href='signout.php'>Sign out</a></li>";
+    echo "</ul>";
+    echo"    </ul>";
+       }
+        else{
+    echo "<ul class='right'>";
+    echo  "<li><a href='Forms/Form_Signup.html'>SIGNUP</a></li>";
+    echo "</ul>";
+	echo "<ul class='right'>";
+    echo "<li><a href='Forms/Form_Login.html'>LOGIN</a></li>";
+    echo "</ul>";}
+    ?>
+  </section>
+</nav>
+<br>
+
+    <div class="row">
+        <div class="large-12 columns">
+          <ul class="round button-group">
+            <li><a href="#" class="button">Home</a></li>
+            <li><a href="About_Us.html" class="button">About Us</a></li>
+            <li class="has-dropdown not-click"><a href="#" class="button" data-dropdown="hover1" data-options="is_hover:true">Racing</a>
+            <ul id="hover1" class="f-dropdown" data-dropdown-content>
+                <li><a href="horse_list.php" >Horses </li>
+                <li><a href="jockey_list.php" >Jockeys </li>
+                <li><a href="trainer_list.php" >Trainers </li>
+                <li><a href="race.php">Races</a></li>
+            </ul>                        
+            </li>
+            <li  class="has-dropdown not-click"><a href="#" class="button" data-dropdown="hover2" data-options="is_hover:true">Betting</a>
+               <ul id="hover2" class="f-dropdown" data-dropdown-content>
+               <li><a href="betting_rules.html" >Betting Help</li>
+                <li><a href="/se-derby/Forms/Form_betting.php" >Win</li>
+                <li><a href="/se-derby/Forms/Form_Race_name.php" >Place</li>
+               </ul>
+             </li>
+            <li><a href="race_history.php" class="button">Archives</a></li>
+            <li><a href="image-gallery.source.html" class="button">Photo Gallery</a></li>
+            <li><a href="contact_us.html" class="button">Contact us</a></li>
+          </ul>
+         </div>
+      </div>          
 <?php
 //Update accounts with respect to bet. Remaining.
 $dbhost = 'localhost';
@@ -10,7 +99,6 @@ $sum = array();
 $sql = "CREATE TABLE IF NOT EXISTS win (member_id int(11) NOT NULL DEFAULT '0',horse_name varchar(25) NOT NULL,amount float(10),PRIMARY KEY (member_id,horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
 if(!mysqli_query($conn,$sql))
 	echo $conn->error;
-session_start();
 $member_id=$_SESSION["mem_id"];
 $horse_name=$_POST["horse_type"]; 
 $amount=$_POST["amount"]; 
@@ -26,10 +114,13 @@ $result=mysqli_query($conn1,$sql3);
 		$row=$row-$amount;
 		if($row<0)
 		{
+			echo "<div class='large-4 large-centered columns'>
+  <div class='large-12 columns'>";
 			echo "<h2>Account balance low. Cannot place bet.</h2><br>";
 			echo "<a href='/se-derby/derbyhome.php'>Back to Home</a>";
 			$validate=False;
 			//header('Location:/se-derby/derbyhome.php');
+			echo "</div></div>";
 		}
 if($validate)
 {
@@ -44,7 +135,7 @@ if(!mysqli_query($conn,$sql))
 		$r= mysqli_query($conn1,$sql);
 		$row = mysqli_fetch_assoc($r)['amount'];
 		$row=$row+$amount;
-		$sql="UPDATE derby.win set amount='$row' where member_id='$member_id'";
+		$sql="UPDATE derby.win set amount='$row' where member_id='$member_id' and horse_name='$horse_name'";
 		mysqli_query($conn1,$sql);
 	}
 $horse_name=array();
@@ -139,12 +230,28 @@ foreach ($horse_name as $hname) {
 	mysqli_query($conn,$sql);
 }
 }
+echo "<div class='large-4 large-centered columns'>
+  <div class='large-12 columns'>";
 echo "<h2>Your bet has been placed successfully</h2><br>";
 echo "<h3>Bet Summary</h3><br>";
 echo "Race:".$_SESSION['race']."<br>";
 echo "Horse Name:".$_POST["horse_type"]."<br>";
 echo "Amount:".$amount."<br>";
+echo "</div></div>";
 }
 mysqli_close($conn);
 
 ?>
+  <footer class="row">
+        <div class="large-12 columns">
+          <hr/>
+          <div class="row">
+            <div class="large-6 columns">
+              <p>© Copyright no one at all. Go to town.</p>
+            </div>
+          </div>
+        </div> 
+      </footer>
+    
+  </body>
+</html>

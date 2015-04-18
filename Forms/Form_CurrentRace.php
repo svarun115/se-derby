@@ -123,7 +123,7 @@ while( $row=  $result->fetch_assoc())
       count++;
       btn=document.createElement("input");
       btn.type="button";
-      btn.value="Delete Row";
+      btn.value="Delete Entry";
       btn.id="delrow"+count;
       btn.addEventListener("click",deleteRow,false);
       td5.appendChild(btn);
@@ -201,7 +201,11 @@ while( $row=  $result->fetch_assoc())
 		</tr>
       </table>
       </fieldset>            
-      <input type="submit"/>
+      <div class="row">
+    <div class="large-2 columns">
+ <button class="radius button expand" type="submit">Submit</button>
+</div>
+</div>
       </form>
 
       </div>      

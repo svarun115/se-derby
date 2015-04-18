@@ -98,7 +98,7 @@
       <label><b>Horses and details:</b><p>
         <table border="1px">
 		<tr>
-		<th>Horse-Name</th>
+		<th> Horse-Name</th>
 		<th>Jockey</th>
 		<th>Trainer</th>
 		</tr>

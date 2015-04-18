@@ -58,7 +58,7 @@ while( $row=  $result->fetch_assoc())
       {
         selecth=document.createElement("option");
         selectj=document.createElement("option");
-        selectt=documen	t.createElement("option");
+        selectt=document.createElement("option");
         selecth.value=h_values[i];
         selecth.innerHTML=h_values[i];
         selectt.value=t_values[i];
@@ -123,7 +123,7 @@ while( $row=  $result->fetch_assoc())
       count++;
       btn=document.createElement("input");
       btn.type="button";
-      btn.value="Delete Row";
+      btn.value="Delete Entry";
       btn.id="delrow"+count;
       btn.addEventListener("click",deleteRow,false);
       td5.appendChild(btn);
