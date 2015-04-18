@@ -40,7 +40,7 @@
 	</script>
   </head>
   <body >
-     <nav class="top-bar" data-topbar role="navigation">
+  <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
    <!--<h1><a href="#">My Site</a></h1>
@@ -68,23 +68,26 @@
     </ul>
     
     <!--If session, display this -->
-    <ul class="right">
-         <li class="has-dropdown not-click">
-         <?php echo "<a href='#'>".$name."</a>"; ?>
-         <ul class="dropdown">
-         <li><a href="#">Sign out</a></li>
-    </ul>
-        </ul> <!-- till here -->
-        
-        <!-- Else -->
-    <ul class="right">
-      <li><a href="Forms/Form_Signup.html">SIGNUP</a></li>
-    </ul>
-	 <ul class="right">
-      <li><a href="Forms/Form_Login.html">LOGIN</a></li>
-    </ul>
-    <!-- till here -->
-    
+    <?php
+    session_start();
+if(!empty($_SESSION['name']))
+      { 
+    echo "<ul class='right'>";
+    echo " <li class='has-dropdown not-click'>";
+    echo "<a href='#'>".$_SESSION['name']."</a>"; 
+    echo "<ul class='dropdown'>";
+    echo "<li><a href='signout.php'>Sign out</a></li>";
+    echo "</ul>";
+    echo"    </ul>";
+       }
+        else{
+    echo "<ul class='right'>";
+    echo  "<li><a href='Forms/Form_Signup.html'>SIGNUP</a></li>";
+    echo "</ul>";
+	echo "<ul class='right'>";
+    echo "<li><a href='Forms/Form_Login.php'>LOGIN</a></li>";
+    echo "</ul>";}
+    ?>
   </section>
 </nav>
 <br>
@@ -92,25 +95,26 @@
     <div class="row">
         <div class="large-12 columns">
           <ul class="round button-group">
-            <li><a href="derbyhome.html" class="button">Home</a></li>
-            <li><a href="About_Us.html" class="button">About Us</a></li>
+            <li><a href="derbyhome.php" class="button">Home</a></li>
+            <li><a href="About_Us.php" class="button">About Us</a></li>
             <li class="has-dropdown not-click"><a href="#" class="button" data-dropdown="hover1" data-options="is_hover:true">Racing</a>
             <ul id="hover1" class="f-dropdown" data-dropdown-content>
                 <li><a href="horse_list.php" >Horses </li>
                 <li><a href="jockey_list.php" >Jockeys </li>
                 <li><a href="trainer_list.php" >Trainers </li>
-                <li><a href="betting_rules.html" >Betting</li>
+                <li><a href="race.php">Races</a></li>
             </ul>                        
             </li>
             <li  class="has-dropdown not-click"><a href="#" class="button" data-dropdown="hover2" data-options="is_hover:true">Betting</a>
                <ul id="hover2" class="f-dropdown" data-dropdown-content>
-                <li><a href="Form_betting.php" >Win</li>
-                <li><a href="Form_betting.html" >Place</li>
+               <li><a href="betting_rules.php" >Betting Help</li>
+                <li><a href="Forms/Form_betting.php" >Win</li>
+                <li><a href="Forms/Form_Race_name.php" >Place</li>
                </ul>
              </li>
-            <li><a href="#" class="button">Archives</a></li>
-            <li><a href="Photo_gallery.html" class="button">Photo Gallery</a></li>
-            <li><a href="contact_us.html" class="button">Contact us</a></li>
+            <li><a href="race_history.php" class="button">Archives</a></li>
+            <li><a href="image-gallery.source.php" class="button">Photo Gallery</a></li>
+            <li><a href="contact_us.php" class="button">Contact us</a></li>
           </ul>
          </div>
       </div>          
