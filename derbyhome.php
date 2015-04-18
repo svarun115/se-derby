@@ -133,6 +133,7 @@ unset($_SESSION['error']);
 ?>
 <br>
       <div class="row-container" data-equalizer>
+       <h2><pre> Upcoming Race Favourites :</pre></h2>
         <div class=" large-4 columns" data-equalizer-watch>
            <img src="img/img4.jpg" alt="Image1"/>
            <h3>Horse 1</h3>
@@ -170,17 +171,6 @@ unset($_SESSION['error']);
           <div class="row">
             <div class="large-6 columns">
               <p>© Copyright no one at all. Go to town.</p>
-            </div>
-            <div class="large-6 columns">
-              <ul class="inline-list right">
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-                <li><a href="#">Link 3</a></li>
-                <li><a href="#">Link 4</a></li>
-                <li><a href="#">Link 5</a></li>
-                <li><a href="#">Link 6</a></li>
-                <li><a href="#">Link 7</a></li>
-              </ul>
             </div>
           </div>
         </div> 

@@ -78,11 +78,11 @@ if(!empty($_SESSION['name']))
                <ul id="hover2" class="f-dropdown" data-dropdown-content>
                <li><a href="betting_rules.html" >Betting Help</li>
                 <li><a href="/se-derby/Forms/Form_betting.php" >Win</li>
-                <li><a href="/se-derby/Forms/Form_betting.html" >Place</li>
+                <li><a href="/se-derby/Forms/Form_Race_name.php" >Place</li>
                </ul>
              </li>
-            <li><a href="#" class="button">Archives</a></li>
-            <li><a href="image-galary.source.html" class="button">Photo Gallery</a></li>
+            <li><a href="race_history.php" class="button">Archives</a></li>
+            <li><a href="image-gallery.source.html" class="button">Photo Gallery</a></li>
             <li><a href="contact_us.html" class="button">Contact us</a></li>
           </ul>
          </div>
@@ -133,6 +133,7 @@ unset($_SESSION['error']);
 ?>
 <br>
       <div class="row-container" data-equalizer>
+       <h2><pre> Upcoming Race Favourites :</pre></h2>
         <div class=" large-4 columns" data-equalizer-watch>
            <img src="img/img4.jpg" alt="Image1"/>
            <h3>Horse 1</h3>
@@ -170,17 +171,6 @@ unset($_SESSION['error']);
           <div class="row">
             <div class="large-6 columns">
               <p>© Copyright no one at all. Go to town.</p>
-            </div>
-            <div class="large-6 columns">
-              <ul class="inline-list right">
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-                <li><a href="#">Link 3</a></li>
-                <li><a href="#">Link 4</a></li>
-                <li><a href="#">Link 5</a></li>
-                <li><a href="#">Link 6</a></li>
-                <li><a href="#">Link 7</a></li>
-              </ul>
             </div>
           </div>
         </div> 
