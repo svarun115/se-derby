@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="/se-derby/css/foundation.css" />
-    <script src="/s-derby/js/vendor/modernizr.js"></script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <script src="../js/vendor/modernizr.js"></script>
   </head>
   <body>
      <nav class="top-bar" data-topbar role="navigation">
@@ -53,7 +53,7 @@ if(!empty($_SESSION['name']))
     echo  "<li><a href='Forms/Form_Signup.html'>SIGNUP</a></li>";
     echo "</ul>";
 	echo "<ul class='right'>";
-    echo "<li><a href='Forms/Form_Login.php'>LOGIN</a></li>";
+    echo "<li><a href='Form_Login.php'>LOGIN</a></li>";
     echo "</ul>";}
     ?>
   </section>
@@ -63,31 +63,33 @@ if(!empty($_SESSION['name']))
     <div class="row">
         <div class="large-12 columns">
           <ul class="round button-group">
-            <li><a href="#" class="button">Home</a></li>
-            <li><a href="About_Us.php" class="button">About Us</a></li>
+            <li><a href="../derbyhome.php" class="button">Home</a></li>
+            <li><a href="../About_Us.php" class="button">About Us</a></li>
             <li class="has-dropdown not-click"><a href="#" class="button" data-dropdown="hover1" data-options="is_hover:true">Racing</a>
             <ul id="hover1" class="f-dropdown" data-dropdown-content>
-                <li><a href="horse_list.php" >Horses </li>
-                <li><a href="jockey_list.php" >Jockeys </li>
-                <li><a href="trainer_list.php" >Trainers </li>
-                <li><a href="race.php">Races</a></li>
+                <li><a href="../horse_list.php" >Horses </li>
+                <li><a href="../jockey_list.php" >Jockeys </li>
+                <li><a href="../trainer_list.php" >Trainers </li>
+                <li><a href="../race.php">Races</a></li>
             </ul>                        
             </li>
             <li  class="has-dropdown not-click"><a href="#" class="button" data-dropdown="hover2" data-options="is_hover:true">Betting</a>
                <ul id="hover2" class="f-dropdown" data-dropdown-content>
-               <li><a href="betting_rules.php" >Betting Help</li>
-                <li><a href="Forms/Form_betting.php" >Win</li>
-                <li><a href="Forms/Form_Race_name.php" >Place</li>
+               <li><a href="../betting_rules.php" >Betting Help</li>
+                <li><a href="Form_betting.php" >Win</li>
+                <li><a href="Form_Race_name.php" >Place</li>
                </ul>
              </li>
-            <li><a href="race_history.php" class="button">Archives</a></li>
-            <li><a href="image-gallery.source.php" class="button">Photo Gallery</a></li>
-            <li><a href="contact_us.php" class="button">Contact us</a></li>
+            <li><a href="../race_history.php" class="button">Archives</a></li>
+            <li><a href="../image-gallery.source.php" class="button">Photo Gallery</a></li>
+            <li><a href="../contact_us.php" class="button">Contact us</a></li>
           </ul>
          </div>
       </div>          
           
-      
+     <div class="row">
+     <div class="large-12 columns"> 
+     <div class="panel">
     <?php
     include 'welcome_mail.php';
     $dbhost = 'localhost';
@@ -119,16 +121,22 @@ if(!empty($_SESSION['name']))
    mysqli_query($conn,$sql3);
 
     ?>      
+    
+    </div>  
+    </div>
+    </div>
       
-      
+      <div class="row">
       <div class="large-4 large-centered columns">
+
   <div class="large-12 columns">
-<h5>Welcome to the club <?php echo $_POST["name"];?>!</h5>
+<h5>Welcome to the club <?php echo $_POST["name"];?>!</h5><br>
       <h5>Your member ID is <?php echo $id;?>. Please remember this for future reference.</h5>  
        <a href="/se-derby/derbyhome.php">Continue</a>
   </div>
-</div>
-      </div>      
+</div>    
+      </div>
+      </div>
       </div>
                
       
