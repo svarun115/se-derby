@@ -65,7 +65,7 @@ header('Location:/se-derby/derbyhome.php');
     
     <!--If session, display this -->
     <?php
-    session_start();
+    //session_start();
 if(!empty($_SESSION['name']))
       { 
     echo "<ul class='right'>";
@@ -116,7 +116,7 @@ if(!empty($_SESSION['name']))
       </div>          
           
                     
-    <form action = "http://localhost/se-derby/Forms/Form_Inplace_Betting.php" method = "post">
+    <form action = "/se-derby/tote_table.php" method = "post">
     <div class="row">
      <h4><pre>  Inplace Betting</pre></h4>
      <div class="large-12 columns">

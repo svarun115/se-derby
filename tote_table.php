@@ -90,6 +90,7 @@ if(!empty($_SESSION['name']))
       
       <div class="panel callout radius">
 <div id="list" style="margin:20px 260px 0px 196px;">
+<form action = "/se-derby/Forms/Form_Inplace_Betting.php" method = "post">
 <?php
  /*
 // make a connection
@@ -141,27 +142,93 @@ echo "</table>";
 mysql_close($connection);
 //>>>>>>> 27c94fd9c0aa489ce384a2d2be2b4a5f2a25cfc1
  */
+//session_start();
+$race=$_POST["race_name"];
+$_SESSION["race"]=$race;
+$flag = 0;          
+         // echo "<h2>".$race."</h2>";
+          $dbhost = 'localhost';
+          $db2='derby';
+          $db1='club';
+          $dbuser = 'admin';
+          $dbpass = 'admin';
+          $conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
 
-$dbhost = 'localhost';
-$db1='club';
-$db2='derby';
-$dbuser = 'admin';
-$dbpass = 'admin';
-$conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
-$conn1 = mysqli_connect($dbhost,$dbuser,$dbpass,$db1);
+          if (!$conn) {
+              die("Connection failed: " . mysqli_connect_error());
+          }
+          $conn1 = mysqli_connect($dbhost,$dbuser,$dbpass,$db1);
+           if (!$conn1) {
+              die("Connection failed: " . mysqli_connect_error());
+          }
+          $sql = "SELECT race_id FROM racing_history WHERE race_name ='".$race."';";
+          $result = mysqli_query($conn1,$sql);
+          while($row=mysqli_fetch_assoc($result)) {
+            $race_table=$row["race_id"];
+           // echo $race_table;
+          }
+          $_SESSION["race"]=$race;
+          $_SESSION["race_table"]=$race_table;
+$table_name= $race."_odds_place";
 
-if (!$conn)
- {
-      die("Connection failed: " . mysqli_connect_error());
+$sql1 = "SELECT horse_name from $race_table";
+if(!( $result1=mysqli_query($conn,$sql1)))
+  echo $conn->error;
+$count = 0;
+$horse_name=array();
+while($row=mysqli_fetch_assoc($result1))
+    {
+             // echo $row["horse_name"];
+    $horse_name[$count++] = $row["horse_name"];
+    }
+$sql = "CREATE TABLE IF NOT EXISTS $table_name (horse_name varchar(25) NOT NULL,odds varchar(25),odds_fraction float(20),PRIMARY KEY (horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
+if(mysqli_query($conn,$sql))
+{
+  $flag = 1;
 }
-if (!$conn1)
- {
-     die("Connection failed: " . mysqli_connect_error());
+  //echo "success";
+  //echo "UGH!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+if($flag){
+foreach ($horse_name as $hname) {
+$sql="INSERT into $table_name(horse_name,odds,odds_fraction) values ('$hname','4-5',3.09)";
+  mysqli_query($conn,$sql);
+   //echo "success";
+  //else
+    //echo $conn->error;
+   }
 }
+//code:
+$race_table=$_SESSION["race_table"];
+$horse_table="derby.horse";
+$table_win="derby.win_odds";
+$sql = "SELECT * FROM $horse_table, $race_table, $table_name, $table_win where 
+ $horse_table.horse_name = $race_table.horse_name and $horse_table.horse_name = $table_name.horse_name ;";
+if(!($result = mysqli_query($conn,$sql)))
+  $conn->error;
+ $var1=1;
+echo "<table>";
+echo "<tr><th>Horse Name</th><th>Breeder</th><th>Weight</th><th>Power</th><th>Age</th><th>Color</th><th>Sex</th>
+<th>Mounts</th><th>Wins</th><th>Second</th><th>Third</th><th>Jockey Name</th><th>Trainer Name</th>
+<th>Odds For Position Betting</th></tr>";
+while($row = mysqli_fetch_row($result))
+{
+echo "<tr onmouseover=\"hilite(this)\" onmouseout=\"lowlite(this)\"><td>$row[0]</td><td>$row[1]</td>
+      <td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td><td>$row[6]</td><td>$row[7]</td><td>$row[8]</td><td>$row[9]</td>
+      <td>$row[10]</td><td>$row[12]</td><td>$row[13]</td><td>$row[19]</td></tr>\n";
+      $var1++;
+}
+echo "</table>";
+
+
+// close the connection
+mysqli_close($conn);
 
 
 
-?> 
+
+?>
+<input type = "submit" value = "Continue"/>
+</form> 
 </div> 
 </div>
 

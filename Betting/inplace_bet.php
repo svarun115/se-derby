@@ -109,7 +109,7 @@ $dbuser = 'admin';
 $dbpass = 'admin';
 $conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
 $conn1 = mysqli_connect($dbhost,$dbuser,$dbpass,$db1);
-
+$flag = 0;
 if (!$conn)
  {
 	    die("Connection failed: " . mysqli_connect_error());
@@ -176,7 +176,10 @@ if(!mysqli_query($conn,$sql))
 	/*$sql="CREATE TABLE IF NOT EXISTS odds (horse_name varchar(25) NOT NULL, odd_fraction float default '0',primary key(horse_name) foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade";
 	echo "hereeeeee";
 	*/
+	//Dont need here
+
 $table_name= $race."_odds_place";
+/*
 $sql = "CREATE TABLE IF NOT EXISTS $table_name (horse_name varchar(25) NOT NULL,odds varchar(25),odds_fraction float(20),PRIMARY KEY (horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
 mysqli_query($conn,$sql);
   //echo "success";
@@ -188,13 +191,16 @@ $sql="INSERT into $table_name(horse_name,odds,odds_fraction) values ('$hname','4
  	//else
  		//echo $conn->error;
 }
+*/
+//
 //echo "<br> Hello ".$member_id."<br>";
 //echo "<br> Hello ".$horse1."<br>";
 //echo "<br> Hello ".$horse2."<br>";
 // Insert the values obtained into the place table.
 $sql2 = "INSERT into derby.place(member_id,race_name,horse_name_place1,horse_name_place2,amount) values ('$member_id','$race','$horse1','$horse2','$amount');";
-$result2 = mysqli_query($conn,$sql2);
-	//echo $conn->error;
+if(!($result2 = mysqli_query($conn,$sql2)))
+	{	//echo $conn->error;
+		$flag = 1;}
 // code copied from here
 
 $sql="SELECT sum(amount) AS pool FROM place ";
@@ -380,7 +386,7 @@ while($row = mysqli_fetch_assoc($result_getall))
 */
 
 //summary of the bet- display
-
+if(!$flag){
 echo "<div class='large-4 large-centered columns'>
   <div class='large-12 columns'>";
 echo "<h2>Your bet has been placed successfully</h2><br>";
@@ -391,6 +397,14 @@ echo "Horse in place 1: $horse1<br>";
 echo "Horse in place 2: $horse2<br>";
 echo "Amount:".$amount."<br>";
 echo "</div></div>";
+}
+else
+{
+	echo "<div class='large-4 large-centered columns'>
+    <div class='large-12 columns'>";
+    echo "<h4>Your bet cannot be placed because you have already bet of the same horse combination.</h4><br>";
+    echo "</div></div>";
+}
 
 mysqli_close($conn);
 //echo "hello";

@@ -1,8 +1,8 @@
 
 <?php
 session_start();
-             $race=$_POST["race_name"];
-              $_SESSION["race"]=$race;
+             //$race=$_POST["race_name"];
+             // $_SESSION["race"]=$race;
           
          // echo "<h2>".$race."</h2>";
           $dbhost = 'localhost';
@@ -19,14 +19,14 @@ session_start();
            if (!$conn1) {
               die("Connection failed: " . mysqli_connect_error());
           }
-          $sql = "SELECT race_id FROM racing_history WHERE race_name ='".$race."';";
+         /* $sql = "SELECT race_id FROM racing_history WHERE race_name ='".$race."';";
           $result = mysqli_query($conn1,$sql);
           while($row=mysqli_fetch_assoc($result)) {
             $race_table=$row["race_id"];
            // echo $race_table;
-          }
-          $_SESSION["race"]=$race;
-          $_SESSION["race_table"]=$race_table;
+          }*/
+          $race=$_SESSION["race"];
+         $race_table= $_SESSION["race_table"];
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -67,7 +67,7 @@ session_start();
     
     <!--If session, display this -->
     <?php
-    session_start();
+    //session_start();
 if(!empty($_SESSION['name']))
       { 
     echo "<ul class='right'>";
