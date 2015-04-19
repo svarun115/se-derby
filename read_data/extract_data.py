@@ -102,7 +102,7 @@ def pp_parse(filename):
 		#print '__________________________________________'	
 
 def write_to_db():
-	url = 'http://localhost/write_data.php'
+	url = 'http://localhost/se-derby/write_data.php'
 
 #Sending Data one horse at a time
 	for i in range(len(horse_names)):

@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
@@ -23,6 +24,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.view.View.OnClickListener;
 
@@ -43,6 +47,7 @@ public class login extends Activity {
     SharedPreferences prefs;
     public static final String TAG ="LOGIN";
     Context context;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,51 +80,79 @@ public class login extends Activity {
             email = loginemail.getText().toString();
             password = loginpassword.getText().toString();
             Log.i(TAG,"Email : "+email+", Password : "+password);
-            if(authorize()) {
-                  /*  Verify login by sending parameters to the php script and determining if the entered details are valid
-                    If valid, we save it in shared preferences and redirect the user to the main activity.
-                    */
-                  logged_in = true;
-                    redirect_user();
-            }
-                else
-            {
-                //inform the user of invalid login attempt
-                Toast.makeText(context,"Invalid email or password.\nPlease try again.",Toast.LENGTH_SHORT).show();
-            }
+            authorize();
             }
         });
 
     }
 
-    public boolean authorize() {
-        boolean flag= false;
+    public void validate(boolean flag)
+    {
+        if(flag==true){
+        /*  Verify login by sending parameters to the php script and determining if the entered details are valid
+                    If valid, we save it in shared preferences and redirect the user to the main activity.
+                    */
+        logged_in = true;
+        redirect_user();
+    }
+    else
+    {
+        //inform the user of invalid login attempt
+        Toast.makeText(context,"Invalid email or password.\nPlease try again.",Toast.LENGTH_SHORT).show();
+    }
+   }
+
+    public void authorize() {
+
         if (isNetworkAvailable()) {
-            new AsyncTask() {
+            class myTask extends AsyncTask<Void,Void,Void> {
+
+                boolean flag = false;
                 @Override
-                protected Object doInBackground(Object[] params) {
+                protected Void doInBackground(Void... params) {
                     try {
-                    HttpClient httpclient = new DefaultHttpClient();
-                    HttpPost httppost = new HttpPost("http://192.168.179.1/se-derby-master/Forms/authorize.php"); //change localhost ipaddress accordingly
-                    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-                    nameValuePairs.add(new BasicNameValuePair("email", email));
-                    nameValuePairs.add(new BasicNameValuePair("pwd", password));
-                    httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-                    HttpResponse response = httpclient.execute(httppost);
-                    String responseStr = EntityUtils.toString(response.getEntity());
-                    Log.i(TAG,"Server Response for Login: "+responseStr);
+
+                        HttpClient httpclient = new DefaultHttpClient();
+                        HttpPost httppost = new HttpPost("http://192.168.43.81/se-derby/Forms/authorize.php"); //change localhost ipaddress accordingly
+                        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+                        nameValuePairs.add(new BasicNameValuePair("email", email));
+                        nameValuePairs.add(new BasicNameValuePair("pwd", password));
+                        nameValuePairs.add(new BasicNameValuePair("client", "android"));
+                        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                        HttpResponse response = httpclient.execute(httppost);
+                        String responseStr = EntityUtils.toString(response.getEntity());
+                        JSONObject obj = new JSONObject(responseStr);
+                        Boolean res = obj.getBoolean("success");
+                        Log.i(TAG,"Server Response for Login: "+res);
+                        Log.i(TAG,((Object)res).getClass().getName());
+                        if(res){
+                            //Sucessfully logged in
+                            Log.i(TAG,"Valid Login credentials");
+                            flag=true;
+                        }
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     } catch (ClientProtocolException e) {
                         e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     return null;
                 }
-            }.execute();
+
+                @Override
+                protected void onPostExecute(Void result){
+                    Log.i(TAG,"Flag value :"+flag);
+                    validate(flag);
+                }
+            }
+            myTask task = (myTask) new myTask().execute();
         }
-        return flag;
+
+
+
 
     }
 

@@ -7,26 +7,22 @@ $dbpass = 'admin';
 $db = 'club';
 $value = false;
 $email = $_POST['email'];		
-$password = $_POST['pwd'];	
+$password = $_POST['pwd'];
+$client = $_POST['client'];	
 
-$error = false;		//Part of response to send back to the android client
-						// Part of response to send back to the android client
 	
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db);
 if (mysqli_connect_errno())
 	     {
 	     	echo "Failed to connect to MySQL: " . mysqli_connect_error();
-	     	$error = true;
 	     	die();
 	      }
 $m_id=0;
 $sql="SELECT * FROM auth WHERE email='$email'";
-
 $result=mysqli_query($conn,$sql);
 if(!$result)
 	{
 	echo $conn->error;
-	$error = true;
 }
 
 if ($result->num_rows > 0) {
@@ -35,11 +31,13 @@ while($row =  $result->fetch_assoc())
    	$pwd = $row['password'];
 	$m_id=$row['member_id'];
 	echo "Member ".$m_id;
-	//$me
 	}
    }
 else 
-   	echo "Nothing returned";
+   	{
+   		echo '<script type = "text/javascript"> alert("Invalid email");</script>' ;
+   	}
+
 //Checking retrieved password with entered password'
 echo $password." ".$pwd;
 
@@ -47,7 +45,6 @@ $sql1="SELECT name from members where member_id='$m_id'";
 $result1=mysqli_query($conn,$sql1);
 if(!$result1){
 	echo $conn->error;
-	$error = true;
 }
 
 $row1=mysqli_fetch_assoc($result1);
@@ -61,39 +58,32 @@ if (password_verify($password, $pwd)){//$password == $pwd) {
    echo '<br>Password is valid!';
     $value =true;
     echo '<script type = "text/javascript"> alert("login Successful");</script>' ;
-    //header("location:login_success.php");
 } else {
   $value= false;
   echo '<script type = "text/javascript"> alert("login failed");</script>' ;
-   // echo 'Invalid password.';
 }
-//echo '<html>';
-//echo '<head>';
-//echo $value;
 
 
+if($client == 'android'){
 /*
 Send response to the android client
 */
-
+$data = array();
+$data['success'] = $value;
 HttpResponse::setContentType('application/json');
-HttpResponse::send('success' = $value);
-
+HttpResponse::setData(json_encode($data));
+HttpResponse::send();
+}
+else if ($client=='web')
+{
 
 if($value){
   echo "in if";
   header('Location:/se-derby/derbyhome.php');
-  //echo '<head><meta url = "Forms/home.html">';
-
 }
- else {
+ else if(!$value){
  echo "in else";
-
-  header('Location:Form_Login.html');
-  //echo '</script>';
+ header('Location:Form_Login.html');
 }
- //echo '</head></html>';
-
-
-
+}
 ?>
