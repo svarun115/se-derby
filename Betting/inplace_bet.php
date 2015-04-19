@@ -1,6 +1,99 @@
+<!doctype html>
+
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/se-derby/css/foundation.css" />
+    <script src="/se-derby/js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+  <nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+   <!--<h1><a href="#">My Site</a></h1>
+    </li>-->
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <!--<ul class="right">
+      <li class="active"><a href="#">Right Button Active</a></li>
+      <li class="has-dropdown">
+        <a href="#">Right Button Dropdown</a>
+        <ul class="dropdown">
+          <li><a href="#">First link in dropdown</a></li>
+          <li class="active"><a href="#">Active link in dropdown</a></li>
+        </ul>
+      </li>
+    </ul>!-->
+
+    <!-- Left Nav Section -->
+	 <ul class="left">
+      <li style="font-weight: bold;"><a href="#">TURF CLUB</a></li>
+    </ul>
+    
+    <!--If session, display this -->
+    <?php
+    session_start();
+if(!empty($_SESSION['name']))
+      { 
+    echo "<ul class='right'>";
+    echo " <li class='has-dropdown not-click'>";
+    echo "<a href='#'>".$_SESSION['name']."</a>"; 
+    echo "<ul class='dropdown'>";
+    echo "<li><a href='signout.php'>Sign out</a></li>";
+    echo "</ul>";
+    echo"    </ul>";
+       }
+        else{
+    echo "<ul class='right'>";
+    echo  "<li><a href='Forms/Form_Signup.html'>SIGNUP</a></li>";
+    echo "</ul>";
+	echo "<ul class='right'>";
+    echo "<li><a href='Forms/Form_Login.html'>LOGIN</a></li>";
+    echo "</ul>";}
+    ?>
+  </section>
+</nav>
+<br>
+
+    <div class="row">
+        <div class="large-12 columns">
+          <ul class="round button-group">
+            <li><a href="#" class="button">Home</a></li>
+            <li><a href="About_Us.html" class="button">About Us</a></li>
+            <li class="has-dropdown not-click"><a href="#" class="button" data-dropdown="hover1" data-options="is_hover:true">Racing</a>
+            <ul id="hover1" class="f-dropdown" data-dropdown-content>
+                <li><a href="horse_list.php" >Horses </li>
+                <li><a href="jockey_list.php" >Jockeys </li>
+                <li><a href="trainer_list.php" >Trainers </li>
+                <li><a href="race.php">Races</a></li>
+            </ul>                        
+            </li>
+            <li  class="has-dropdown not-click"><a href="#" class="button" data-dropdown="hover2" data-options="is_hover:true">Betting</a>
+               <ul id="hover2" class="f-dropdown" data-dropdown-content>
+               <li><a href="betting_rules.html" >Betting Help</li>
+                <li><a href="/se-derby/Forms/Form_betting.php" >Win</li>
+                <li><a href="/se-derby/Forms/Form_Race_name.php" >Place</li>
+               </ul>
+             </li>
+            <li><a href="race_history.php" class="button">Archives</a></li>
+            <li><a href="image-gallery.source.html" class="button">Photo Gallery</a></li>
+            <li><a href="contact_us.html" class="button">Contact us</a></li>
+          </ul>
+         </div>
+      </div>
+
+
+
 <?php
+
 //echo "In php";
-session_start();
+//session_start();
 $race = $_SESSION["race"];
 $race_table = $_SESSION["race_table"];
 $member_name = $_SESSION["name"];
@@ -57,7 +150,7 @@ else
 	if(!($result_amt=mysqli_query($conn1,$sql)))//;
 		echo $conn1->error;
 }
-echo "<br>member id = ".$member_id."<br>";
+//echo "<br>member id = ".$member_id."<br>";
 $sql1 = "SELECT horse_name from $race_table";
 if(!( $result1=mysqli_query($conn,$sql1)))
 	echo $conn->error;
@@ -68,7 +161,7 @@ while($row=mysqli_fetch_assoc($result1))
 	           // echo $row["horse_name"];
    	$horse_name[$count++] = $row["horse_name"];
     }
-foreach($horse_name as $h)
+//foreach($horse_name as $h)
     //echo $h."<br>";
 $sum = array();
 $odds_fraction=array();
@@ -85,15 +178,14 @@ if(!mysqli_query($conn,$sql))
 	*/
 $table_name= $race."_odds_place";
 $sql = "CREATE TABLE IF NOT EXISTS $table_name (horse_name varchar(25) NOT NULL,odds varchar(25),odds_fraction float(20),PRIMARY KEY (horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
-if(mysqli_query($conn,$sql))
+mysqli_query($conn,$sql);
   //echo "success";
-else
 	//echo "UGH!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
 foreach ($horse_name as $hname) {
 $sql="INSERT into $table_name(horse_name,odds,odds_fraction) values ('$hname','4-5',3.09)";
-	if(mysqli_query($conn,$sql))
+	mysqli_query($conn,$sql);
  	 //echo "success";
- 	else
+ 	//else
  		//echo $conn->error;
 }
 //echo "<br> Hello ".$member_id."<br>";
@@ -101,8 +193,8 @@ $sql="INSERT into $table_name(horse_name,odds,odds_fraction) values ('$hname','4
 //echo "<br> Hello ".$horse2."<br>";
 // Insert the values obtained into the place table.
 $sql2 = "INSERT into derby.place(member_id,race_name,horse_name_place1,horse_name_place2,amount) values ('$member_id','$race','$horse1','$horse2','$amount');";
-if(!($result2 = mysqli_query($conn,$sql2)))
-	echo $conn->error;
+$result2 = mysqli_query($conn,$sql2);
+	//echo $conn->error;
 // code copied from here
 
 $sql="SELECT sum(amount) AS pool FROM place ";
@@ -274,10 +366,10 @@ foreach ($horse_name as $hname) {
 	//echo "Done:".$hname." :odds is: ".$odds[$hname]."  Odds_fraction:".$odds_fraction[$hname]."<br>";
 	$name=$odds_fraction[$hname];
 	$sql="UPDATE $table_name SET odds='".$odds[$hname]."', odds_fraction=$odds_fraction[$hname] WHERE horse_name='".$hname ."';";
-	if(mysqli_query($conn,$sql))
+	mysqli_query($conn,$sql);
  	 //echo "success";
- 	else
- 		echo $conn->error;
+ //	else
+ 	//	echo $conn->error;
 }
 /*$sql_getall = "SELECT * FROM $table_name;"
 $result_getall = (mysqli_query($conn,$sql_getall));
@@ -287,6 +379,35 @@ while($row = mysqli_fetch_assoc($result_getall))
 }
 */
 
+//summary of the bet- display
+
+echo "<div class='large-4 large-centered columns'>
+  <div class='large-12 columns'>";
+echo "<h2>Your bet has been placed successfully</h2><br>";
+echo "<h3>Bet Summary</h3><br>";
+echo "Race:".$_SESSION['race']."<br>";
+echo "Horse Names:<br>";
+echo "Horse in place 1: $horse1<br>";
+echo "Horse in place 2: $horse2<br>";
+echo "Amount:".$amount."<br>";
+echo "</div></div>";
+
 mysqli_close($conn);
+//echo "hello";
+
 
 ?>
+
+  <footer class="row">
+        <div class="large-12 columns">
+          <hr/>
+          <div class="row">
+            <div class="large-6 columns">
+              <p>© Copyright no one at all. Go to town.</p>
+            </div>
+          </div>
+        </div> 
+      </footer>
+    
+  </body>
+</html>
