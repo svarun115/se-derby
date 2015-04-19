@@ -77,7 +77,7 @@ header('Location:/se-derby/derbyhome.php');
     
     <!--If session, display this -->
     <?php
-    session_start();
+    //session_start();
 if(!empty($_SESSION['name']))
       { 
     echo "<ul class='right'>";
@@ -133,11 +133,11 @@ if(!empty($_SESSION['name']))
       <div>
       <h5></b>Betting & Entertainment</b></h5>
       </div> </p>
-	  <form action="form_betHorse.php" method="post">
+	  <form action="/se-derby/tote_table_win.php" method="post">
 	  <div class="row">
 	<div class="large-4 columns">
      <label> <b>Race:</b></label>
-	 <select id="race" name="race_type" onchange="update()">
+	 <select id="race" name="race_type" name="race_name" onchange="update()">
 	<?php require 'testr.php';?>
 	</select>
     </div>

@@ -6,8 +6,9 @@
 	$db1='club';
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db); 
 	$conn1=mysqli_connect($dbhost, $dbuser, $dbpass,$db1);
-		$race=$_POST['race_type'];
-		session_start();
+  session_start();
+		$race=$_SESSION['race'];
+		
 		$memberId=$_SESSION['mem_id'];
 		$_SESSION['race']=$race;
    // $_POST["mem_id"]=$memberId;
@@ -84,7 +85,7 @@
     
     <!--If session, display this -->
     <?php
-    session_start();
+    //session_start();
 if(!empty($_SESSION['name']))
       { 
     echo "<ul class='right'>";
