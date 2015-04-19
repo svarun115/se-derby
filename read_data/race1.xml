@@ -13,8 +13,8 @@
 	<fontspec id="7" size="16" family="Times" color="#000000"/>
 	<fontspec id="8" size="22" family="Times" color="#000000"/>
 	<fontspec id="9" size="7" family="Times" color="#000000"/>
-<image top="9" left="788" width="117" height="28" src="/tmp/tmp9xRaME-1_1.jpg"/>
-<image top="179" left="758" width="120" height="60" src="/tmp/tmp9xRaME-1_2.jpg"/>
+<image top="9" left="788" width="117" height="28" src="/tmp/tmp8hwuQK-1_1.jpg"/>
+<image top="179" left="758" width="120" height="60" src="/tmp/tmp8hwuQK-1_2.jpg"/>
 <text top="1165" left="51" width="816" height="10" font="0">(c) Copyright 2015 Bloodstock Research Information Services www.brisnet.com  This product was created with data that were supplied by and are proprietary to Equibase Company LLC. All rights reserved. Reuse of this data is expressly prohibited.</text>
 <text top="28" left="38" width="155" height="13" font="1">Ultimate PP's w/ QuickPlay Comments</text>
 <text top="25" left="183" width="117" height="16" font="2">Gulfstream Park</text>
@@ -450,7 +450,7 @@
 </page>
 <page number="2" position="absolute" top="0" left="0" height="1188" width="918">
 	<fontspec id="10" size="9" family="Times" color="#000000"/>
-<image top="9" left="788" width="117" height="28" src="/tmp/tmp9xRaME-2_1.jpg"/>
+<image top="9" left="788" width="117" height="28" src="/tmp/tmp8hwuQK-2_1.jpg"/>
 <text top="1165" left="51" width="816" height="10" font="0">(c) Copyright 2015 Bloodstock Research Information Services www.brisnet.com  This product was created with data that were supplied by and are proprietary to Equibase Company LLC. All rights reserved. Reuse of this data is expressly prohibited.</text>
 <text top="43" left="38" width="155" height="13" font="1">Ultimate PP's w/ QuickPlay Comments</text>
 <text top="40" left="183" width="117" height="16" font="2">Gulfstream Park</text>
@@ -1071,7 +1071,7 @@
 <text top="1063" left="116" width="691" height="12" font="1">9/11     16Nov'14 Sky  4f  ft   :48©  B 1/3     04Nov'14 Sky  6f  ft   1:16©  B 1/1     29Oct'14 Sky  4f  ft   :52  B 2/2     15Oct'14 Kee  4f  gd   :49ª  B 14/17     09Oct'14 Sky  6f  ft   1:16©  B 1/1</text>
 </page>
 <page number="3" position="absolute" top="0" left="0" height="1188" width="918">
-<image top="9" left="788" width="117" height="28" src="/tmp/tmp9xRaME-3_1.jpg"/>
+<image top="9" left="788" width="117" height="28" src="/tmp/tmp8hwuQK-3_1.jpg"/>
 <text top="1165" left="51" width="816" height="10" font="0">(c) Copyright 2015 Bloodstock Research Information Services www.brisnet.com  This product was created with data that were supplied by and are proprietary to Equibase Company LLC. All rights reserved. Reuse of this data is expressly prohibited.</text>
 <text top="43" left="38" width="155" height="13" font="1">Ultimate PP's w/ QuickPlay Comments</text>
 <text top="40" left="183" width="117" height="16" font="2">Gulfstream Park</text>
@@ -1648,7 +1648,7 @@
 <text top="1020" left="122" width="697" height="12" font="1">1/19     29Oct'14 GP  4f  ft   :47ª  B 8/33     02Oct'14 CD  4f  ft   :49©  B 21/43     09Sep'14 CD  4f  ft   :48ª  B 8/45     01Sep'14 CD  4f  ft   :49  B 18/67     21Aug'14 CD  4f  ft   :48«  B 15/46</text>
 </page>
 <page number="4" position="absolute" top="0" left="0" height="1188" width="918">
-<image top="9" left="788" width="117" height="28" src="/tmp/tmp9xRaME-4_1.jpg"/>
+<image top="9" left="788" width="117" height="28" src="/tmp/tmp8hwuQK-4_1.jpg"/>
 <text top="1165" left="51" width="816" height="10" font="0">(c) Copyright 2015 Bloodstock Research Information Services www.brisnet.com  This product was created with data that were supplied by and are proprietary to Equibase Company LLC. All rights reserved. Reuse of this data is expressly prohibited.</text>
 <text top="43" left="38" width="155" height="13" font="1">Ultimate PP's w/ QuickPlay Comments</text>
 <text top="40" left="183" width="117" height="16" font="2">Gulfstream Park</text>
@@ -2138,7 +2138,7 @@
 </page>
 <page number="5" position="absolute" top="0" left="0" height="1188" width="918">
 	<fontspec id="11" size="8" family="Times" color="#ffffff"/>
-<image top="9" left="788" width="117" height="28" src="/tmp/tmp9xRaME-5_1.jpg"/>
+<image top="9" left="788" width="117" height="28" src="/tmp/tmp8hwuQK-5_1.jpg"/>
 <text top="1165" left="51" width="816" height="10" font="0">(c) Copyright 2015 Bloodstock Research Information Services www.brisnet.com  This product was created with data that were supplied by and are proprietary to Equibase Company LLC. All rights reserved. Reuse of this data is expressly prohibited.</text>
 <text top="43" left="38" width="155" height="13" font="1">Ultimate PP's w/ QuickPlay Comments</text>
 <text top="40" left="183" width="117" height="16" font="2">Gulfstream Park</text>
@@ -2573,8 +2573,440 @@
 <text top="716" left="8" width="100" height="12" font="1">03Jan Pmm  5f  ft   1:04  B</text>
 <text top="716" left="109" width="740" height="12" font="1">23/24     27Dec'14 Pmm  4f  ft   :49ª  B 19/31     24Oct'14 Kee  5f  ft   1:00ª  B 2/14     17Oct'14 Kee  4f  gd   :48ª  B 11/31     27Sep'14 Cdt  5f  ft   1:03ª  B 11/12     20Sep'14 Cdt  5f  ft   1:03  B 15/20</text>
 </page>
+<page number="6" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="12" size="12" family="Times" color="#000000"/>
+<image top="9" left="788" width="117" height="28" src="/tmp/tmp8hwuQK-6_1.jpg"/>
+<text top="1165" left="51" width="816" height="10" font="0">(c) Copyright 2015 Bloodstock Research Information Services www.brisnet.com  This product was created with data that were supplied by and are proprietary to Equibase Company LLC. All rights reserved. Reuse of this data is expressly prohibited.</text>
+<text top="43" left="38" width="155" height="13" font="1">Ultimate PP's w/ QuickPlay Comments</text>
+<text top="40" left="183" width="117" height="16" font="2">Gulfstream Park</text>
+<text top="43" left="323" width="269" height="13" font="1">Alw  48000n1x 1ˆ Mile (T) 4&amp;up Saturday,  February 21, 2015</text>
+<text top="40" left="610" width="49" height="16" font="2">Race 1</text>
+<text top="41" left="815" width="71" height="11" font="10">E1   E2 / Late   SPD</text>
+<text top="50" left="815" width="9" height="11" font="10">89</text>
+<text top="50" left="840" width="4" height="11" font="10"> /</text>
+<text top="50" left="831" width="27" height="11" font="10">93 87</text>
+<text top="50" left="875" width="9" height="11" font="10">93</text>
+<text top="94" left="68" width="103" height="12" font="1">RACETYPE STATS:</text>
+<text top="107" left="23" width="201" height="13" font="4">GP   3up  ALW+  32000 - 54500 N1X  Turf  8.5f</text>
+<text top="84" left="285" width="6" height="12" font="1">#</text>
+<text top="84" left="345" width="63" height="12" font="1">FAVORITES</text>
+<text top="94" left="270" width="33" height="12" font="1">Races</text>
+<text top="107" left="280" width="11" height="13" font="4">25</text>
+<text top="94" left="323" width="30" height="12" font="1">Win%</text>
+<text top="107" left="328" width="19" height="13" font="4">36%</text>
+<text top="94" left="360" width="29" height="12" font="1">ITM%</text>
+<text top="107" left="362" width="19" height="13" font="4">60%</text>
+<text top="94" left="405" width="32" height="12" font="1">$2ROI</text>
+<text top="107" left="412" width="22" height="13" font="4">-0.29</text>
+<text top="84" left="485" width="44" height="12" font="1">Average</text>
+<text top="94" left="480" width="51" height="12" font="1">Field Size</text>
+<text top="107" left="498" width="19" height="13" font="4">10.2</text>
+<text top="83" left="573" width="60" height="13" font="4">Median $2</text>
+<text top="93" left="570" width="64" height="13" font="4">Win Payoff</text>
+<text top="107" left="585" width="29" height="13" font="4">$10.20</text>
+<text top="84" left="660" width="56" height="12" font="1">% Winners</text>
+<text top="94" left="675" width="25" height="12" font="1">&lt; 5/1</text>
+<text top="107" left="680" width="19" height="13" font="4">60%</text>
+<text top="84" left="743" width="56" height="12" font="1">% Winners</text>
+<text top="94" left="743" width="62" height="12" font="1">&gt;=5/1 &lt; 10/1</text>
+<text top="107" left="763" width="19" height="13" font="4">20%</text>
+<text top="84" left="833" width="56" height="12" font="1">% Winners</text>
+<text top="94" left="848" width="31" height="12" font="1">&gt; 10/1</text>
+<text top="107" left="857" width="19" height="13" font="4">20%</text>
+<text top="134" left="386" width="129" height="18" font="7">Track Bias Stats</text>
+<text top="161" left="187" width="76" height="15" font="6">* MEET Totals *</text>
+<text top="177" left="45" width="43" height="15" font="6">Turf  8.5f</text>
+<text top="177" left="184" width="82" height="15" font="6">Speed Bias: 45%</text>
+<text top="177" left="345" width="51" height="15" font="6">WnrAvgBL</text>
+<text top="192" left="45" width="57" height="15" font="6"># Races: 93</text>
+<text top="192" left="194" width="63" height="15" font="6">12/06 - 02/19</text>
+<text top="192" left="345" width="59" height="15" font="6">1stCall:   3.7</text>
+<text top="207" left="45" width="64" height="15" font="6">%Wire:   13%</text>
+<text top="207" left="345" width="60" height="15" font="6">2ndCall:  2.2</text>
+<text top="230" left="198" width="24" height="15" font="6">Early</text>
+<text top="230" left="258" width="31" height="15" font="6">Speed</text>
+<text top="230" left="326" width="21" height="15" font="6">Late</text>
+<text top="230" left="384" width="31" height="15" font="6">Speed</text>
+<text top="245" left="45" width="44" height="15" font="6">Runstyle:</text>
+<text top="245" left="206" width="7" height="15" font="6">E</text>
+<text top="245" left="264" width="17" height="15" font="6">E/P</text>
+<text top="245" left="332" width="7" height="15" font="6">P</text>
+<text top="245" left="395" width="7" height="15" font="6">S</text>
+<text top="260" left="207" width="6" height="15" font="6">+</text>
+<text top="260" left="270" width="6" height="15" font="6">+</text>
+<text top="283" left="45" width="70" height="15" font="6">Impact Values:</text>
+<text top="283" left="200" width="21" height="15" font="6">1.24</text>
+<text top="283" left="263" width="21" height="15" font="6">1.23</text>
+<text top="283" left="326" width="21" height="15" font="6">0.79</text>
+<text top="283" left="389" width="21" height="15" font="6">0.73</text>
+<text top="298" left="45" width="64" height="15" font="6">%Races Won</text>
+<text top="298" left="199" width="21" height="15" font="6">23%</text>
+<text top="298" left="262" width="21" height="15" font="6">23%</text>
+<text top="298" left="325" width="21" height="15" font="6">27%</text>
+<text top="298" left="388" width="21" height="15" font="6">28%</text>
+<text top="332" left="45" width="48" height="15" font="6">Post Bias:</text>
+<text top="332" left="198" width="24" height="15" font="6">RAIL</text>
+<text top="332" left="265" width="15" height="15" font="6">1-3</text>
+<text top="332" left="328" width="15" height="15" font="6">4-7</text>
+<text top="332" left="393" width="12" height="15" font="6">8+</text>
+<text top="347" left="207" width="6" height="15" font="6">+</text>
+<text top="347" left="270" width="6" height="15" font="6">+</text>
+<text top="370" left="45" width="70" height="15" font="6">Impact Values:</text>
+<text top="370" left="200" width="21" height="15" font="6">1.23</text>
+<text top="370" left="263" width="21" height="15" font="6">1.48</text>
+<text top="370" left="326" width="21" height="15" font="6">0.81</text>
+<text top="370" left="389" width="21" height="15" font="6">0.79</text>
+<text top="385" left="45" width="52" height="15" font="6">Avg Win %</text>
+<text top="385" left="199" width="21" height="15" font="6">12%</text>
+<text top="385" left="262" width="21" height="15" font="6">14%</text>
+<text top="385" left="328" width="15" height="15" font="6">8%</text>
+<text top="385" left="391" width="15" height="15" font="6">7%</text>
+<text top="161" left="638" width="73" height="15" font="6">* Week Totals *</text>
+<text top="177" left="480" width="43" height="15" font="6">Turf  8.5f</text>
+<text top="177" left="634" width="82" height="15" font="6">Speed Bias: 57%</text>
+<text top="177" left="795" width="51" height="15" font="6">WnrAvgBL</text>
+<text top="192" left="480" width="51" height="15" font="6"># Races: 7</text>
+<text top="192" left="644" width="63" height="15" font="6">02/13 - 02/19</text>
+<text top="192" left="795" width="59" height="15" font="6">1stCall:   2.6</text>
+<text top="207" left="480" width="67" height="15" font="6">%Wire:    14%</text>
+<text top="207" left="795" width="60" height="15" font="6">2ndCall:  1.2</text>
+<text top="230" left="648" width="24" height="15" font="6">Early</text>
+<text top="230" left="708" width="31" height="15" font="6">Speed</text>
+<text top="230" left="776" width="21" height="15" font="6">Late</text>
+<text top="230" left="834" width="31" height="15" font="6">Speed</text>
+<text top="245" left="480" width="44" height="15" font="6">Runstyle:</text>
+<text top="245" left="656" width="7" height="15" font="6">E</text>
+<text top="245" left="714" width="17" height="15" font="6">E/P</text>
+<text top="245" left="782" width="7" height="15" font="6">P</text>
+<text top="245" left="845" width="7" height="15" font="6">S</text>
+<text top="260" left="717" width="12" height="15" font="6">++</text>
+<text top="283" left="480" width="67" height="15" font="6">Inpact Values:</text>
+<text top="283" left="650" width="21" height="15" font="6">0.64</text>
+<text top="283" left="713" width="21" height="15" font="6">2.50</text>
+<text top="283" left="776" width="21" height="15" font="6">0.44</text>
+<text top="283" left="839" width="21" height="15" font="6">0.73</text>
+<text top="298" left="480" width="64" height="15" font="6">%Races Won</text>
+<text top="298" left="649" width="21" height="15" font="6">14%</text>
+<text top="298" left="712" width="21" height="15" font="6">43%</text>
+<text top="298" left="775" width="21" height="15" font="6">14%</text>
+<text top="298" left="838" width="21" height="15" font="6">29%</text>
+<text top="332" left="480" width="48" height="15" font="6">Post Bias:</text>
+<text top="332" left="648" width="24" height="15" font="6">RAIL</text>
+<text top="332" left="715" width="15" height="15" font="6">1-3</text>
+<text top="332" left="778" width="15" height="15" font="6">4-7</text>
+<text top="332" left="843" width="12" height="15" font="6">8+</text>
+<text top="347" left="720" width="6" height="15" font="6">+</text>
+<text top="370" left="480" width="67" height="15" font="6">Inpact Values:</text>
+<text top="370" left="650" width="21" height="15" font="6">1.29</text>
+<text top="370" left="713" width="21" height="15" font="6">1.71</text>
+<text top="370" left="776" width="21" height="15" font="6">0.32</text>
+<text top="370" left="839" width="21" height="15" font="6">1.29</text>
+<text top="385" left="480" width="52" height="15" font="6">Avg Win %</text>
+<text top="385" left="649" width="21" height="15" font="6">14%</text>
+<text top="385" left="712" width="21" height="15" font="6">19%</text>
+<text top="385" left="778" width="15" height="15" font="6">4%</text>
+<text top="385" left="838" width="21" height="15" font="6">12%</text>
+<text top="411" left="390" width="120" height="18" font="7">Race Summary</text>
+<text top="441" left="176" width="25" height="15" font="6">Days</text>
+<text top="441" left="239" width="88" height="15" font="6">P Avg Dist/Surf</text>
+<text top="441" left="356" width="19" height="15" font="6">Avg</text>
+<text top="441" left="480" width="60" height="15" font="6">Final Speed</text>
+<text top="441" left="603" width="20" height="15" font="6">Rcg</text>
+<text top="441" left="743" width="73" height="15" font="6">Pedigree Stats</text>
+<text top="455" left="131" width="202" height="15" font="6">ML Med Since Run T PACE-SPEED</text>
+<text top="455" left="350" width="88" height="15" font="6">Race Best Pace</text>
+<text top="455" left="603" width="20" height="15" font="6">Spd</text>
+<text top="455" left="711" width="22" height="15" font="6">Mud</text>
+<text top="470" left="12" width="6" height="15" font="6">#</text>
+<text top="470" left="45" width="686" height="15" font="6">Horse Name Odds Eqp L/R Style S E1  E2/Late Spd Rting E1  E2/Late Sp1  Sp2  Sp3  Sp4 ACL Avg R1   R2   R3 Spd</text>
+<text top="492" left="6" width="96" height="15" font="6">12 Town Extension</text>
+<text top="492" left="131" width="63" height="15" font="6">9/2 L 35..</text>
+<text top="493" left="230" width="110" height="15" font="6">P 4 87 98/ 96 * 99*</text>
+<text top="493" left="357" width="18" height="15" font="6">114</text>
+<text top="493" left="390" width="82" height="15" font="6">89 99/ 96 98</text>
+<text top="493" left="473" width="9" height="14" font="12">.T</text>
+<text top="492" left="487" width="12" height="15" font="6">99</text>
+<text top="493" left="500" width="9" height="14" font="12">.T</text>
+<text top="492" left="514" width="12" height="15" font="6">81</text>
+<text top="493" left="527" width="9" height="14" font="12">.T</text>
+<text top="492" left="541" width="12" height="15" font="6">97</text>
+<text top="493" left="554" width="9" height="14" font="12">.T</text>
+<text top="492" left="569" width="134" height="15" font="6">114.0 93 114 114 114</text>
+<text top="455" left="763" width="10" height="15" font="6">%</text>
+<text top="470" left="751" width="22" height="15" font="6">Mud</text>
+<text top="492" left="757" width="12" height="15" font="6">22</text>
+<text top="455" left="793" width="10" height="15" font="6">%</text>
+<text top="470" left="789" width="14" height="15" font="6">Trf</text>
+<text top="492" left="787" width="12" height="15" font="6">11</text>
+<text top="455" left="825" width="20" height="15" font="6">Sire</text>
+<text top="470" left="818" width="26" height="15" font="6">AWD</text>
+<text top="492" left="829" width="16" height="15" font="6">6.5</text>
+<text top="441" left="851" width="24" height="15" font="6">Dam</text>
+<text top="455" left="847" width="28" height="15" font="6">Sire's</text>
+<text top="470" left="848" width="26" height="15" font="6">AWD</text>
+<text top="492" left="859" width="16" height="15" font="6">7.2</text>
+<text top="509" left="12" width="93" height="15" font="6">3 Powerful Instinct</text>
+<text top="509" left="131" width="57" height="15" font="6">5/1 L 56</text>
+<text top="510" left="230" width="110" height="15" font="6">P 3 86 93/ 97 * 96*</text>
+<text top="510" left="357" width="115" height="15" font="6">114 103 102/ 97 98</text>
+<text top="510" left="473" width="9" height="14" font="12">.T</text>
+<text top="509" left="487" width="12" height="15" font="6">93</text>
+<text top="510" left="500" width="9" height="14" font="12">.T</text>
+<text top="509" left="514" width="12" height="15" font="6">89</text>
+<text top="510" left="527" width="9" height="14" font="12">.T</text>
+<text top="509" left="541" width="12" height="15" font="6">90</text>
+<text top="510" left="554" width="9" height="14" font="12">.T</text>
+<text top="509" left="569" width="134" height="15" font="6">114.9 93 114 115 115</text>
+<text top="509" left="757" width="12" height="15" font="6">12</text>
+<text top="509" left="793" width="6" height="15" font="6">4</text>
+<text top="509" left="829" width="46" height="15" font="6">6.8 6.8</text>
+<text top="527" left="12" width="83" height="15" font="6">1 Sunset District</text>
+<text top="527" left="125" width="67" height="15" font="6">20/1 Lb 35.</text>
+<text top="527" left="230" width="79" height="15" font="6">P 2 68 83/104</text>
+<text top="527" left="324" width="12" height="15" font="6">95</text>
+<text top="527" left="357" width="18" height="15" font="6">113</text>
+<text top="527" left="390" width="82" height="15" font="6">68 83/ 104 95</text>
+<text top="528" left="473" width="9" height="14" font="12">.T</text>
+<text top="527" left="487" width="216" height="15" font="6">77 79 91 (112.2) 84 114 114 114</text>
+<text top="527" left="757" width="12" height="15" font="6">15</text>
+<text top="527" left="787" width="12" height="15" font="6">15</text>
+<text top="527" left="829" width="46" height="15" font="6">7.5 7.8</text>
+<text top="544" left="12" width="86" height="15" font="6">9 Market Outlook</text>
+<text top="544" left="131" width="63" height="15" font="6">4/1 L 335</text>
+<text top="544" left="214" width="126" height="15" font="6">+E/P 5 84 92/ 90 ( 92)</text>
+<text top="544" left="357" width="18" height="15" font="6">111</text>
+<text top="544" left="390" width="82" height="15" font="6">75 84/ 97 91</text>
+<text top="545" left="473" width="9" height="14" font="12">.T</text>
+<text top="544" left="487" width="12" height="15" font="6">92</text>
+<text top="545" left="500" width="9" height="14" font="12">.T</text>
+<text top="544" left="514" width="12" height="15" font="6">80</text>
+<text top="545" left="527" width="9" height="14" font="12">.T</text>
+<text top="544" left="569" width="134" height="15" font="6">112.3 88 111 111 111</text>
+<text top="544" left="757" width="12" height="15" font="6">18</text>
+<text top="544" left="787" width="12" height="15" font="6">13</text>
+<text top="544" left="829" width="46" height="15" font="6">7.8 10.7</text>
+<text top="561" left="6" width="89" height="15" font="6">10 Los Borrachos</text>
+<text top="561" left="131" width="57" height="15" font="6">8/1 L 6..</text>
+<text top="562" left="230" width="7" height="15" font="6">S</text>
+<text top="562" left="255" width="85" height="15" font="6">68 78/101 * 88*</text>
+<text top="562" left="357" width="18" height="15" font="6">113</text>
+<text top="562" left="390" width="82" height="15" font="6">83 91/ 105 79</text>
+<text top="562" left="473" width="6" height="14" font="12">T</text>
+<text top="561" left="487" width="12" height="15" font="6">97</text>
+<text top="562" left="500" width="9" height="14" font="12">.T</text>
+<text top="561" left="514" width="12" height="15" font="6">73</text>
+<text top="562" left="527" width="9" height="14" font="12">.T</text>
+<text top="561" left="541" width="189" height="15" font="6">83 114.6 83 113 114 115 94</text>
+<text top="561" left="757" width="12" height="15" font="6">16</text>
+<text top="561" left="787" width="12" height="15" font="6">10</text>
+<text top="561" left="829" width="46" height="15" font="6">7.6 7.1</text>
+<text top="578" left="12" width="73" height="15" font="6">2 Sportscaster</text>
+<text top="578" left="125" width="69" height="15" font="6">15/1 L 21..</text>
+<text top="579" left="214" width="127" height="15" font="6">+E/P 5 85 89/ 85 * 87*</text>
+<text top="579" left="357" width="18" height="15" font="6">114</text>
+<text top="579" left="390" width="82" height="15" font="6">99 97/ 95 84</text>
+<text top="580" left="473" width="9" height="14" font="12">.T</text>
+<text top="578" left="487" width="12" height="15" font="6">95</text>
+<text top="580" left="500" width="9" height="14" font="12">.T</text>
+<text top="578" left="514" width="12" height="15" font="6">71</text>
+<text top="580" left="527" width="9" height="14" font="12">.T</text>
+<text top="578" left="541" width="12" height="15" font="6">81</text>
+<text top="580" left="554" width="9" height="14" font="12">.T</text>
+<text top="578" left="569" width="134" height="15" font="6">114.0 83 113 114 113</text>
+<text top="578" left="757" width="12" height="15" font="6">15</text>
+<text top="578" left="787" width="12" height="15" font="6">13</text>
+<text top="578" left="829" width="46" height="15" font="6">7.0 6.0</text>
+<text top="596" left="12" width="81" height="15" font="6">8 Empire Knight</text>
+<text top="596" left="131" width="63" height="15" font="6">3/1 L 42..</text>
+<text top="596" left="230" width="110" height="15" font="6">S 1 81 86/ 82 * 87*</text>
+<text top="596" left="357" width="18" height="15" font="6">112</text>
+<text top="596" left="390" width="82" height="15" font="6">85 93/ 90 92</text>
+<text top="597" left="473" width="9" height="14" font="12">.T</text>
+<text top="596" left="487" width="12" height="15" font="6">87</text>
+<text top="597" left="500" width="9" height="14" font="12">.T</text>
+<text top="596" left="514" width="12" height="15" font="6">83</text>
+<text top="597" left="527" width="6" height="14" font="12">T</text>
+<text top="596" left="541" width="12" height="15" font="6">81</text>
+<text top="597" left="554" width="6" height="14" font="12">T</text>
+<text top="596" left="569" width="134" height="15" font="6">112.4 87 112 111 112</text>
+<text top="596" left="757" width="12" height="15" font="6">18</text>
+<text top="596" left="787" width="12" height="15" font="6">11</text>
+<text top="596" left="829" width="46" height="15" font="6">7.7 7.0</text>
+<text top="613" left="6" width="82" height="15" font="6">11 Lord Trondor</text>
+<text top="613" left="125" width="67" height="15" font="6">12/1 L 21.</text>
+<text top="614" left="230" width="79" height="15" font="6">E 5 98 94/ 77</text>
+<text top="614" left="324" width="12" height="15" font="6">86</text>
+<text top="614" left="357" width="18" height="15" font="6">113</text>
+<text top="614" left="390" width="82" height="15" font="6">98 94/ 85 86</text>
+<text top="614" left="473" width="9" height="14" font="12">.T</text>
+<text top="613" left="487" width="12" height="15" font="6">86</text>
+<text top="614" left="500" width="6" height="14" font="12">T</text>
+<text top="613" left="514" width="39" height="15" font="6">69 83</text>
+<text top="614" left="554" width="9" height="14" font="12">.T</text>
+<text top="613" left="569" width="162" height="15" font="6">111.4 80 113 111 111 69</text>
+<text top="613" left="757" width="12" height="15" font="6">17</text>
+<text top="613" left="793" width="6" height="15" font="6">7</text>
+<text top="613" left="829" width="46" height="15" font="6">7.6 7.1</text>
+<text top="630" left="12" width="75" height="15" font="6">6 Downey Gap</text>
+<text top="630" left="125" width="64" height="15" font="6">15/1 L 21</text>
+<text top="631" left="230" width="110" height="15" font="6">E 5 92 93/ 77 * 85*</text>
+<text top="631" left="357" width="18" height="15" font="6">113</text>
+<text top="631" left="390" width="82" height="15" font="6">97 94/ 77 86</text>
+<text top="631" left="473" width="9" height="14" font="12">.T</text>
+<text top="630" left="487" width="66" height="15" font="6">75 92 84</text>
+<text top="631" left="554" width="9" height="14" font="12">.T</text>
+<text top="630" left="569" width="134" height="15" font="6">113.2 84 113 115 113</text>
+<text top="630" left="757" width="12" height="15" font="6">20</text>
+<text top="630" left="793" width="6" height="15" font="6">5</text>
+<text top="630" left="829" width="46" height="15" font="6">7.6 7.9</text>
+<text top="648" left="12" width="75" height="15" font="6">7 Golden Rivet</text>
+<text top="648" left="125" width="69" height="15" font="6">20/1 L 28..</text>
+<text top="648" left="214" width="127" height="15" font="6">+E/P 3 75 82/ 86 * 85*</text>
+<text top="648" left="357" width="18" height="15" font="6">112</text>
+<text top="648" left="390" width="82" height="15" font="6">84 84/ 98 85</text>
+<text top="649" left="473" width="9" height="14" font="12">.T</text>
+<text top="648" left="487" width="12" height="15" font="6">85</text>
+<text top="649" left="500" width="9" height="14" font="12">.T</text>
+<text top="648" left="514" width="12" height="15" font="6">85</text>
+<text top="649" left="527" width="9" height="14" font="12">.T</text>
+<text top="648" left="541" width="162" height="15" font="6">86 110.3 85 109 111 113</text>
+<text top="648" left="757" width="12" height="15" font="6">14</text>
+<text top="648" left="787" width="12" height="15" font="6">11</text>
+<text top="648" left="829" width="46" height="15" font="6">7.5 7.1</text>
+<text top="665" left="12" width="59" height="15" font="6">5 Eton Blue</text>
+<text top="665" left="125" width="67" height="15" font="6">20/1 L 21.</text>
+<text top="665" left="214" width="95" height="15" font="6">+E/P 5 94 91/ 77</text>
+<text top="665" left="324" width="12" height="15" font="6">84</text>
+<text top="665" left="357" width="18" height="15" font="6">113</text>
+<text top="665" left="390" width="82" height="15" font="6">94 91/ 77 84</text>
+<text top="666" left="473" width="9" height="14" font="12">.T</text>
+<text top="665" left="487" width="216" height="15" font="6">88 86 82 (112.0) 86 113 113 112</text>
+<text top="665" left="757" width="12" height="15" font="6">13</text>
+<text top="665" left="793" width="6" height="15" font="6">9</text>
+<text top="665" left="829" width="46" height="15" font="6">8.3 6.6</text>
+<text top="682" left="6" width="52" height="15" font="6">13 Saa Mi</text>
+<text top="682" left="131" width="63" height="15" font="6">4/1 L 111</text>
+<text top="683" left="214" width="126" height="15" font="6">+E/P 2 75 88/ 79 ( 83)</text>
+<text top="683" left="357" width="18" height="15" font="6">112</text>
+<text top="683" left="390" width="82" height="15" font="6">75 88/ 79 88</text>
+<text top="682" left="487" width="216" height="15" font="6">87 91 91 (113.9) 89 112 116 116</text>
+<text top="682" left="757" width="12" height="15" font="6">16</text>
+<text top="682" left="787" width="12" height="15" font="6">12</text>
+<text top="682" left="829" width="46" height="15" font="6">7.0 7.5</text>
+<text top="699" left="12" width="50" height="15" font="6">4 Kulboyz</text>
+<text top="699" left="125" width="64" height="15" font="6">30/1 L 64</text>
+<text top="700" left="230" width="16" height="15" font="6">E 6</text>
+<text top="700" left="278" width="62" height="15" font="6">84/ 74 ( 68)</text>
+<text top="700" left="357" width="18" height="15" font="6">114</text>
+<text top="700" left="413" width="60" height="15" font="6">99/ 74 68</text>
+<text top="699" left="487" width="12" height="15" font="6">68</text>
+<text top="701" left="500" width="6" height="14" font="12">T</text>
+<text top="699" left="514" width="216" height="15" font="6">75 83 (113.1) 70 113 114 113 78</text>
+<text top="699" left="757" width="12" height="15" font="6">16</text>
+<text top="699" left="787" width="12" height="15" font="6">18</text>
+<text top="699" left="829" width="46" height="15" font="6">5.7 6.7</text>
+<text top="747" left="8" width="210" height="15" font="6">Speed Last Race Back Speed</text>
+<text top="747" left="263" width="95" height="15" font="6">Current Class</text>
+<text top="733" left="390" width="57" height="15" font="6">Average</text>
+<text top="747" left="390" width="84" height="15" font="6">Class Last 3</text>
+<text top="747" left="518" width="88" height="15" font="6">Prime Power</text>
+<text top="733" left="645" width="73" height="15" font="6">Early Pace</text>
+<text top="747" left="645" width="68" height="15" font="6">Last Race</text>
+<text top="733" left="773" width="68" height="15" font="6">Late Pace</text>
+<text top="747" left="773" width="68" height="15" font="6">Last Race</text>
+<text top="768" left="10" width="97" height="15" font="6">98 Powerful Instinct</text>
+<text top="784" left="10" width="95" height="15" font="6">98 Town Extension</text>
+<text top="799" left="10" width="87" height="15" font="6">95 Sunset District</text>
+<text top="815" left="10" width="85" height="15" font="6">92 Empire Knight</text>
+<text top="831" left="10" width="91" height="15" font="6">91 Market Outlook</text>
+<text top="847" left="10" width="50" height="15" font="6">88 Saa Mi</text>
+<text top="863" left="10" width="80" height="15" font="6">86 Downey Gap</text>
+<text top="878" left="10" width="80" height="15" font="6">86 Lord Trondor</text>
+<text top="894" left="10" width="80" height="15" font="6">85 Golden Rivet</text>
+<text top="910" left="10" width="78" height="15" font="6">84 Sportscaster</text>
+<text top="926" left="10" width="64" height="15" font="6">84 Eton Blue</text>
+<text top="941" left="10" width="87" height="15" font="6">79 Los Borrachos</text>
+<text top="957" left="10" width="55" height="15" font="6">68 Kulboyz</text>
+<text top="768" left="138" width="95" height="15" font="6">99 Town Extension</text>
+<text top="784" left="138" width="97" height="15" font="6">98 Powerful Instinct</text>
+<text top="799" left="138" width="87" height="15" font="6">97 Los Borrachos</text>
+<text top="815" left="138" width="87" height="15" font="6">95 Sunset District</text>
+<text top="831" left="138" width="78" height="15" font="6">95 Sportscaster</text>
+<text top="847" left="138" width="85" height="15" font="6">92 Empire Knight</text>
+<text top="863" left="138" width="91" height="15" font="6">91 Market Outlook</text>
+<text top="878" left="138" width="80" height="15" font="6">86 Downey Gap</text>
+<text top="894" left="138" width="80" height="15" font="6">86 Lord Trondor</text>
+<text top="910" left="138" width="80" height="15" font="6">85 Golden Rivet</text>
+<text top="926" left="138" width="64" height="15" font="6">84 Eton Blue</text>
+<text top="941" left="138" width="50" height="15" font="6">83 Saa Mi</text>
+<text top="957" left="134" width="58" height="15" font="6">NA Kulboyz</text>
+<text top="768" left="257" width="110" height="15" font="6">115.4 Town Extension</text>
+<text top="784" left="257" width="113" height="15" font="6">115.3 Powerful Instinct</text>
+<text top="799" left="257" width="95" height="15" font="6">115.2 Lord Trondor</text>
+<text top="815" left="257" width="101" height="15" font="6">114.8 Empire Knight</text>
+<text top="831" left="257" width="93" height="15" font="6">114.7 Sportscaster</text>
+<text top="847" left="257" width="79" height="15" font="6">114.4 Eton Blue</text>
+<text top="863" left="257" width="103" height="15" font="6">114.2 Sunset District</text>
+<text top="878" left="257" width="103" height="15" font="6">114.2 Los Borrachos</text>
+<text top="894" left="257" width="95" height="15" font="6">114.1 Downey Gap</text>
+<text top="910" left="257" width="95" height="15" font="6">112.8 Golden Rivet</text>
+<text top="926" left="257" width="71" height="15" font="6">111.2 Kulboyz</text>
+<text top="941" left="269" width="94" height="15" font="6">NA Market Outlook</text>
+<text top="957" left="269" width="53" height="15" font="6">NA Saa Mi</text>
+<text top="768" left="385" width="113" height="15" font="6">116.0 Powerful Instinct</text>
+<text top="784" left="385" width="110" height="15" font="6">115.1 Town Extension</text>
+<text top="799" left="385" width="66" height="15" font="6">115.0 Saa Mi</text>
+<text top="815" left="385" width="101" height="15" font="6">114.8 Empire Knight</text>
+<text top="831" left="385" width="95" height="15" font="6">114.6 Downey Gap</text>
+<text top="847" left="385" width="79" height="15" font="6">113.8 Eton Blue</text>
+<text top="863" left="385" width="103" height="15" font="6">113.7 Los Borrachos</text>
+<text top="878" left="385" width="106" height="15" font="6">113.3 Market Outlook</text>
+<text top="894" left="385" width="93" height="15" font="6">113.2 Sportscaster</text>
+<text top="910" left="385" width="103" height="15" font="6">113.1 Sunset District</text>
+<text top="926" left="385" width="95" height="15" font="6">113.1 Lord Trondor</text>
+<text top="941" left="385" width="95" height="15" font="6">112.2 Golden Rivet</text>
+<text top="957" left="385" width="71" height="15" font="6">110.6 Kulboyz</text>
+<text top="768" left="512" width="110" height="15" font="6">142.6 Town Extension</text>
+<text top="784" left="512" width="101" height="15" font="6">140.1 Empire Knight</text>
+<text top="799" left="512" width="113" height="15" font="6">136.6 Powerful Instinct</text>
+<text top="815" left="512" width="66" height="15" font="6">132.8 Saa Mi</text>
+<text top="831" left="512" width="106" height="15" font="6">131.6 Market Outlook</text>
+<text top="847" left="512" width="103" height="15" font="6">130.8 Los Borrachos</text>
+<text top="863" left="512" width="95" height="15" font="6">129.8 Lord Trondor</text>
+<text top="878" left="512" width="95" height="15" font="6">129.6 Golden Rivet</text>
+<text top="894" left="512" width="103" height="15" font="6">128.4 Sunset District</text>
+<text top="910" left="512" width="93" height="15" font="6">126.6 Sportscaster</text>
+<text top="926" left="512" width="95" height="15" font="6">123.7 Downey Gap</text>
+<text top="941" left="512" width="79" height="15" font="6">119.0 Eton Blue</text>
+<text top="957" left="512" width="71" height="15" font="6">106.1 Kulboyz</text>
+<text top="768" left="641" width="61" height="15" font="6">105 Kulboyz</text>
+<text top="784" left="648" width="80" height="15" font="6">98 Lord Trondor</text>
+<text top="799" left="648" width="80" height="15" font="6">97 Downey Gap</text>
+<text top="815" left="648" width="64" height="15" font="6">94 Eton Blue</text>
+<text top="831" left="648" width="97" height="15" font="6">87 Powerful Instinct</text>
+<text top="847" left="648" width="78" height="15" font="6">86 Sportscaster</text>
+<text top="863" left="648" width="85" height="15" font="6">85 Empire Knight</text>
+<text top="878" left="648" width="95" height="15" font="6">85 Town Extension</text>
+<text top="894" left="648" width="80" height="15" font="6">84 Golden Rivet</text>
+<text top="910" left="648" width="50" height="15" font="6">83 Saa Mi</text>
+<text top="926" left="648" width="91" height="15" font="6">75 Market Outlook</text>
+<text top="941" left="648" width="87" height="15" font="6">68 Sunset District</text>
+<text top="957" left="648" width="87" height="15" font="6">68 Los Borrachos</text>
+<text top="768" left="769" width="93" height="15" font="6">104 Sunset District</text>
+<text top="784" left="775" width="97" height="15" font="6">97 Powerful Instinct</text>
+<text top="799" left="775" width="91" height="15" font="6">97 Market Outlook</text>
+<text top="815" left="775" width="87" height="15" font="6">97 Los Borrachos</text>
+<text top="831" left="775" width="95" height="15" font="6">96 Town Extension</text>
+<text top="847" left="775" width="85" height="15" font="6">90 Empire Knight</text>
+<text top="863" left="775" width="50" height="15" font="6">87 Saa Mi</text>
+<text top="878" left="775" width="80" height="15" font="6">86 Golden Rivet</text>
+<text top="894" left="775" width="78" height="15" font="6">81 Sportscaster</text>
+<text top="910" left="775" width="64" height="15" font="6">77 Eton Blue</text>
+<text top="926" left="775" width="80" height="15" font="6">77 Downey Gap</text>
+<text top="941" left="775" width="80" height="15" font="6">77 Lord Trondor</text>
+<text top="957" left="775" width="55" height="15" font="6">49 Kulboyz</text>
+</page>
 <outline>
 <item page="1"></item>
 </outline>
 </pdf2xml>
-
