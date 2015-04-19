@@ -61,6 +61,14 @@ public class login extends Activity {
 
         getSharedPreferences();
 
+        Intent i = getIntent();
+        if(i.getBooleanExtra("logout",false)) {
+            //The user was just logged out
+            //clear shared preferences login
+            logged_in = false;
+            //Provide the username hint based on previot
+        }
+
         if(logged_in)
         {
             /*
