@@ -87,7 +87,9 @@ if(!empty($_SESSION['name']))
           </ul>
          </div>
       </div>          
-      
+   
+ <div class="row">
+        <div class="large-12 columns panel">
 <?php
 //Update accounts with respect to bet. Remaining.
 $dbhost = 'localhost';
@@ -243,10 +245,12 @@ echo "</div></div>";
 mysqli_close($conn);
 
 ?>
-  <footer class="row">
+</div>
+</div>
+  <footer  style="bottom:10px">
         <div class="large-12 columns">
           <hr/>
-          <div class="row">
+          <div >
             <div class="large-6 columns">
               <p>© Copyright no one at all. Go to town.</p>
             </div>
