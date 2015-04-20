@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -86,7 +85,8 @@ if(!empty($_SESSION['name']))
             <li><a href="contact_us.php" class="button">Contact us</a></li>
           </ul>
          </div>
-      </div>          
+      </div>  
+                
           
       <div class="row">
          <div class="large-12 large-centered columns" >    

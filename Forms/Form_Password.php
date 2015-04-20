@@ -87,7 +87,21 @@ if(!empty($_SESSION['name']))
          </div>
       </div>          
           
-      
+                     <script src="../js/vendor/jquery.js"></script> 
+<script src="../js/foundation.min.js"></script> 
+<script>
+      $(document).foundation({
+  orbit: {
+    animation: 'slide',
+    timer_speed: 1000,
+    pause_on_hover: true,
+    animation_speed: 500,
+    navigation_arrows: true,
+    bullets: false
+  }
+});
+</script>
+     
        
       
       

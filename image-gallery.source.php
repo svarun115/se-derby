@@ -133,7 +133,23 @@ if(!empty($_SESSION['name']))
             <li><a href="contact_us.php" class="button">Contact us</a></li>
           </ul>
          </div>
-      </div>          
+      </div>   
+      
+                <script src="js/vendor/jquery.js"></script> 
+<script src="js/foundation.min.js"></script> 
+<script>
+      $(document).foundation({
+  orbit: {
+    animation: 'slide',
+    timer_speed: 1000,
+    pause_on_hover: true,
+    animation_speed: 500,
+    navigation_arrows: true,
+    bullets: false
+  }
+});
+</script>
+          
                  
     <!-- use jssor.slider.min.js instead for release -->
     <!-- jssor.slider.min.js = (jssor.js + jssor.slider.js) -->

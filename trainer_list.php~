@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Trainers</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
@@ -86,6 +86,7 @@ if(!empty($_SESSION['name']))
           </ul>
          </div>
       </div>          
+            
       
  <div class="row">
       <div class="large-12 columns">

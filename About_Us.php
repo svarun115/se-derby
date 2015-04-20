@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>About Us</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
@@ -73,7 +73,7 @@ if(!empty($_SESSION['name']))
                 <li><a href="race.php">Races</a></li>
             </ul>                        
             </li>
-            <li  class="has-dropdown not-click"><a href="#" class="button" data-dropdown="hover2" data-options="is_hover:true">Betting</a>
+            <li class="has-dropdown not-click"><a href="#" class="button" data-dropdown="hover2" data-options="is_hover:true">Betting</a>
                <ul id="hover2" class="f-dropdown" data-dropdown-content>
                <li><a href="betting_rules.php" >Betting Help</li>
                 <li><a href="Forms/Form_betting.php" >Win</li>
@@ -87,6 +87,20 @@ if(!empty($_SESSION['name']))
          </div>
       </div>          
           
+          <script src="js/vendor/jquery.js"></script> 
+<script src="js/foundation.min.js"></script> 
+<script>
+      $(document).foundation({
+  orbit: {
+    animation: 'slide',
+    timer_speed: 1000,
+    pause_on_hover: true,
+    animation_speed: 500,
+    navigation_arrows: true,
+    bullets: false
+  }
+});
+</script>
           
       <div class="row">
          <div class="large-12 large-centered columns" >    
