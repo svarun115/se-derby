@@ -217,10 +217,9 @@
       <label>Membership Type
         <select name="mem_type" id="memtype">
           <option value="notype">--Select--</option>
-          <option value="1">Type1</option>
-          <option value="2">Type2</option>
-          <option value="3">Type3</option>
-          <option value="4">Type4</option>
+          <option value="1">Standard</option>
+          <option value="2">Gold</option>
+          <option value="3">Executive</option>
         </select>
       </label>
     </div>
