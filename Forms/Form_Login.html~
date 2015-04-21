@@ -104,7 +104,7 @@
     <input type="hidden" name="client" value="web">
        <div class="row">
          <div class="large-12 columns">
-             <input type="text" name="email" placeholder="Username" />
+             <input type="text" name="email" placeholder="Email" />
          </div>
        </div>
       <div class="row">
