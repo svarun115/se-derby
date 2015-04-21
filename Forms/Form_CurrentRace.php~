@@ -178,13 +178,13 @@ if(!empty($_SESSION['name']))
     echo " <li class='has-dropdown not-click'>";
     echo "<a href='#'>".$_SESSION['name']."</a>"; 
     echo "<ul class='dropdown'>";
-    echo "<li><a href='signout.php'>Sign out</a></li>";
+    echo "<li><a href='../signout.php'>Sign out</a></li>";
     echo "</ul>";
     echo"    </ul>";
        }
         else{
     echo "<ul class='right'>";
-    echo  "<li><a href='Forms/Form_Signup.html'>SIGNUP</a></li>";
+    echo  "<li><a href='Form_Signup.html'>SIGNUP</a></li>";
     echo "</ul>";
 	echo "<ul class='right'>";
     echo "<li><a href='Form_Login.html'>LOGIN</a></li>";
