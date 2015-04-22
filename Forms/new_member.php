@@ -148,7 +148,7 @@ if(!empty($_SESSION['name']))
   <div class="large-12 columns">
 <h5>Welcome to the club <?php echo $_POST["name"];?>!</h5><br>
       <h5>Your member ID is <?php echo $id;?>. Please remember this for future reference.</h5>  
-       <a href="/se-derby/derbyhome.php">Continue</a>
+       <a href="/se-derby/Forms/Form_Login.html">Login to continue</a>
   </div>
 </div>    
       </div>

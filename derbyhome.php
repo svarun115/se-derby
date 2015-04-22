@@ -96,11 +96,11 @@ if(!empty($_SESSION['name']))
                              timer: false;
                              variable_height:true;">
               <li> <img src="img/img1.jpg" alt="slide 1" />
-               <div class="orbit-caption"> Caption One. </div> </li>
+               <div class="orbit-caption">Magic Brown being groomed </div> </li>
               <li class="active"> <img src="img/img9.jpg" alt="slide 2" />
-               <div class="orbit-caption"> Caption Two. </div> </li>
+               <div class="orbit-caption"> At 2012 Summer Derby </div> </li>
               <li> <img src="img/img10.jpg" alt="slide 3" />
-               <div class="orbit-caption"> Caption Three. </div> </li>
+               <div class="orbit-caption"> Horses at the Derby </div> </li>
                 </ul>
                
       </div> 
@@ -176,6 +176,15 @@ unset($_SESSION['error']);
           <div class="large-12 columns">
           <div class="panel">
              <h3>Welcome To The Turf Club</h3>
+             <p>
+                    If the Bangalore Race Course is considered as one of the best in the country for
+                    the challenge it poses both to the horse and to the riders, the credit should go
+                    to the successive administrators who have wisely made use of the natural and undulating
+                    contours of the land. The Bangalore Race Course is probably the only one on the
+                    world where a limited space of barely 85 acres has been so comprehensively utilised
+                    to provide facilities such as stabling for over 1000 horses, three training tracks,
+                    an equine swimming pool, training schools, walking rings, a veterinary hospital
+                    and even an amateur riding school.</p>
              <button class="small round button" onclick="location.href='About_Us.html';">Learn More</button>
           </div>      
         </div>
