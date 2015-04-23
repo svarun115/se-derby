@@ -7,6 +7,8 @@
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db);
 	session_start();
 	$race=$_SESSION['race'];//user session
+	echo $race;
+	$race=strtolower($race);
 	$sql = "SHOW TABLES FROM derby";
 	$result = mysqli_query($conn,$sql);
 
@@ -25,6 +27,8 @@ $table="0";
 		$date= $table_array[2]."-".$table_array[3]."-".$table_array[1];
 		$time=$table_array[4].":".$table_array[5];
 		$name=$table_array[6];
+		echo $race;
+		echo $name;
 		if($race==$name)
 		{
 			$table=$row[0];

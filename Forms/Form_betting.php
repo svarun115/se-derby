@@ -153,7 +153,7 @@ if(!empty($_SESSION['name']))
 	  <div class="row">
 	<div class="large-4 columns">
      <label> <b>Race:</b></label>
-	 <select id="race" name="race_type" name="race_name" onchange="update()">
+	 <select id="race" name="race_name" onchange="update()">
 	<?php require 'testr.php';?>
 	</select>
     </div>

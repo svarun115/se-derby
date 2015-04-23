@@ -11,6 +11,7 @@
         session_start(); 
     } 
 	$race=$_SESSION['race'];//user session
+	$race=strtolower($race);
 	$sql = "SHOW TABLES FROM derby";
 	$result = mysqli_query($conn,$sql);
 	$_POST["mem_id"]=$_SESSION["mem_id"];
@@ -20,7 +21,7 @@
     exit;
 	}
 
-$table="0";
+	$table="";
 	while ($row = mysqli_fetch_row($result)) {
     $table_array=explode("_",$row[0]);	
     if($table_array[0]=='r')
@@ -40,7 +41,7 @@ $table="0";
 	$sql="SELECT horse_name,jockey_name,trainer_name from $table";
 	$res=mysqli_query($conn,$sql);
 	if(!$res)
-		echo $conn->error;
+		echo "Query failed";
 	while($row = mysqli_fetch_assoc($res)){
 		echo "<tr>";
         if ($row) {
