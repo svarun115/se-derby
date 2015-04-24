@@ -6,6 +6,6 @@ function welcome_send($name,$email,$pwd)
 	if(mail($email,"Welcome to the Turf Club",$msg,"From: sederbymanager@gmail.com"))
 	echo "after sent mail call";
 	else
-		echo "error";
+		echo error_get_last();
 }
 ?>

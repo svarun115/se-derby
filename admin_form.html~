@@ -87,7 +87,7 @@ footer{
 	<hr>
 	<div style="color:red;font-size:15px;padding:15px 0px 0px 0px;"><marquee behavior="scroll" direction="left" scrollamount="5">This Page Can Be Modified By Admin Only </marquee></div>
 	<hr>	
-		<table border='1' cellspacing='40' align="center">
+		<table border='1' cellspacing='40' align="centre">
 				<tr>
 					<th id="th1"><button><a id='a1' href="/se-derby/Forms/Form_RaceInfo.html" style="color:white;">Add Races</a></button></th>
 					<th id="th2"><button><a id='a2' href="Forms/Form_UpdateAccount.html" style="color:white;">Update Account</a></button></th>
