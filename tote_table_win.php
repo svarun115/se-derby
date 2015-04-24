@@ -214,6 +214,8 @@ $sql="INSERT into $table_name(horse_name,odds,odds_fraction) values ('$hname','4
    }
 }
 //code:
+$sql = "CREATE TABLE IF NOT EXISTS win_odds (horse_name varchar(25) NOT NULL,odd varchar(10),PRIMARY KEY (horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
+mysqli_query($conn,$sql);
 $race_table=$_SESSION["race_table"];
 
 $horse_table="derby.horse";
