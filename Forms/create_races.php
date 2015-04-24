@@ -33,5 +33,5 @@ $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db);
 echo "<script type='text/javascript'>";
 echo "alert('The race has been created successfully!');";
 echo "</script>";
-header('Location:/se-derby/admin_home.html');
+header('Location:/se-derby/admin_form.html');
 ?>
