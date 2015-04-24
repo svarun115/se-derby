@@ -4,6 +4,11 @@
     $dbpass = 'admin';
     $db = 'derby';
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db);
+	@ob_start();
+    if(!isset($_SESSION)) 
+    { 
+       session_start(); 
+    } 
     if(!$conn)
 	echo $conn->error();    
     $sql="SELECT horse_name from derby.horse";
@@ -171,7 +176,7 @@ while( $row=  $result->fetch_assoc())
     
     <!--If session, display this -->
     <?php
-    session_start();
+    //session_start();
 if(!empty($_SESSION['name']))
       { 
     echo "<ul class='right'>";

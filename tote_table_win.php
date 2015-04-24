@@ -215,12 +215,15 @@ $sql="INSERT into $table_name(horse_name,odds,odds_fraction) values ('$hname','4
 }
 //code:
 $race_table=$_SESSION["race_table"];
+
 $horse_table="derby.horse";
 $table_win="derby.win_odds";
 $sql = "SELECT * FROM $horse_table, $race_table, $table_win where 
  $horse_table.horse_name = $race_table.horse_name and $horse_table.horse_name = $table_win.horse_name ;";
-if(!($result = mysqli_query($conn,$sql))) 
+ $result = mysqli_query($conn,$sql);
+if(!$result)
      $conn->error;
+
     $var1=1;
 echo "<table>";
 echo "<tr><th>Horse Name</th><th>Breeder</th><th>Weight</th><th>Power</th><th>Age</th><th>Color</th><th>Sex</th>
