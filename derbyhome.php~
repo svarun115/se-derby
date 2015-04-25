@@ -105,18 +105,20 @@ if(!empty($_SESSION['name']))
                
       </div> 
       <div class="large-3 columns" > 
-      <div class="panel"></div>
+      <div class="panel" style="position:relative; height: 353px; width: 235px;">
       <h4>Member Info</h4>
       <h5><b>Name :</b></h5>
       <h5><b>Last Won Race:</b></h5>
       <h5><b>Last Bet Info:</b></h5>
       </div>
+      </div>
       
        <div class="large-3 columns" >
-       <div class="panel callout radius"></div>
+       <div class="panel callout radius" style="position:relative; height: 353px; width: 235px;">
        <h4>Race Updates</h4>
        <h5><b>Add Header of the Update</b></h5>
        <h5>Add Content of the update</h5>        
+      </div>
       </div>
       
       
