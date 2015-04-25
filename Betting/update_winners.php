@@ -15,7 +15,7 @@ if (mysqli_connect_errno())
 echo "<br>Connection successful";
 if($conn1)
 	echo "Connection 2 successful";
-$race_id='r_2015_04_02_21_09_Race1';//call function for assignment
+$race_id='r_2015_04_08_18_00_Race2';//call function for assignment
 	$sql = "SELECT horse_name from $race_id" ;	
 	$res=mysqli_query($conn,$sql);
 	$horse="";
@@ -37,6 +37,9 @@ $race_id='r_2015_04_02_21_09_Race1';//call function for assignment
 		mysqli_query($conn1,$sql1);
 		mysqli_query($conn1,$sql2);
 		include 'win_winners.php';
+		include 'inplace_payoff.php';
+		$sql="alter table $db1.$race_id rename $db2.$race_id";
+		mysqli_query($conn,$sql);
 	}
 	else
 	{
