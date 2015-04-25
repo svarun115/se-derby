@@ -1,6 +1,7 @@
 <?php
 //echo "in second file";
 session_start();
+/*
 $dbhost = 'localhost';
 $db2='derby';
 $dbuser = 'admin';
@@ -14,12 +15,12 @@ if (!$conn) {
 if (!$conn1) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
+*/
 //echo "sql part";
 $race = $_SESSION["race"];
 $table_name= $race."_odds_place";
-$winner_first="Lord Trondor";//change
-$winner_second="Market Outlook";//change
+//$first="Lord Trondor";//change
+//$second="Market Outlook";//change
 $payoff=0;
 $profit_first=0;
 $profit_second=0;
@@ -42,7 +43,7 @@ while($row1=mysqli_fetch_assoc($result2))
 	echo "value=".$value."<br>";
 }*/
 //echo "<br><br>";
-//echo "first:".$winner_first."<br>second:".$winner_second."<br><br>";
+//echo "first:".$first."<br>second:".$second."<br><br>";
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result))
@@ -51,12 +52,12 @@ if (mysqli_num_rows($result) > 0) {
 		$profit_first=0;
 		$profit_second=0;
        echo "member: " . $row["member_id"]. " - horse name 1: " . $row["horse_name_place1"]. " - horse name 2:" . $row["horse_name_place2"]. "-amount:".$row["amount"] ."<br>";
-		if($row["horse_name_place1"]==$winner_first)
+		if($row["horse_name_place1"]==$first)
 		{
 			
 			$profit_first=$odds[$row["horse_name_place1"]]*($row["amount"])*0.6;
 		}
-		if($row["horse_name_place2"]==$winner_second)
+		if($row["horse_name_place2"]==$second)
 		{
 			
 			$profit_second=$odds[$row["horse_name_place2"]]*($row["amount"])*0.4;

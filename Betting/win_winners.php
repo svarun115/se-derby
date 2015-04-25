@@ -61,7 +61,6 @@ echo json_encode($payoff);
 echo json_encode($winner);
 //Send payoff to android
 
-$sql="alter table $db1.$race_id rename $db2.$race_id";
-mysqli_query($conn,$sql);
+
 
 ?>
