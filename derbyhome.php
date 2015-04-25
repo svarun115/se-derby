@@ -89,7 +89,7 @@ if(!empty($_SESSION['name']))
                 
           
       <div class="row">
-         <div class="large-12 large-centered columns" >    
+         <div class="large-6 columns" >    
 
           <ul data-orbit data-options="pause_on_hover:false;
                              slide_number: false;
@@ -104,6 +104,22 @@ if(!empty($_SESSION['name']))
                 </ul>
                
       </div> 
+      <div class="large-3 columns" > 
+      <div class="panel"></div>
+      <h4>Member Info</h4>
+      <h5><b>Name :</b></h5>
+      <h5><b>Last Won Race:</b></h5>
+      <h5><b>Last Bet Info:</b></h5>
+      </div>
+      
+       <div class="large-3 columns" >
+       <div class="panel callout radius"></div>
+       <h4>Race Updates</h4>
+       <h5><b>Add Header of the Update</b></h5>
+       <h5>Add Content of the update</h5>        
+      </div>
+      
+      
 	  <script src="js/vendor/jquery.js"></script> 
 <script src="js/foundation.min.js"></script> 
 <script>
@@ -150,24 +166,24 @@ unset($_SESSION['error']);
             
            
       <div class="row-container" data-equalizer>
-       <h2><pre> Upcoming Race Favourites :</pre></h2>
+       <h4 align="center"><pre> Upcoming Race Favourites :</pre></h4>
         <div class=" large-4 columns" data-equalizer-watch>
            <img src="img/img4.jpg" style="height:240px; width:300px" alt="Image1"/>
-           <h3> 
+           <h5> 
           <?php echo "$horse_names[0]"; ?>
-           </h3>
+           </h5>
      <!--      <p>About Horse1</p> -->
         </div> 
         
         <div class="large-4 columns" data-equalizer-watch>
            <img src="img/img5.jpg" style="height:240px; width:300px" alt="Image2"/>
-           <h3><?php echo "$horse_names[1]"; ?></h3>
+           <h5><?php echo "$horse_names[1]"; ?></h5>
      <!--      <p>About Horse2</p>  -->
         </div>
         
         <div class=" large-4 columns" data-equalizer-watch>
            <img src="img/img6.jpg" style="height:240px; width:300px" alt="Image3"/>
-           <h3><?php echo "$horse_names[2]"; ?></h3>
+           <h5><?php echo "$horse_names[2]"; ?></h5>
      <!--      <p>About Horse3</p>  -->
         </div>     
       </div>
