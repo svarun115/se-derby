@@ -90,7 +90,7 @@ if($value){
   if($no == 1)
     header('Location:/se-derby/derbyhome.php');
   else if($no == 2)
-    header('Location:/se-derby/admin_home.html');
+    header('Location:/se-derby/admin_form.html');
 }
  else if(!$value){
  //echo "in else";
