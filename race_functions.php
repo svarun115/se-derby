@@ -1,10 +1,7 @@
 <?php
 date_default_timezone_set('Asia/Kolkata');
-function race_name()
-{
-	//pick a race name and return it
-}
-function race_open($race)
+
+function table_update($race)
 {
 	$dbhost = 'localhost';
 	$db1='club';
@@ -13,7 +10,40 @@ function race_open($race)
 	$dbpass = 'admin';
 	$conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
 	$conn1 = mysqli_connect($dbhost,$dbuser,$dbpass,$db1);
-	$flag = false;
+	$set = false;
+	if (!$conn)
+	 {
+		    die("Connection failed: " . mysqli_connect_error());
+	}
+	if (!$conn1)
+	 {
+		   die("Connection failed: " . mysqli_connect_error());
+	}
+	$sql = "SELECT race_name from club.racing_history where winner IS NULL and second_place IS NULL;";
+	$result = mysqli_query($conn1,$sql);
+	if(!$result)
+		echo $conn1->error;
+	while($row=mysqli_fetch_assoc($result))
+	{
+		if($row['race_name'] == $race)
+			$set = true;
+	}
+	//echo "set = $set<br>";
+	return $set;
+}
+
+
+
+function race_open_check($race)
+{
+	$dbhost = 'localhost';
+	$db1='club';
+	$db2='derby';
+	$dbuser = 'admin';
+	$dbpass = 'admin';
+	$conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
+	$conn1 = mysqli_connect($dbhost,$dbuser,$dbpass,$db1);
+	$flag = -1;
 	if (!$conn)
 	 {
 		    die("Connection failed: " . mysqli_connect_error());
@@ -43,12 +73,32 @@ function race_open($race)
 			//echo $time_now[0]." ".$time_now[1]."<br>";
 			$race_time_now = explode(":", $race_time);
 			settype($time_now[0], "integer");
+			settype($time_now[1], "integer");
 			settype($race_time_now[0], "integer");
-			$diff = $race_time_now[0] - $time_now[0];
-			if($diff ==0)
-				$flag=true;
+			settype($race_time_now[1], "integer");
+			$time_r = $race_time_now[0]*60 + $race_time_now[1];
+			$time_n = $time_now[0]*60 + $time_now[1];
+			$diff = $time_r - $time_n;
+			//echo "$diff $time_r $time_n $race<br>";
+
+			//$res= table_update($race);
+			//echo $res."<br>";
+
+			if($diff <= 5 and $diff > 0)
+				{
+					$flag= 0;
+					//echo "in if<br>";
+				}
+			else if($diff < 0 and table_update($race))
+			{
+				$flag = 1;
+				//echo "in else if <br>";
+			}
 			else
-				$flag = false;
+			{
+				$flag = -1;
+				//echo "in else <br>";
+			}
 		}
 		
 	}
@@ -56,7 +106,10 @@ function race_open($race)
 	return $flag;
 }
 
-/*function stop_race($race)
+
+
+
+function race_close()
 {
 	$dbhost = 'localhost';
 	$db1='club';
@@ -65,7 +118,6 @@ function race_open($race)
 	$dbpass = 'admin';
 	$conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
 	$conn1 = mysqli_connect($dbhost,$dbuser,$dbpass,$db1);
-	$flag = false;
 	if (!$conn)
 	 {
 		    die("Connection failed: " . mysqli_connect_error());
@@ -75,45 +127,82 @@ function race_open($race)
 		   die("Connection failed: " . mysqli_connect_error());
 	}
 
-	$day=date("Y-m-d");
-	$time = date("h:i:sa");
-	$time= date("H:i", strtotime($time));
-	//echo $day."<br>";
-	//echo $time."<br>";
-	$sql = "SELECT * FROM club.racing_history where race_name = '".$race."';";
+	$sql = "SELECT * FROM club.racing_history";
 	$result = mysqli_query($conn1,$sql);
 
 	while($row=mysqli_fetch_assoc($result))
 	{
-		//echo $row['race_name']." ".$row['race_date']." ".$row['time']." ";
-		if($row['race_date'] == $day)
+		if(race_open_check($row['race_name'])== 1)
 		{
-			$race_time=$row['time'];
-			//echo "$race_time<br>";
-			settype($time, "string");
-			$time_now = explode(":", $time);
-			//echo $time_now[0]." ".$time_now[1]."<br>";
-			$race_time_now = explode(":", $race_time);
-			settype($time_now[0], "integer");
-			settype($race_time_now[0], "integer");
-			$diff = $race_time_now[0] - $time_now[0];
-			if($diff < 0 or $diff > 0)
-				$flag=true;
-			else
-				$flag = false;
+			return $row['race_id'];
 		}
-		
 	}
-
-	return $flag;
+	return "no_race";
 
 }
 
+function race_open()
+{
+	$dbhost = 'localhost';
+	$db1='club';
+	$db2='derby';
+	$dbuser = 'admin';
+	$dbpass = 'admin';
+	$conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
+	$conn1 = mysqli_connect($dbhost,$dbuser,$dbpass,$db1);
+	$flag = -1;
+	if (!$conn)
+	 {
+		    die("Connection failed: " . mysqli_connect_error());
+	}
+	if (!$conn1)
+	 {
+		   die("Connection failed: " . mysqli_connect_error());
+	}
 
+	$sql = "SELECT * FROM club.racing_history";
+	$result = mysqli_query($conn1,$sql);
+
+	while($row=mysqli_fetch_assoc($result))
+	{
+		if(race_open_check($row['race_name'])== 0)
+		{
+			return $row['race_id'];
+		}
+	}
+	return "no_race";
+
+}
+
+function raceid_to_racename($race_id)
+{
+	$dbhost = 'localhost';
+	$db1='club';
+	$db2='derby';
+	$dbuser = 'admin';
+	$dbpass = 'admin';
+	$conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
+	$conn1 = mysqli_connect($dbhost,$dbuser,$dbpass,$db1);
+	$flag = -1;
+	if (!$conn)
+	 {
+		    die("Connection failed: " . mysqli_connect_error());
+	}
+	if (!$conn1)
+	 {
+		   die("Connection failed: " . mysqli_connect_error());
+	}
+	$sql = "SELECT * FROM club.racing_history WHERE race_id ='".$race_id."';";
+	$result = mysqli_query($conn1,$sql);
+	$row=mysqli_fetch_assoc($result);
+	return $row['race_name'];
+}
+
+/*testing
+$res= race_open();
+echo $res."<br>";
+$res1 = race_close();
+echo $res1."<br>";
+echo raceid_to_racename($res1)."<br>";
 */
-$res= race_open("mcdowells");
-if($res)
-{echo "Race open for betting";}
-else
-{echo "Race closed for betting";}
 ?>
