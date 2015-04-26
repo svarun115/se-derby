@@ -73,7 +73,7 @@ if (mysqli_num_rows($result) > 0) {
 		echo "member-".$row["member_id"]." profit-".($profit_first+$profit_second)." payoff-".$payoff."<br>"; 
 		if($payoff>0){
 			$member_id= $row["member_id"];
-		$sql3 = "UPDATE club.account SET balance = balance-$payoff where member_id=$member_id;" ;
+		$sql3 = "UPDATE club.account SET balance = balance+$payoff where member_id=$member_id;" ;
 		$result3 = mysqli_query($conn1,$sql3);
 		if(!$result3)
 			echo $conn1->error;
