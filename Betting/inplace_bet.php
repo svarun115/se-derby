@@ -267,7 +267,10 @@ foreach($horse_name as $hname)
 foreach ($horse_name as $hname) {
 	# code...
 	//echo $hname."=".$sum[$hname]."<br>";
-	$odds[$hname]="0-0";
+  $sql = "SELECT odds FROM $table_name where horse_name = '".$hname."';";
+  $result = mysqli_query($conn,$sql);
+  $odd = mysqli_fetch_assoc($result)['odds'];
+	$odds[$hname]=$odd;
 	$odds_fraction[$hname]=0;
 }
 
@@ -360,7 +363,10 @@ foreach ($horse_name as $hname) {
 			if($odds_fraction[$hname])
 				$odds[$hname]=float2rat($odds_fraction[$hname]);
 			else if($odds_fraction[$hname]==0)
+      {
 				$odds[$hname]="1-1";
+        $odds_fraction[$hname]=1;
+      }
 
 			/*$whole=floor($odds[$hname]);
 			$frac=$odds[$hname]-$whole;

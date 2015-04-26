@@ -205,8 +205,17 @@ if(mysqli_query($conn,$sql))
   //echo "success";
   //echo "UGH!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
 if($flag){
+
 foreach ($horse_name as $hname) {
-$sql="INSERT into $table_name(horse_name,odds,odds_fraction) values ('$hname','4-5',3.09)";
+$sql_get_details = "SELECT * from derby.horse where horse_name ='".$hname."';";
+$result_get_details = mysqli_query($conn,$sql_get_details);
+$row=mysqli_fetch_assoc($result_get_details);
+//$wins=mysqli_fetch_assoc($result_get_details)['second'];
+$wins= $row['wins'];
+$mounts = $row['mounts'];
+//echo "$wins $mounts<br>";
+$odds=$wins."-".$mounts;
+$sql="INSERT into $table_name(horse_name,odds,odds_fraction) values ('$hname','$odds',3.05)";
   mysqli_query($conn,$sql);
    //echo "success";
   //else
@@ -228,7 +237,7 @@ echo "<tr><th>Horse Name</th><th>Breeder</th><th>Weight</th><th>Power</th><th>Ag
 <th>Odds For Position Betting</th></tr>";
 while($row = mysqli_fetch_row($result))
 {
-  echo "in while";
+  //echo "in while";
 echo "<tr onmouseover=\"hilite(this)\" onmouseout=\"lowlite(this)\"><td>$row[0]</td><td>$row[1]</td>
       <td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td><td>$row[6]</td><td>$row[7]</td><td>$row[8]</td><td>$row[9]</td>
       <td>$row[10]</td><td>$row[12]</td><td>$row[13]</td><td>$row[19]</td></tr>\n";

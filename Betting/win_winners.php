@@ -15,7 +15,7 @@ else
 	echo "Successful<br/>";
 
 $winner=mysqli_fetch_assoc($res)['winner']; //Change to post
-echo $winner;
+//echo $winner;
 
 $sql="SELECT odd from win_odds where horse_name='$winner'";
 $result=mysqli_query($conn,$sql);

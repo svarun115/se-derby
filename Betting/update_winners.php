@@ -1,4 +1,5 @@
 <?php
+include "../race_functions.php";
 $dbhost = 'localhost';
 $dbuser = 'root';
 $dbpass = '';
@@ -15,7 +16,8 @@ if (mysqli_connect_errno())
 echo "<br>Connection successful";
 if($conn1)
 	echo "Connection 2 successful";
-$race_id='r_2015_04_09_11_00_mcdowells';//call function for assignment
+$race_id='r_2015_04_24_14_58_Rio';//call function for assignment
+$race = raceid_to_racename($race_id);
 	$sql = "SELECT horse_name from $race_id" ;	
 	$res=mysqli_query($conn,$sql);
 	$horse="";
@@ -38,11 +40,12 @@ $race_id='r_2015_04_09_11_00_mcdowells';//call function for assignment
 		mysqli_query($conn1,$sql2);
 		include 'win_winners.php';
 		include 'inplace_payoff.php';
-		$sql="alter table $db1.$race_id rename $db2.$race_id";
-		mysqli_query($conn,$sql);
+		//$sql="alter table $db1.$race_id rename $db2.$race_id";
+		//mysqli_query($conn,$sql);
 	}
 	else
 	{
+		echo $conn->error;
 		echo "Mysql query failed";
 	}
 	

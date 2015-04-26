@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "../race_functions.php";
 //$_SESSION["error_inplace"]=0;
 if(empty($_SESSION['name']))
 {
@@ -157,12 +158,14 @@ if(!empty($_SESSION['name']))
           $sql = 'SELECT race_name From racing_history;';
           $result=mysqli_query($conn1,$sql);
           $count=1;
-          while($row = mysqli_fetch_assoc($result)) {
+          //while($row = mysqli_fetch_assoc($result)) {
+          $race_id = race_open();
+          $race = raceid_to_racename($race_id);
           $value= $count;
           $id = "race".$count;
-          echo '<option value='.$row["race_name"].' id='.$id.'>'.$row["race_name"].'</option>';
+          echo '<option value='.$race.' id='.$id.'>'.$race.'</option>';
           $count++;
-        }
+        //}
       ?>
       <!--
       <option value="1" id="race1">Race1</option>

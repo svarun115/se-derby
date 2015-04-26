@@ -32,12 +32,14 @@
 		$name=$table_array[6];
 		if($race==$name)
 		{
+			echo "in if";
 			$table=$row[0];
 			break;
 		}
 
 	}
 }
+	echo $table.".......................";
 	$sql="SELECT horse_name,jockey_name,trainer_name from $table";
 	$res=mysqli_query($conn,$sql);
 	if(!$res)

@@ -249,20 +249,7 @@ if(!empty($_SESSION['name']))
  <button class="radius button expand" onclick="">Submit</button>
 </div>
 </div>
- <div class="row">
-    <div class="large-4 columns">
-      <label><b>Horses and details:</b><p>
-        <table border="1px">
-    <tr>
-    <th> Horse-Name</th>
-    <th>Jockey</th>
-    <th>Trainer</th>
-    </tr>
-    <?php require 'Bet_table.php';?>
-    </table>
-      </label>
-    </div>
-  </div>
+ 
     </div>
     </div>
     </div>
