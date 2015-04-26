@@ -11,7 +11,7 @@
         session_start(); 
     } 
 	$race=$_SESSION['race'];//user session
-	$race=strtolower($race);
+	//$race=strtolower($race);
 	$sql = "SHOW TABLES FROM derby";
 	$result = mysqli_query($conn,$sql);
 	$_POST["mem_id"]=$_SESSION["mem_id"];

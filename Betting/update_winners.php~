@@ -15,7 +15,7 @@ if (mysqli_connect_errno())
 echo "<br>Connection successful";
 if($conn1)
 	echo "Connection 2 successful";
-$race_id='r_2015_05_24_11_20_Rio';//call function for assignment
+$race_id='r_2015_04_08_18_00_Race2';//call function for assignment
 	$sql = "SELECT horse_name from $race_id" ;	
 	$res=mysqli_query($conn,$sql);
 	$horse="";

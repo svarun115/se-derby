@@ -159,7 +159,7 @@ mysql_close($connection);
 //>>>>>>> 27c94fd9c0aa489ce384a2d2be2b4a5f2a25cfc1
  */
 //session_start();
-$race=$_POST["race_type"];
+$race=$_POST["race_name"];
 $_SESSION["race"]=$race;
 $flag = 0;          
          // echo "<h2>".$race."</h2>";
@@ -214,14 +214,22 @@ $sql="INSERT into $table_name(horse_name,odds,odds_fraction) values ('$hname','4
    }
 }
 //code:
+$sql = "CREATE TABLE IF NOT EXISTS win_odds (horse_name varchar(25) NOT NULL,odd varchar(10),PRIMARY KEY (horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
+mysqli_query($conn,$sql);
 $race_table=$_SESSION["race_table"];
+
 $horse_table="derby.horse";
 $table_win="derby.win_odds";
 $sql = "SELECT * FROM $horse_table, $race_table, $table_win where 
  $horse_table.horse_name = $race_table.horse_name and $horse_table.horse_name = $table_win.horse_name ;";
-if(!($result = mysqli_query($conn,$sql))) 
+ $result = mysqli_query($conn,$sql);
+if(!$result)
      $conn->error;
+
     $var1=1;
+
+if($result->num_rows>0)
+{
 echo "<table>";
 echo "<tr><th>Horse Name</th><th>Breeder</th><th>Weight</th><th>Power</th><th>Age</th><th>Color</th><th>Sex</th>
 <th>Mounts</th><th>Wins</th><th>Second</th><th>Third</th><th>Jockey Name</th><th>Trainer Name</th>
@@ -234,7 +242,9 @@ echo "<tr onmouseover=\"hilite(this)\" onmouseout=\"lowlite(this)\"><td>$row[0]<
       $var1++;
 }
 echo "</table>";
-
+}
+else
+echo "No Tote Table to display";
 
 // close the connection
 mysqli_close($conn);
@@ -243,7 +253,7 @@ mysqli_close($conn);
 
 
 ?>
-<input type = "submit" value = "Continue"/>
+<input type="submit" class="radius button expand" style="width:124px;" value="Continue"/>
 </form> 
 </div> 
 </div>

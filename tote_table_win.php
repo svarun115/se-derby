@@ -227,6 +227,9 @@ if(!$result)
      $conn->error;
 
     $var1=1;
+
+if($result->num_rows>0)
+{
 echo "<table>";
 echo "<tr><th>Horse Name</th><th>Breeder</th><th>Weight</th><th>Power</th><th>Age</th><th>Color</th><th>Sex</th>
 <th>Mounts</th><th>Wins</th><th>Second</th><th>Third</th><th>Jockey Name</th><th>Trainer Name</th>
@@ -239,7 +242,9 @@ echo "<tr onmouseover=\"hilite(this)\" onmouseout=\"lowlite(this)\"><td>$row[0]<
       $var1++;
 }
 echo "</table>";
-
+}
+else
+echo "No Tote Table to display<br>";
 
 // close the connection
 mysqli_close($conn);
@@ -248,7 +253,7 @@ mysqli_close($conn);
 
 
 ?>
-<input type = "submit" value = "Continue"/>
+<input type="submit" class="radius button expand" style="width:124px;" value="Continue"/>
 </form> 
 </div> 
 </div>

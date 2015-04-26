@@ -8,7 +8,7 @@
 	$conn1=mysqli_connect($dbhost, $dbuser, $dbpass,$db1);
   session_start();
 		$race=$_SESSION['race'];
-		
+		echo $race;
 		$memberId=$_SESSION['mem_id'];
 		$_SESSION['race']=$race;
    // $_POST["mem_id"]=$memberId;
