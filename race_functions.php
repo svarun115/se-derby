@@ -1,6 +1,5 @@
 <?php
 date_default_timezone_set('Asia/Kolkata');
-
 function table_update($race)
 {
 	$dbhost = 'localhost';
@@ -111,6 +110,8 @@ function race_open_check($race)
 
 function race_close()
 {
+	echo "in race_close";
+	//global $recent_race;
 	$dbhost = 'localhost';
 	$db1='club';
 	$db2='derby';
@@ -134,6 +135,10 @@ function race_close()
 	{
 		if(race_open_check($row['race_name'])== 1)
 		{
+			//last_race($row['race_name']);
+			$myfile=fopen("last_race.txt","w");
+			fwrite($myfile,$row['race_name']);
+			fclose($myfile);
 			return $row['race_id'];
 		}
 	}
@@ -172,6 +177,16 @@ function race_open()
 	}
 	return "No race";
 
+}
+
+function last_updated_race()
+{
+	$myfile=fopen("last_race.txt","r");
+	$var = fread($myfile,20);
+	//$name = fgets($myfile);
+	fclose($myfile);
+	echo $var;
+	return $var;
 }
 
 function raceid_to_racename($race_id)

@@ -48,8 +48,9 @@ else
 		mysqli_query($conn1,$sql2);
 		include 'win_winners.php';
 		include 'inplace_payoff.php';
-		//$sql="alter table $db1.$race_id rename $db2.$race_id";
-		//mysqli_query($conn,$sql);
+		//$sql="alter table $db1.$race_id rename $db2.$race_id";//uncomment
+		//mysqli_query($conn,$sql);//uncomment
+		//race_last_updated();
 		echo "<script type='text/javascript'>alert('Winners updated!');</script>";
 		header( "refresh:1;url=/se-derby/admin_form.html" );
 		//header('Location:/se-derby/admin_form.html');

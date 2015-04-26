@@ -19,6 +19,7 @@ if (!$conn1) {
 //echo "sql part";
 //$race = $_SESSION["race"];
 //echo "$first $second";
+
 $table_name= $race."_odds_place";
 //echo "$table_name<br>";
 $sql="SELECT winner, second_place from racing_history where race_id='$race_id'";

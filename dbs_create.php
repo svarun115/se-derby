@@ -62,7 +62,7 @@ $conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
 			
 			//$sql = "CREATE TABLE IF NOT EXISTS `verification` (`member_id` int(11) NOT NULL,`email` varchar(50) NOT NULL,`password` varchar(25) NOT NULL,`salt` varchar(25) NOT NULL,PRIMARY KEY (`member_id`,`email`))";
 		//creating the member authentication table-----> ADD FOREIGN KEY IN CREATE TABLE STATEMENT
-		$result = mysqli_query($conn,"create table if not exists auth( member_id int(11) primary key, email varchar(60), password varchar(60), foreign key(member_id) references members(member_id) on update cascade on delete cascade)");
+		$result = mysqli_query($conn,"create table if not exists auth( member_id int(11) primary key, email varchar(60) primary key, password varchar(60), foreign key(member_id) references members(member_id) on update cascade on delete cascade)");
 		//$sql = "ALTER TABLE auth ADD CONSTRAINT fk1 FOREIGN KEY (member_id) REFERENCES members (member_id) ON DELETE CASCADE ON UPDATE CASCADE";
 		//mysqli_query($conn,$sql);
 
