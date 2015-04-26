@@ -31,7 +31,7 @@
     </ul>!-->
 
     <!-- Left Nav Section -->
-	 <ul class="left">
+   <ul class="left">
       <li style="font-weight: bold;"><a href="#">TURF CLUB</a></li>
     </ul>
     
@@ -52,7 +52,7 @@ if(!empty($_SESSION['name']))
     echo "<ul class='right'>";
     echo  "<li><a href='Forms/Form_Signup.html'>SIGNUP</a></li>";
     echo "</ul>";
-	echo "<ul class='right'>";
+  echo "<ul class='right'>";
     echo "<li><a href='Forms/Form_Login.html'>LOGIN</a></li>";
     echo "</ul>";}
     ?>
@@ -130,7 +130,7 @@ ON odds.horse_name=win_odds.horse_name";
 //<<<<<<< HEAD
 $result = mysqli_query($conn,$sql);
 if(!$result)
-	echo $conn->error;
+  echo $conn->error;
 //=======
 $result = mysql_query($sql);
 //>>>>>>> 27c94fd9c0aa489ce384a2d2be2b4a5f2a25cfc1
@@ -145,11 +145,11 @@ while($row = mysqli_fetch_row($result))
 while($row = mysql_fetch_row($result))
 //>>>>>>> 27c94fd9c0aa489ce384a2d2be2b4a5f2a25cfc1
 {
-	if($row[1]!=NULL || $row[2]!=NULL)
-	{
-		echo "<tr><th>$row[0]</th><th>$row[1]</th><th>$row[2]</th></tr>";
-	}
-}	
+  if($row[1]!=NULL || $row[2]!=NULL)
+  {
+    echo "<tr><th>$row[0]</th><th>$row[1]</th><th>$row[2]</th></tr>";
+  }
+} 
 echo "</table>";
 // close the connection
 //<<<<<<< HEAD
@@ -217,30 +217,26 @@ $sql="INSERT into $table_name(horse_name,odds,odds_fraction) values ('$hname','4
 $race_table=$_SESSION["race_table"];
 $horse_table="derby.horse";
 $table_win="derby.win_odds";
-$sql = "SELECT * FROM $horse_table, $race_table, $table_name, $table_win where 
+$sql = "SELECT * FROM $horse_table, $race_table, $table_name where 
  $horse_table.horse_name = $race_table.horse_name and $horse_table.horse_name = $table_name.horse_name ;";
 if(!($result = mysqli_query($conn,$sql)))
   $conn->error;
  $var1=1;
-
-
-if($result->num_rows>0)
-{
 echo "<table>";
 echo "<tr><th>Horse Name</th><th>Breeder</th><th>Weight</th><th>Power</th><th>Age</th><th>Color</th><th>Sex</th>
 <th>Mounts</th><th>Wins</th><th>Second</th><th>Third</th><th>Jockey Name</th><th>Trainer Name</th>
 <th>Odds For Position Betting</th></tr>";
 while($row = mysqli_fetch_row($result))
 {
+  echo "in while";
 echo "<tr onmouseover=\"hilite(this)\" onmouseout=\"lowlite(this)\"><td>$row[0]</td><td>$row[1]</td>
       <td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td><td>$row[6]</td><td>$row[7]</td><td>$row[8]</td><td>$row[9]</td>
       <td>$row[10]</td><td>$row[12]</td><td>$row[13]</td><td>$row[19]</td></tr>\n";
       $var1++;
 }
 echo "</table>";
-}
-else
-echo "No Tote Table to Display<br>";
+
+
 // close the connection
 mysqli_close($conn);
 
@@ -248,7 +244,7 @@ mysqli_close($conn);
 
 
 ?>
-<input type="submit" class="radius button expand" style="width:124px;" value="Continue"/>
+<input type = "submit" value = "Continue"/>
 </form> 
 </div> 
 </div>
@@ -282,7 +278,7 @@ font-size: .7em;
 border: 1px solid #DDD;
 }
 </style>
-	
-	</body>
-	</html>
-	
+  
+  </body>
+  </html>
+  

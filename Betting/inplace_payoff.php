@@ -19,8 +19,18 @@ if (!$conn1) {
 //echo "sql part";
 $race = $_SESSION["race"];
 $table_name= $race."_odds_place";
-//$first="Lord Trondor";//change
-//$second="Market Outlook";//change
+
+$sql="SELECT winner, second_place from racing_history where race_id='$race_id'";
+$res=mysqli_query($conn1,$sql);
+if(!$res)
+	echo "Query failed";
+else
+	echo "Successful<br/>";
+
+$first=mysqli_fetch_assoc($res)['winner']; //Change to post
+echo $first;
+$second = mysqli_fetch_assoc($res)['second_place'];
+
 $payoff=0;
 $profit_first=0;
 $profit_second=0;

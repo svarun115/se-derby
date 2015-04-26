@@ -15,6 +15,7 @@
 	$wind=$_POST["wind"];
 	//echo $wind."<br>";
 	$time=$_POST["time"];
+	//echo $time."<br>";
 	$date=$date_of_race."";
 	//echo ''.gettype($date);
 	$racename=race_table($date,$time,$race_name);
