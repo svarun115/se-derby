@@ -121,10 +121,11 @@ if(!mysqli_query($conn,$sql))
 $member_id=$_SESSION["mem_id"];
 $horse_name=$_POST["horse_type"]; 
 $amount=$_POST["amount"]; 
-
+$race = $_SESSION["race"];
+$table_name = $race."_odds_win";
 //This script needs to be called by the android module everytime a user places the bet
-$sql = "CREATE TABLE IF NOT EXISTS win_odds (horse_name varchar(25) NOT NULL,odd varchar(10),PRIMARY KEY (horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
-mysqli_query($conn,$sql);
+//$sql = "CREATE TABLE IF NOT EXISTS win_odds (horse_name varchar(25) NOT NULL,odd varchar(10),PRIMARY KEY (horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
+//mysqli_query($conn,$sql);
 $validate=True;
 
 $sql3="SELECT balance from account where member_id='$member_id'";
@@ -242,9 +243,9 @@ foreach ($horse_name as $hname) {
 
 foreach ($horse_name as $hname) {
 	$name=$odds[$hname];
-	$sql="INSERT into derby.win_odds(horse_name,odd) values ('$hname','$name')";
+	$sql="INSERT into derby.$table_name(horse_name,odd) values ('$hname','$name')";
 	if(!mysqli_query($conn,$sql)){
-		$sql="UPDATE win_odds set odd='$name' where horse_name='$hname'";
+		$sql="UPDATE $table_name set odd='$name' where horse_name='$hname'";
 	
 	mysqli_query($conn,$sql);
 }

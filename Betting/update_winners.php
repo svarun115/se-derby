@@ -13,11 +13,19 @@ if (mysqli_connect_errno())
 	     	echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	     	die();
 	      }
-echo "<br>Connection successful";
-if($conn1)
-	echo "Connection 2 successful";
-$race_id='r_2015_04_24_14_58_Rio';//call function for assignment
+//echo "<br>Connection successful";
+//if($conn1)
+	//echo "Connection 2 successful";
+$race_id=race_close();//call function for assignment
 $race = raceid_to_racename($race_id);
+if($race == "No race")
+{
+	echo "<script type='text/javascript'>alert('Could not be updated as there are no races to update!');</script>";
+	header( "refresh:1;url=/se-derby/admin_form.html" );
+}
+//echo $race;
+else
+{
 	$sql = "SELECT horse_name from $race_id" ;	
 	$res=mysqli_query($conn,$sql);
 	$horse="";
@@ -42,12 +50,15 @@ $race = raceid_to_racename($race_id);
 		include 'inplace_payoff.php';
 		//$sql="alter table $db1.$race_id rename $db2.$race_id";
 		//mysqli_query($conn,$sql);
+		echo "<script type='text/javascript'>alert('Winners updated!');</script>";
+		header( "refresh:1;url=/se-derby/admin_form.html" );
+		//header('Location:/se-derby/admin_form.html');
 	}
 	else
 	{
 		echo $conn->error;
 		echo "Mysql query failed";
 	}
-	
+}	
 ?>
 

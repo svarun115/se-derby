@@ -31,7 +31,7 @@
     </ul>!-->
 
     <!-- Left Nav Section -->
-	 <ul class="left">
+   <ul class="left">
       <li style="font-weight: bold;"><a href="#">TURF CLUB</a></li>
     </ul>
     
@@ -52,7 +52,7 @@ if(!empty($_SESSION['name']))
     echo "<ul class='right'>";
     echo  "<li><a href='Forms/Form_Signup.html'>SIGNUP</a></li>";
     echo "</ul>";
-	echo "<ul class='right'>";
+  echo "<ul class='right'>";
     echo "<li><a href='Forms/Form_Login.html'>LOGIN</a></li>";
     echo "</ul>";}
     ?>
@@ -130,7 +130,7 @@ ON odds.horse_name=win_odds.horse_name";
 //<<<<<<< HEAD
 $result = mysqli_query($conn,$sql);
 if(!$result)
-	echo $conn->error;
+  echo $conn->error;
 //=======
 $result = mysql_query($sql);
 //>>>>>>> 27c94fd9c0aa489ce384a2d2be2b4a5f2a25cfc1
@@ -145,11 +145,11 @@ while($row = mysqli_fetch_row($result))
 while($row = mysql_fetch_row($result))
 //>>>>>>> 27c94fd9c0aa489ce384a2d2be2b4a5f2a25cfc1
 {
-	if($row[1]!=NULL || $row[2]!=NULL)
-	{
-		echo "<tr><th>$row[0]</th><th>$row[1]</th><th>$row[2]</th></tr>";
-	}
-}	
+  if($row[1]!=NULL || $row[2]!=NULL)
+  {
+    echo "<tr><th>$row[0]</th><th>$row[1]</th><th>$row[2]</th></tr>";
+  }
+} 
 echo "</table>";
 // close the connection
 //<<<<<<< HEAD
@@ -185,7 +185,7 @@ $flag = 0;
           }
           $_SESSION["race"]=$race;
           $_SESSION["race_table"]=$race_table;
-$table_name= $race."_odds_place";
+$table_name= $race."_odds_win";
 
 $sql1 = "SELECT horse_name from $race_table";
 if(!( $result1=mysqli_query($conn,$sql1)))
@@ -206,7 +206,15 @@ if(mysqli_query($conn,$sql))
   //echo "UGH!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
 if($flag){
 foreach ($horse_name as $hname) {
-$sql="INSERT into $table_name(horse_name,odds,odds_fraction) values ('$hname','4-5',3.09)";
+  $sql_get_details = "SELECT * from derby.horse where horse_name ='".$hname."';";
+$result_get_details = mysqli_query($conn,$sql_get_details);
+$row=mysqli_fetch_assoc($result_get_details);
+//$wins=mysqli_fetch_assoc($result_get_details)['second'];
+$wins= $row['wins'];
+$mounts = $row['mounts'];
+//echo "$wins $mounts<br>";
+$odds=$wins."-".$mounts;
+$sql="INSERT into $table_name(horse_name,odds,odds_fraction) values ('$hname','$odds',0)";
   mysqli_query($conn,$sql);
    //echo "success";
   //else
@@ -214,22 +222,14 @@ $sql="INSERT into $table_name(horse_name,odds,odds_fraction) values ('$hname','4
    }
 }
 //code:
-$sql = "CREATE TABLE IF NOT EXISTS win_odds (horse_name varchar(25) NOT NULL,odd varchar(10),PRIMARY KEY (horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
-mysqli_query($conn,$sql);
 $race_table=$_SESSION["race_table"];
-
 $horse_table="derby.horse";
 $table_win="derby.win_odds";
-$sql = "SELECT * FROM $horse_table, $race_table, $table_win where 
- $horse_table.horse_name = $race_table.horse_name and $horse_table.horse_name = $table_win.horse_name ;";
- $result = mysqli_query($conn,$sql);
-if(!$result)
+$sql = "SELECT * FROM $horse_table, $race_table, $table_name where 
+ $horse_table.horse_name = $race_table.horse_name and $horse_table.horse_name = $table_name.horse_name ;";
+if(!($result = mysqli_query($conn,$sql))) 
      $conn->error;
-
     $var1=1;
-
-if($result->num_rows>0)
-{
 echo "<table>";
 echo "<tr><th>Horse Name</th><th>Breeder</th><th>Weight</th><th>Power</th><th>Age</th><th>Color</th><th>Sex</th>
 <th>Mounts</th><th>Wins</th><th>Second</th><th>Third</th><th>Jockey Name</th><th>Trainer Name</th>
@@ -242,9 +242,7 @@ echo "<tr onmouseover=\"hilite(this)\" onmouseout=\"lowlite(this)\"><td>$row[0]<
       $var1++;
 }
 echo "</table>";
-}
-else
-echo "No Tote Table to display<br>";
+
 
 // close the connection
 mysqli_close($conn);
@@ -253,7 +251,7 @@ mysqli_close($conn);
 
 
 ?>
-<input type="submit" class="radius button expand" style="width:124px;" value="Continue"/>
+<input type = "submit" value = "Continue"/>
 </form> 
 </div> 
 </div>
@@ -287,7 +285,7 @@ font-size: .7em;
 border: 1px solid #DDD;
 }
 </style>
-	
-	</body>
-	</html>
-	
+  
+  </body>
+  </html>
+  

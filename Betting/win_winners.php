@@ -6,21 +6,25 @@ $dbuser = 'admin';
 $dbpass = 'admin';
 $conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
 $conn1=mysqli_connect($dbhost,$dbuser,$dbpass,'club');*/
-
+//session_start();
+//$race = $_SESSION["race"];
+$table_name = $race."_odds_win";
 $sql="SELECT winner from racing_history where race_id='$race_id'";
 $res=mysqli_query($conn1,$sql);
-if(!$res)
+/*if(!$res)
 	echo "Query failed";
 else
 	echo "Successful<br/>";
-
+*/
 $winner=mysqli_fetch_assoc($res)['winner']; //Change to post
 //echo $winner;
 
-$sql="SELECT odd from win_odds where horse_name='$winner'";
+$sql="SELECT odds from $table_name where horse_name='$winner'";
 $result=mysqli_query($conn,$sql);
+if(!$result)
+	echo $conn->error;
 $row = mysqli_fetch_assoc($result);
-$win_odd=$row['odd'];
+$win_odd=$row['odds'];
 $win_odd=explode('-',$win_odd);
 $odd=((int)$win_odd[0])/((float)$win_odd[1]);
 $sql="SELECT member_id,amount FROM win WHERE horse_name='$winner'";

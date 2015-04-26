@@ -23,14 +23,14 @@ $table_name= $race."_odds_place";
 //echo "$table_name<br>";
 $sql="SELECT winner, second_place from racing_history where race_id='$race_id'";
 $res=mysqli_query($conn1,$sql);
-if(!$res)
+/*if(!$res)
 	echo "Query failed";
 else
 	echo "Successful<br/>";
-
-$first=mysqli_fetch_assoc($res)['winner']; //Change to post
-
-$second = mysqli_fetch_assoc($res)['second_place'];
+*/
+$names=mysqli_fetch_assoc($res); //Change to post
+$first = $names['winner'];
+$second = $names['second_place'];
 
 $payoff=0;
 $profit_first=0;

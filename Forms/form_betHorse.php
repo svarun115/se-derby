@@ -176,20 +176,7 @@ if(!empty($_SESSION['name']))
   </div>
    <input type="submit" class="radius button expand" style="width:124px;" value="submit"/>
    <br/>
-	<div class="row">
-    <div class="large-4 columns">
-      <label><b>Horses and details:</b><p>
-        <table border="1px">
-		<tr>
-		<th>Horse-Name</th>
-		<th>Jockey</th>
-		<th>Trainer</th>
-		</tr>
-		<?php require 'Bet_table.php';?>
-		</table>
-      </label>
-    </div>
-  </div>
+
  
    </div>
    </form>

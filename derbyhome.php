@@ -103,7 +103,7 @@ if(!empty($_SESSION['name']))
                <div class="orbit-caption"> Horses at the Derby </div> </li>
                 </ul>
          <?php  
-	
+	include "race_functions.php";
 	
 	if(!empty($_SESSION['name']))
 	{  
@@ -136,8 +136,8 @@ if(!empty($_SESSION['name']))
      echo "<div class='large-3 columns' >"; 
       echo "<div class='panel' style='position:relative; height: 353px; width: 235px;'>";
      echo  "<h4>Race Status</h4>";
-     echo "<h5><b>Open For Betting:</b></h5>";
-     echo "<h5><b>Last finished Race:</b></h5>";
+     echo "<h5><b>Open For Betting:".raceid_to_racename(race_open())."</b></h5>";
+     echo "<h5><b>Last finished Race:".raceid_to_racename(race_close())."</b></h5>";
     echo  "</div>";
      echo "</div><br>";
 	}

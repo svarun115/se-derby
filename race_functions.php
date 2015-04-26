@@ -84,7 +84,7 @@ function race_open_check($race)
 			//$res= table_update($race);
 			//echo $res."<br>";
 
-			if($diff <= 5 and $diff > 0)
+			if($diff <= 60 and $diff > 0)
 				{
 					$flag= 0;
 					//echo "in if<br>";
@@ -137,7 +137,7 @@ function race_close()
 			return $row['race_id'];
 		}
 	}
-	return "no_race";
+	return "No race";
 
 }
 
@@ -170,7 +170,7 @@ function race_open()
 			return $row['race_id'];
 		}
 	}
-	return "no_race";
+	return "No race";
 
 }
 
@@ -192,10 +192,17 @@ function raceid_to_racename($race_id)
 	 {
 		   die("Connection failed: " . mysqli_connect_error());
 	}
-	$sql = "SELECT * FROM club.racing_history WHERE race_id ='".$race_id."';";
-	$result = mysqli_query($conn1,$sql);
-	$row=mysqli_fetch_assoc($result);
-	return $row['race_name'];
+	if($race_id =="No race")
+	{
+		return "No race";
+	}
+	else
+	{
+		$sql = "SELECT * FROM club.racing_history WHERE race_id ='".$race_id."';";
+		$result = mysqli_query($conn1,$sql);
+		$row=mysqli_fetch_assoc($result);
+		return $row['race_name'];
+	}
 }
 
 /*testing

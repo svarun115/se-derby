@@ -1,4 +1,5 @@
 	<?php
+	/*
     $dbhost = 'localhost';
     $dbuser='admin';
     $dbpass = 'admin';
@@ -45,6 +46,38 @@ $table="0";
 					echo '<option value="'.$row['horse_name'].'">'.$row['horse_name'].'</option>';
 					//echo $row['horse_name'];
 				}
+*/
+
+				//<?php
+          $race=$_POST["race_name"];
+          //echo "<h2>".$race."</h2>";
+          $dbhost = 'localhost';
+          $db2='derby';
+          $db1='club';
+          $dbuser = 'admin';
+          $dbpass = 'admin';
+          $conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
+
+          if (!$conn) {
+              die("Connection failed: " . mysqli_connect_error());
+          }
+          $conn1 = mysqli_connect($dbhost,$dbuser,$dbpass,$db1);
+           if (!$conn1) {
+            die("Connection failed: " . mysqli_connect_error());
+          }
+          $race_table=$_SESSION["race_table"];
+        $sql1 = "SELECT horse_name from $race_table";
+         if(!( $result1=mysqli_query($conn,$sql1)))
+            echo $conn->error;
+        $count = 1;
+          while($row=mysqli_fetch_assoc($result1))
+          {
+           // echo $row["horse_name"];
+          $id= "horse".$count;
+         echo '<option value="'.$row["horse_name"].'" id='.$id.'>'.$row["horse_name"].'</option>';
+          //echo "hello";
+          $count++;
+          }
 ?>
 
 
