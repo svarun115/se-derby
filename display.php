@@ -106,7 +106,7 @@ if(!empty($_SESSION['name']))
           
 <div id="list" style="margin:20px 260px 0px 196px;">
 <?php 
-session_start();
+
 // make a connection
 $connection = mysql_connect("localhost", "admin", "admin","derby");
  

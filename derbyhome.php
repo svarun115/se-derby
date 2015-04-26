@@ -102,24 +102,47 @@ if(!empty($_SESSION['name']))
               <li> <img src="img/img10.jpg" alt="slide 3" />
                <div class="orbit-caption"> Horses at the Derby </div> </li>
                 </ul>
-               
-      </div> 
-      <div class="large-3 columns" > 
-      <div class="panel" style="position:relative; height: 353px; width: 235px;">
-      <h4>Member Info</h4>
-      <h5><b>Name :</b></h5>
-      <h5><b>Last Won Race:</b></h5>
-      <h5><b>Last Bet Info:</b></h5>
-      </div>
-      </div>
+         <?php  
+	
+	
+	if(!empty($_SESSION['name']))
+	{  
+	$dbhost = 'localhost';
+	$dbuser = 'admin';
+	$dbpass = 'admin';
+	$db = 'club';
+	$conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db);
+	$m_id=$_SESSION['mem_id'];
+	$sql="SELECT * from members where member_id='$m_id'";
+	$result=mysqli_query($conn,$sql);
+	if ($result->num_rows > 0) {
+	while($row =  $result->fetch_assoc())
+	{
+   	$amt = $row['Race_update'];
+	}
+   }
+	echo  " </div>"; 
+     echo "<div class='large-3 columns' >"; 
+      echo "<div class='panel' style='position:relative; height: 353px; width: 235px;'>";
+     echo  "<h4>Member Info</h4>";
+     echo "<h5><b>Name :</b>".$_SESSION['name']."</h5>";
+     echo "<h5><b>Last Bet :</b>".$amt."</h5>";
+    echo  "</div>";
+     echo "</div><br>";
+	}
+	else
+	{
+	echo  " </div>"; 
+     echo "<div class='large-3 columns' >"; 
+      echo "<div class='panel' style='position:relative; height: 353px; width: 235px;'>";
+     echo  "<h4>Race Status</h4>";
+     echo "<h5><b>Open For Betting:</b></h5>";
+     echo "<h5><b>Last finished Race:</b></h5>";
+    echo  "</div>";
+     echo "</div><br>";
+	}
+	?>
       
-       <div class="large-3 columns" >
-       <div class="panel callout radius" style="position:relative; height: 353px; width: 235px;">
-       <h4>Race Updates</h4>
-       <h5><b>Add Header of the Update</b></h5>
-       <h5>Add Content of the update</h5>        
-      </div>
-      </div>
       
       
 	  <script src="js/vendor/jquery.js"></script> 
@@ -167,8 +190,8 @@ unset($_SESSION['error']);
  ?>
             
            
-      <div class="row-container" data-equalizer>
-       <h4 align="center"><pre> Upcoming Race Favourites :</pre></h4>
+      <div class="row-container" data-equalizer> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br><br>
+       <br><h4 align="center"><pre> Upcoming Race Favourites :</pre></h4>
         <div class=" large-4 columns" data-equalizer-watch>
            <img src="img/img4.jpg" style="height:240px; width:300px" alt="Image1"/>
            <h5> 
