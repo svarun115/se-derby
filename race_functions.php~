@@ -185,6 +185,7 @@ function last_updated_race()
 	$var = fread($myfile,20);
 	//$name = fgets($myfile);
 	fclose($myfile);
+	echo $var;
 	return $var;
 }
 
