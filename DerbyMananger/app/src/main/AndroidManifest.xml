@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pranav.derbymananger" >
 
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -12,14 +11,11 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
-
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
 
         </activity>
-
         <activity
             android:name=".aboutus"
             android:label="@string/title_activity_aboutus" >
@@ -32,12 +28,18 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".betting"
             android:label="Betting" >
-
+        </activity>
+        <activity
+            android:name=".inplace"
+            android:label="@string/title_activity_inplace" >
+        </activity>
+        <activity
+            android:name=".winners"
+            android:label="@string/title_activity_winners" >
         </activity>
     </application>
 

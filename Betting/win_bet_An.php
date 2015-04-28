@@ -1,0 +1,254 @@
+<!doctype html>
+
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <script src="../js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+  <nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+   <!--<h1><a href="#">My Site</a></h1>
+    </li>-->
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <!--<ul class="right">
+      <li class="active"><a href="#">Right Button Active</a></li>
+      <li class="has-dropdown">
+        <a href="#">Right Button Dropdown</a>
+        <ul class="dropdown">
+          <li><a href="#">First link in dropdown</a></li>
+          <li class="active"><a href="#">Active link in dropdown</a></li>
+        </ul>
+      </li>
+    </ul>!-->
+
+    <!-- Left Nav Section -->
+	 <ul class="left">
+      <li style="font-weight: bold;"><a href="#">TURF CLUB</a></li>
+    </ul>
+    
+    <!--If session, display this -->
+    <?php
+    session_start();
+if(!empty($_SESSION['name']))
+      { 
+    echo "<ul class='right'>";
+    echo " <li class='has-dropdown not-click'>";
+    echo "<a href='#'>".$_SESSION['name']."</a>"; 
+    echo "<ul class='dropdown'>";
+    echo "<li><a href='../signout.php'>Sign out</a></li>";
+    echo "</ul>";
+    echo"    </ul>";
+       }
+        else{
+    echo "<ul class='right'>";
+    echo  "<li><a href='../Forms/Form_Signup.html'>SIGNUP</a></li>";
+    echo "</ul>";
+	echo "<ul class='right'>";
+    echo "<li><a href='../Forms/Form_Login.html'>LOGIN</a></li>";
+    echo "</ul>";}
+    ?>
+  </section>
+</nav>
+<br>
+
+   
+      
+                <script src="../js/vendor/jquery.js"></script> 
+<script src="../js/foundation.min.js"></script> 
+<script>
+      $(document).foundation({
+  orbit: {
+    animation: 'slide',
+    timer_speed: 1000,
+    pause_on_hover: true,
+    animation_speed: 500,
+    navigation_arrows: true,
+    bullets: false
+  }
+});
+</script>
+         
+   
+ <div class="row">
+        <div class="large-12 columns panel">
+<?php
+//Update accounts with respect to bet. Remaining.
+$dbhost = 'localhost';
+$db2='derby';
+$dbuser = 'admin';
+$dbpass = 'admin';
+$conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
+$conn1=mysqli_connect($dbhost,$dbuser,$dbpass,'club');
+$sum = array();
+$sql = "CREATE TABLE IF NOT EXISTS win (member_id int(11) NOT NULL DEFAULT '0',horse_name varchar(25) NOT NULL,amount float(10),PRIMARY KEY (member_id,horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
+if(!mysqli_query($conn,$sql))
+	echo $conn->error;
+$member_id='4'; 
+$horse_name=$_POST["horse_type"]; 
+$amount=$_POST["amount"]; 
+$race = $_SESSION["race"];
+$table_name = $race."_odds_win";
+//This script needs to be called by the android module everytime a user places the bet
+//$sql = "CREATE TABLE IF NOT EXISTS win_odds (horse_name varchar(25) NOT NULL,odd varchar(10),PRIMARY KEY (horse_name),foreign key(horse_name) references horse(horse_name) on update cascade on delete cascade)";
+//mysqli_query($conn,$sql);
+$validate=True;
+
+$sql3="SELECT balance from account where member_id='$member_id'";
+$result=mysqli_query($conn1,$sql3);
+		$row = mysqli_fetch_assoc($result)['balance'];
+		$row=$row-$amount;
+		if($row<0)
+		{
+			echo "<div class='large-4 large-centered columns'>
+  <div class='large-12 columns'>";
+			echo "<h2>Account balance low. Cannot place bet.</h2><br>";
+			echo "<a href='/se-derby/derbyhome.php'>Back to Home</a>";
+			$validate=False;
+			//header('Location:/se-derby/derbyhome.php');
+			echo "</div></div>";
+		}
+if($validate)
+{
+		$sql4="UPDATE account set balance='$row' where member_id='$member_id'";
+		mysqli_query($conn1,$sql4);
+//Caculate new odds
+$sql="INSERT into derby.win(member_id,horse_name,amount) values ('$member_id','$horse_name','$amount')";
+if(!mysqli_query($conn,$sql))
+	{
+		//echo $conn->error;
+		$sql="SELECT amount from derby.win where member_id='$member_id' and horse_name='$horse_name'";
+		$r= mysqli_query($conn1,$sql);
+		$row = mysqli_fetch_assoc($r)['amount'];
+		$row=$row+$amount;
+		$sql="UPDATE derby.win set amount='$row' where member_id='$member_id' and horse_name='$horse_name'";
+		mysqli_query($conn1,$sql);
+	}
+$horse_name=array();
+$sql = "SELECT * FROM derby.win";
+$result = mysqli_query($conn, $sql);
+$count=0;
+if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+	$horse_name[$count]=$row["horse_name"];
+	$count++;
+    }
+} 
+
+foreach ($horse_name as $hname) {
+	# code...
+	$sum[$hname]=0;
+
+}
+foreach($horse_name as $hname)
+{
+	$sql="SELECT amount from derby.win where horse_name='".$hname."'";
+	$result1=mysqli_query($conn,$sql);
+
+	if (mysqli_num_rows($result1) > 0) {
+	    while($row = mysqli_fetch_assoc($result1)) {
+	        $sum[$hname] +=$row["amount"];
+	    }
+	} 
+}
+$sql="SELECT sum(amount) AS pool FROM win";
+$result=mysqli_query($conn,$sql);
+
+$row=mysqli_fetch_assoc($result);
+$pool=$row['pool'];
+function gcd($x, $y)
+{
+          $x = abs($x);
+          $y = abs($y);
+          if($x + $y == 0)
+          {
+              return 0;
+          }
+          else 
+          {
+            while($x > 0)
+                    {
+                      $z = $x;
+                      $x = $y % $x;
+                      $y = $z;
+                    }
+                    return $z;
+          }
+}
+
+$pool=$pool; //Considering 15% taxes
+foreach ($horse_name as $hname) {
+		if($sum[$hname]==0)
+		{
+			$odds[$hname]=0;
+		}
+		else
+		{
+			$odds[$hname]=($pool-$sum[$hname])/$sum[$hname];
+			
+			$whole=floor($odds[$hname]);
+			$frac=$odds[$hname]-$whole;
+			//echo $frac;
+			if($frac!=0)
+			{
+			$mult=10;
+			$x=floor($odds[$hname]*$mult);
+			$gcd=gcd($x,$mult);
+			$n1=$x/$gcd;
+			$n2=$mult/$gcd;
+			$odds[$hname]=$n1."-".$n2;
+			}
+			else if($odds[$hname]<=0)
+			$odds[$hname]="1-1";
+			else
+			$odds[$hname]=$odds[$hname]."- 1";
+		}
+
+}
+
+
+foreach ($horse_name as $hname) {
+	$name=$odds[$hname];
+	$sql="INSERT into derby.$table_name(horse_name,odd) values ('$hname','$name')";
+	if(!mysqli_query($conn,$sql)){
+		$sql="UPDATE $table_name set odd='$name' where horse_name='$hname'";
+	
+	mysqli_query($conn,$sql);
+}
+}
+echo "<div class='large-4 large-centered columns'>
+  <div class='large-12 columns'>";
+echo "<h2>Your bet has been placed successfully</h2><br>";
+echo "<h3>Bet Summary</h3><br>";
+echo "Race:".$_SESSION['race']."<br>";
+echo "Horse Name:".$_POST["horse_type"]."<br>";
+echo "Amount:".$amount."<br>";
+echo "</div></div>";
+}
+mysqli_close($conn);
+
+?>
+</div>
+</div>
+  <footer  style="bottom:10px">
+        <div class="large-12 columns">
+          <hr/>
+          <div >
+            <div class="large-6 columns">
+              <p>© Copyright no one at all. Go to town.</p>
+            </div>
+          </div>
+        </div> 
+      </footer>
+    
+  </body>
+</html>

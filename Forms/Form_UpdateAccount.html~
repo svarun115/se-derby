@@ -96,7 +96,7 @@
       <div>
       <h5 align="center">User Account</h5>
       </div> </p> 
-	  <form action="account.php" method="post">
+	  <form action="../simulation/sample.php" method="post">
 	  <div class="row">
 	<div class="large-4 large-centered columns">
      <label> <b>Email:</b>

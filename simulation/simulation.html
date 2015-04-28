@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simulation</title>
+<style>
+h1{
+	text-align: center;
+	color : white;
+	font-family: arial;
+}
+
+h2{
+	text-align: center;
+	color : #3366cc;
+	font-family: arial;
+}
+
+h3{
+	color : #585858;
+	font-family: arial;
+}
+
+
+#head{
+	background-color: #3366cc;
+}
+
+#card{
+	background-color: #ffffff;
+	padding-top:10px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 10px;
+	position: absolute;
+}
+
+#status{
+	background-color: #ffffff;
+	padding : 10dp;
+	font-style: italic;
+	text-align: center;
+	position: absolute;
+}
+#results{
+	position: absolute;
+	background-color: #f0f0f0;
+	padding-top : 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 10px;
+}	
+
+
+
+</style>
+<script type="text/javascript" src="simulation.js">
+</script>
+</head>
+<body>
+	<div id="head">
+		<h1>SIMULATION</h1>
+	</div>
+	<div id="card">
+		<h2> Actions :</h2>
+		<div id ="steps">
+				<h3>1. Create the Databases    <img id="img1" src="done.png" height="20px" width="20px" /></h3>
+				<h3>2. Fill Sample Data    <img id="img2" src="done.png" height="20px" width="20px" /></h3>
+				<h3>3. Create 4 members    <img id="img3" src="done.png" height="20px" width="20px" /></h3>
+				<h3>4. Create Race    <img id="img4" src="done.png" height="20px" width="20px" /></h3>
+				<h3>5. Simulate Race    <img id="img5" src="done.png" height="20px" width="20px" /></h3>
+		</div>
+		<form action="somepage.php" method="POST" onsubmit="return f()" >
+  			<input type="image" id="next" src="next_button.png" alt="Submit"  height="50px" width="50px"  />
+  			<img src="wait.gif" alt="Please wait" height="100px" width="200px" id="wait"/> 
+		</form>
+
+	</div>
+	<div id="results">
+		<h2> Details :</h2>
+		<h3 id = "details"></h3>
+		<div id ="time">
+			<h3>Enter the time at which the race must start</h3>
+			<input id="val" type = "text" placeholder="16:15"/>
+			<button onclick="create_race()">Set Time</button>
+		</div>
+	<div>
+</body>
+</html>

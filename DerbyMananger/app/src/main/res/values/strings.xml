@@ -20,4 +20,6 @@
     <string name="title_activity_homepage">homepage</string>
     <string name="title_activity_aboutus">aboutus</string>
     <string name="title_activity_login">login</string>
+    <string name="title_activity_inplace">inplace</string>
+    <string name="title_activity_winners">winners</string>
 </resources>

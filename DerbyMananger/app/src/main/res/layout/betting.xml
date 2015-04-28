@@ -16,11 +16,13 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_marginTop="300dp"
-            android:text="This is the betting page"/>
+        <WebView
+            android:id="@+id/webView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true" />
+
+
         <fragment
             android:id="@+id/fragment_navigation_drawer"
             android:name="com.example.pranav.derbymananger.NavigationDrawerFragment"

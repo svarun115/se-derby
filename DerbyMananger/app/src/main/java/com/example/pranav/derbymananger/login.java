@@ -112,7 +112,7 @@ public class login extends Activity {
 
     public void authorize() {
 
-        if (isNetworkAvailable()) {
+
             class myTask extends AsyncTask<Void,Void,Void> {
 
                 boolean flag = false;
@@ -157,10 +157,6 @@ public class login extends Activity {
                 }
             }
             myTask task = (myTask) new myTask().execute();
-        }
-
-
-
 
     }
 

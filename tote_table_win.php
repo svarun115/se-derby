@@ -159,7 +159,9 @@ mysql_close($connection);
 //>>>>>>> 27c94fd9c0aa489ce384a2d2be2b4a5f2a25cfc1
  */
 //session_start();
-$race=$_POST["race_name"];
+//$race=$_POST["race_name"];
+include "race_functions.php";
+$race = raceid_to_racename(race_open());
 $_SESSION["race"]=$race;
 $flag = 0;          
          // echo "<h2>".$race."</h2>";
@@ -216,7 +218,7 @@ $mounts = $row['mounts'];
 $odds=$wins."-".$mounts;
 $sql="INSERT into $table_name(horse_name,odds,odds_fraction) values ('$hname','$odds',0)";
   mysqli_query($conn,$sql);
-   //echo "success";
+  // echo "success";
   //else
     //echo $conn->error;
    }

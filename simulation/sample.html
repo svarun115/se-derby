@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</script>
+</head>
+<body>
+<form action="sample.php" method="POST">
+      <fieldset>
+      <table class="large-12 columns" width="600" border="2" id="table">
+     <tr id="header"> <th>Horse Name</th>
+    <th>Jockey Name</th>
+    <th>Trainer Name</th>
+    <th>Track Number</th>
+    <th> <input type="button" value="Add entry" height="5px" width = "5px" onclick="addRow()" id="addbtn"></th>
+  </tr> 
+
+    <tr id="row1" name="row1">
+      <td>
+        <select id="horse" name="horse">
+          <option value="notype" id="no_type">--Select--</option>
+          </select>
+      </td>
+      
+      <td><select id="jockey" name="jockey">
+          </select></td>
+      <td><select id="trainer" name="trainer">
+          </select></td>
+      <td><select id="track" name="track">
+          <option value="notype" id="no_type">--Select--</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          </select></td>
+      <td><input type="button" value="Delete entry" onclick="deleteRoww(this)" id="delrow"></td>
+        
+    </tr>
+      </table>
+      </fieldset>            
+      <div class="row">
+    <div class="large-2 columns">
+ <button class="radius button expand" type="submit">Submit</button>
+</div>
+</div>
+</form>
+</body>
+</html>

@@ -89,8 +89,7 @@ if(!empty($_SESSION['name']))
                 
           
       <div class="row">
-         <div class="large-6 columns" >    
-
+         <div class="large-8 columns" >    
           <ul data-orbit data-options="pause_on_hover:false;
                              slide_number: false;
                              timer: false;
@@ -102,6 +101,7 @@ if(!empty($_SESSION['name']))
               <li> <img src="img/img10.jpg" alt="slide 3" />
                <div class="orbit-caption"> Horses at the Derby </div> </li>
                 </ul>
+
          <?php  
 	include "race_functions.php";
 	
@@ -123,7 +123,7 @@ if(!empty($_SESSION['name']))
    }
 	echo  " </div>"; 
      echo "<div class='large-3 columns' >"; 
-      echo "<div class='panel' style='position:relative; height: 353px; width: 235px;'>";
+      echo "<div class='panel' style='position:relative; height: 577px; width: 235px;'>";
      echo  "<h4>Member Info</h4>";
      echo "<h5><b>Name :</b>".$_SESSION['name']."</h5>";
      echo "<h5><b>Last Bet :</b>".$amt."</h5>";
@@ -134,15 +134,20 @@ if(!empty($_SESSION['name']))
 	{
 	echo  " </div>"; 
      echo "<div class='large-3 columns' >"; 
-      echo "<div class='panel' style='position:relative; height: 353px; width: 235px;'>";
+      echo "<div class='panel' style='position:relative; height: 577px; width: 235px;'>";
      echo  "<h4>Race Status</h4>";
      echo "<h5><b>Open For Betting:".raceid_to_racename(race_open())."</b></h5>";
      echo "<h5><b>Last finished Race:".last_updated_race()."</b></h5>";
+	if(last_updated_race()!="No race")
+	{
+		echo "<h5><b>Winner:".get_first(last_updated_race())."</b></h5>";
+     		echo "<h5><b>Second place:".get_second(last_updated_race())."</b></h5>";
+	}
     echo  "</div>";
      echo "</div><br>";
 	}
 	?>
-      
+    </div>  
       
       
 	  <script src="js/vendor/jquery.js"></script> 
@@ -188,10 +193,10 @@ unset($_SESSION['error']);
 				mysqli_close($connection);
 
  ?>
-            
            
-      <div class="row-container" data-equalizer> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br><br>
-       <br><h4 align="center"><pre> Upcoming Race Favourites :</pre></h4>
+        <div class="row">   
+      <div class="row-container" data-equalizer>
+       <h4 align="center"><pre> Upcoming Race Favourites :</pre></h4>
         <div class=" large-4 columns" data-equalizer-watch>
            <img src="img/img4.jpg" style="height:240px; width:300px" alt="Image1"/>
            <h5> 
@@ -212,6 +217,7 @@ unset($_SESSION['error']);
      <!--      <p>About Horse3</p>  -->
         </div>     
       </div>
+	  </div>
       
       <div class="row">       
           <div class="large-12 columns">
@@ -226,7 +232,7 @@ unset($_SESSION['error']);
                     to provide facilities such as stabling for over 1000 horses, three training tracks,
                     an equine swimming pool, training schools, walking rings, a veterinary hospital
                     and even an amateur riding school.</p>
-             <button class="small round button" onclick="location.href='About_Us.html';">Learn More</button>
+             <button class="small round button" onclick="location.href='About_Us.php';">Learn More</button>
           </div>      
         </div>
       </div>

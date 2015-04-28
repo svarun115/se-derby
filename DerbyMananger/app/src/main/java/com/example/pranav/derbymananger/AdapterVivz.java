@@ -79,13 +79,21 @@ public class AdapterVivz extends RecyclerView.Adapter<AdapterVivz.MyViewHolder> 
                     context.startActivity(intent2);
                     break;
                 case 2:
-                    Intent intent3 = new Intent(context,aboutus.class);
+                    Intent intent3 = new Intent(context,inplace.class);
                     context.startActivity(intent3);
                     break;
                 case 3:
-                    Intent intent4 = new Intent(context,login.class);
-                    intent4.putExtra("logout",true);
+                    Intent intent6 = new Intent(context,winners.class);
+                    context.startActivity(intent6);
+                    break;
+                case 4:
+                    Intent intent4 = new Intent(context,aboutus.class);
                     context.startActivity(intent4);
+                    break;
+                case 5:
+                    Intent intent5 = new Intent(context,login.class);
+                    intent5.putExtra("logout",true);
+                    context.startActivity(intent5);
                     break;
             }
         }

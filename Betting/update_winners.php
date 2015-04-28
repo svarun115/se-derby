@@ -37,9 +37,11 @@ else
 		$horse=explode(":",$horse);
 		//foreach($horse as $name)
 		//echo $name;
-		$h=array_rand($horse,3);
+		$h=array_rand($horse,4);
 		$first=$horse[$h[1]];
 		$second=$horse[$h[2]];
+		$third=$horse[$h[3]];
+		//$fo=$horse[$h[2]];
 		//echo $first;
 		//echo $second;
 		$sql1="UPDATE racing_history set winner='$first' where race_id = '$race_id'";
@@ -48,9 +50,26 @@ else
 		mysqli_query($conn1,$sql2);
 		include 'win_winners.php';
 		include 'inplace_payoff.php';
-		//$sql="alter table $db1.$race_id rename $db2.$race_id";//uncomment
-		//mysqli_query($conn,$sql);//uncomment
-		//race_last_updated();
+		$sql="alter table $db1.$race_id rename $db2.$race_id";//uncomment
+		mysqli_query($conn,$sql);//uncomment
+		$races=strtolower($race_id);
+		$sql1="UPDATE $races set pos_final=1 where horse_name= '$first'";
+		mysqli_query($conn1,$sql1);
+		$sql2="UPDATE $races set pos_final=2 where horse_name= '$second'";
+		mysqli_query($conn1,$sql2);
+		$sql1="UPDATE horse set win=win+1 where horse_name= '$first'";
+		mysqli_query($conn,$sql1);
+		$sql1="UPDATE horse set second=second+1 where horse_name= '$second'";
+		mysqli_query($conn,$sql1);
+		$sql = "SELECT horse_name from $races" ;	
+		$res=mysqli_query($conn1,$sql);
+		while($row=mysqli_fetch_assoc($res))
+		{
+			$mount=$row['horse_name'];
+			echo $mount;
+			$sql1="UPDATE horse set mount=mount+1 where horse_name= '$mount'";
+			mysqli_query($conn,$sql1);
+		}
 		echo "<script type='text/javascript'>alert('Winners updated!');</script>";
 		header( "refresh:1;url=/se-derby/admin_form.html" );
 		//header('Location:/se-derby/admin_form.html');

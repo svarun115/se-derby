@@ -46,8 +46,8 @@ public class NavigationDrawerFragment extends Fragment {
     }
     public static List<Information> getData() {
         List<Information> data = new ArrayList<>();
-        int [] icons = {R.drawable.ic_race,R.drawable.ic_pay,R.drawable.ic_aboutus,R.drawable.settings};
-        String[] titles = {"Home","Betting","About us","Log Out"};
+        int [] icons = {R.drawable.ic_race,R.drawable.ic_pay,R.drawable.ic_inplace,R.drawable.ic_win,R.drawable.ic_aboutus,R.drawable.settings};
+        String[] titles = {"Home","Win Betting","In Place Betting","Results","About us","Log Out"};
         for(int i =0; i<titles.length&&i<icons.length;i++){
             Information current = new Information();
             current.iconId=icons[i];

@@ -83,12 +83,12 @@ function race_open_check($race)
 			//$res= table_update($race);
 			//echo $res."<br>";
 
-			if($diff <= 60 and $diff > 0)
+			if($diff <= 3 and $diff > 0)
 				{
 					$flag= 0;
 					//echo "in if<br>";
 				}
-			else if($diff < 0 and table_update($race))
+			else if($diff < -1 and table_update($race))
 			{
 				$flag = 1;
 				//echo "in else if <br>";
@@ -136,7 +136,7 @@ function race_close()
 		if(race_open_check($row['race_name'])== 1)
 		{
 			//last_race($row['race_name']);
-			$myfile=fopen("/home/madhura/last_race.txt","w");
+			$myfile=fopen("/home/varun/last_race.txt","w");
 			fwrite($myfile,$row['race_name']);
 			fclose($myfile);
 			return $row['race_id'];
@@ -181,14 +181,74 @@ function race_open()
 
 function last_updated_race()
 {
-	$myfile=fopen("/home/madhura/last_race.txt","r");
+	$myfile=fopen("/home/varun/last_race.txt","r");
 	$var = fread($myfile,20);
 	//$name = fgets($myfile);
 	fclose($myfile);
-	echo $var;
 	return $var;
 }
 
+function racename_to_raceid($racename)
+{
+	$dbhost = 'localhost';
+	$db1='club';
+	$db2='derby';
+	$dbuser = 'admin';
+	$dbpass = 'admin';
+	$conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
+	$conn1 = mysqli_connect($dbhost,$dbuser,$dbpass,$db1);
+	$flag = -1;
+	if (!$conn)
+	 {
+		    die("Connection failed: " . mysqli_connect_error());
+	}
+	if (!$conn1)
+	 {
+		   die("Connection failed: " . mysqli_connect_error());
+	}
+	if($racename =="No race")
+	{
+		return "No race";
+	}
+	else
+	{
+		$sql = "SELECT * FROM club.racing_history WHERE race_name ='".$racename."';";
+		$result = mysqli_query($conn1,$sql);
+		$row=mysqli_fetch_assoc($result);
+		return $row['race_id'];
+	}
+}
+
+function get_first($racename)
+{
+	$race_id=racename_to_raceid($racename);
+	$dbhost = 'localhost';
+	$db1='club';
+	$db2='derby';
+	$dbuser = 'admin';
+	$dbpass = 'admin';
+	$conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
+	$conn1 = mysqli_connect($dbhost,$dbuser,$dbpass,$db1);
+	$sql = "SELECT * FROM club.racing_history WHERE race_id ='".$race_id."';";
+	$result = mysqli_query($conn1,$sql);
+	$row=mysqli_fetch_assoc($result);
+	return $row['winner'];
+}
+function get_second($racename)
+{
+	$race_id=racename_to_raceid($racename);
+	$dbhost = 'localhost';
+	$db1='club';
+	$db2='derby';
+	$dbuser = 'admin';
+	$dbpass = 'admin';
+	$conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db2);
+	$conn1 = mysqli_connect($dbhost,$dbuser,$dbpass,$db1);
+	$sql = "SELECT * FROM club.racing_history WHERE race_id ='".$race_id."';";
+	$result = mysqli_query($conn1,$sql);
+	$row=mysqli_fetch_assoc($result);
+	return $row['second_place'];
+}
 function raceid_to_racename($race_id)
 {
 	$dbhost = 'localhost';
